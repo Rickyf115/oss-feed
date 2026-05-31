@@ -4,6 +4,20 @@ All notable changes to this project are documented here.
 
 ---
 
+## [Unreleased] — 2026-05-31 (Phase 2)
+
+### Added — tag grouping, pre-release labels, setup README
+
+- **`scripts/feed-builder.js`** — added `buildDigestDescription()` (groups new items by primary tag into a Markdown summary), `sortItemsByTag()` (stable sort by first tag, untagged items last), and `<category>` element output per tag in `buildFeed()`. Added `guidIsPermalink` flag to support non-URL GUIDs for digest items.
+- **`scripts/update.js`** — weekly digest summary item (title: "Weekly Digest — {date}") prepended to the feed whenever new releases are found; individual new items sorted by primary tag; `makeItem()` helper centralises item construction and applies `[Beta]` prefix for pre-releases; tags are stored on each state feed item.
+- **`README.md`** — replaced spec document with a proper user-facing README: feed URL, quick-start guide (fork → Pages → optional token → edit watchlist → subscribe), full watchlist field reference, feed output examples, data source comparison table, local run instructions, project structure, security summary, and roadmap table.
+
+### Changed
+
+- `processDirectFeed()` in `update.js` now documents explicitly that `include_prereleases` is ignored for `feed_url` projects (feeds carry no standard pre-release flag) — see exploits.md §11 for context.
+
+---
+
 ## [Unreleased] — 2026-05-31 (patch 2)
 
 ### Added — direct `feed_url` data source

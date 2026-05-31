@@ -4,7 +4,7 @@ import { dirname, resolve } from 'path';
 import yaml from 'js-yaml';
 import { fetchLatestRelease } from './fetcher.js';
 import { fetchDirectFeed } from './direct-feed-fetcher.js';
-import { buildFeed } from './feed-builder.js';
+import { buildFeed, buildDigestDescription, sortItemsByTag } from './feed-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -40,11 +40,31 @@ function loadState() {
 }
 
 /**
+ * Build a normalized feed item object, attaching tags and a [Beta] label
+ * when the release is a pre-release.
+ */
+function makeItem({ name, tagTitle, link, guid, pubDate, description, tags = [], isPrerelease = false }) {
+  const label = isPrerelease ? '[Beta] ' : '';
+  return {
+    title: `${label}${name} ${tagTitle}`,
+    link,
+    guid,
+    pubDate,
+    description,
+    tags,
+  };
+}
+
+/**
  * Process a project that uses a direct RSS/Atom feed URL.
- * State key is the feed URL itself; deduplication uses the entry GUID.
+ *
+ * Note: feed_url sources cannot distinguish pre-releases from stable releases
+ * because RSS/Atom feeds carry no standard pre-release flag. The
+ * include_prereleases field is ignored for feed_url projects; all entries
+ * are treated as stable. See exploits.md §11 for context.
  */
 async function processDirectFeed(project, state, newItems) {
-  const { name, feed_url: feedUrl } = project;
+  const { name, feed_url: feedUrl, tags = [] } = project;
   const stateKey = feedUrl;
 
   let entry;
@@ -64,13 +84,17 @@ async function processDirectFeed(project, state, newItems) {
 
   if (lastSeen !== entry.guid) {
     console.log(`[NEW]  ${name} — ${entry.title}`);
-    newItems.push({
-      title: `${name} — ${entry.title}`,
-      link: entry.link,
-      guid: entry.guid,
-      pubDate: entry.pubDate,
-      description: entry.description,
-    });
+    newItems.push(
+      makeItem({
+        name,
+        tagTitle: `— ${entry.title}`,
+        link: entry.link,
+        guid: entry.guid,
+        pubDate: entry.pubDate,
+        description: entry.description,
+        tags,
+      })
+    );
   } else {
     console.log(`[OK]   ${name} — ${entry.title} (already in feed)`);
   }
@@ -85,7 +109,7 @@ async function processDirectFeed(project, state, newItems) {
  * Process a project that uses a GitHub owner/repo slug via the GitHub Releases API.
  */
 async function processGithubSlug(project, state, newItems, token) {
-  const { name, github: slug, include_prereleases: includePrerelease = false } = project;
+  const { name, github: slug, include_prereleases: includePrerelease = false, tags = [] } = project;
 
   let release;
   try {
@@ -100,7 +124,9 @@ async function processGithubSlug(project, state, newItems, token) {
     return;
   }
 
-  if (!includePrerelease && (release.prerelease || release.draft)) {
+  const isPrerelease = release.prerelease || release.draft;
+
+  if (!includePrerelease && isPrerelease) {
     console.log(`[SKIP] ${slug}: latest (${release.tag_name}) is pre-release or draft`);
     return;
   }
@@ -108,14 +134,19 @@ async function processGithubSlug(project, state, newItems, token) {
   const lastSeen = state.projects[slug]?.last_seen;
 
   if (lastSeen !== release.tag_name) {
-    console.log(`[NEW]  ${slug} — ${release.tag_name}`);
-    newItems.push({
-      title: `${name} ${release.tag_name}`,
-      link: release.html_url,
-      guid: release.html_url,
-      pubDate: new Date(release.published_at).toUTCString(),
-      description: release.body || 'No release notes provided.',
-    });
+    console.log(`[NEW]  ${slug} — ${release.tag_name}${isPrerelease ? ' [Beta]' : ''}`);
+    newItems.push(
+      makeItem({
+        name,
+        tagTitle: release.tag_name,
+        link: release.html_url,
+        guid: release.html_url,
+        pubDate: new Date(release.published_at).toUTCString(),
+        description: release.body || 'No release notes provided.',
+        tags,
+        isPrerelease,
+      })
+    );
   } else {
     console.log(`[OK]   ${slug} — ${release.tag_name} (already in feed)`);
   }
@@ -123,6 +154,27 @@ async function processGithubSlug(project, state, newItems, token) {
   state.projects[slug] = {
     last_seen: release.tag_name,
     checked_at: new Date().toISOString(),
+  };
+}
+
+/**
+ * Build a weekly digest item that summarises all new releases grouped by tag.
+ * Inserted at position 0 so it appears first in the feed.
+ */
+function buildDigestItem(newItems) {
+  const dateStr = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
+  });
+  const isoDate = new Date().toISOString().slice(0, 10);
+
+  return {
+    title: `Weekly Digest — ${dateStr}`,
+    link: FEED_CONFIG.link,
+    guid: `${FEED_CONFIG.link}digest/${isoDate}`,
+    guidIsPermalink: false,
+    pubDate: new Date().toUTCString(),
+    description: buildDigestDescription(newItems),
+    tags: [],
   };
 }
 
@@ -154,8 +206,14 @@ async function main() {
     }
   }
 
-  // Prepend new items to the front and enforce the size cap.
-  state.feed_items = [...newItems, ...state.feed_items].slice(0, MAX_FEED_ITEMS);
+  // Build the output item list:
+  // 1. If there are new releases this run, prepend a weekly digest summary.
+  // 2. Sort new items by primary tag so same-tag entries cluster together.
+  // 3. Prepend sorted new items ahead of existing historical items.
+  // 4. Enforce the size cap.
+  const sortedNew = sortItemsByTag(newItems);
+  const digestItems = newItems.length > 0 ? [buildDigestItem(newItems)] : [];
+  state.feed_items = [...digestItems, ...sortedNew, ...state.feed_items].slice(0, MAX_FEED_ITEMS);
 
   const feedXml = buildFeed({ ...FEED_CONFIG, items: state.feed_items });
   writeFileSync(PATHS.feed, feedXml, 'utf8');

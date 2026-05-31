@@ -118,18 +118,20 @@ Used by projects that specify a `feed_url` field in `watchlist.yml`.
 
 ### `scripts/feed-builder.js`
 
-**Role:** RSS 2.0 document serialiser.  
+**Role:** RSS 2.0 document serialiser, digest builder, and item sorter.  
 **Imports:** Nothing (pure string manipulation).
 
-Exposes three functions:
+Exposes five functions:
 
-| Function      | Purpose                                                              |
-|---------------|----------------------------------------------------------------------|
-| `escapeXml()` | Encode `& < > " '` as XML entities for element text / attributes    |
-| `cdata()`     | Wrap a string in `<![CDATA[…]]>`, escaping embedded `]]>` sequences |
-| `buildFeed()` | Assemble a complete RSS 2.0 document string from channel metadata and items |
+| Function                  | Purpose                                                                          |
+|---------------------------|----------------------------------------------------------------------------------|
+| `escapeXml()`             | Encode `& < > " '` as XML entities for element text / attributes                 |
+| `cdata()`                 | Wrap a string in `<![CDATA[…]]>`, escaping embedded `]]>` sequences              |
+| `buildDigestDescription()`| Build a Markdown digest summary grouping new items by their primary tag          |
+| `sortItemsByTag()`        | Stable-sort an item array by primary tag (alphabetically); untagged items last   |
+| `buildFeed()`             | Assemble a complete RSS 2.0 document; emits `<category>` per tag on each item   |
 
-The feed document includes an `atom:link` self-referential element for RSS reader compatibility.
+The feed document includes an `atom:link` self-referential element for RSS reader compatibility. Items that carry a `tags` array receive one `<category>` element per tag, enabling tag-based filtering in RSS readers.
 
 ---
 
@@ -152,6 +154,12 @@ Execution flow:
 **State key convention:**
 - GitHub slug projects: state key = `owner/repo` slug; `last_seen` = tag name (e.g. `"v4.2.1"`).
 - Feed URL projects: state key = the feed URL itself; `last_seen` = the entry's Atom `<id>` or RSS `<guid>` (guaranteed unique per entry by the feed spec).
+
+**Phase 2 additions:**
+- `makeItem()` — centralised item construction; attaches `tags` array and applies `[Beta]` prefix when `isPrerelease` is true.
+- `sortItemsByTag()` — new items sorted by primary tag before prepending to history.
+- `buildDigestItem()` — when new releases are found, a "Weekly Digest — {date}" item is inserted at position 0 summarising all new releases grouped by tag.
+- `guidIsPermalink: false` on the digest item, since its GUID is a synthetic URL (`/digest/YYYY-MM-DD`) rather than a real page.
 
 ---
 

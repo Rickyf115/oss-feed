@@ -1,200 +1,197 @@
-# OSS News Aggregator — Project Spec
+# OSS Feed
 
-**Version:** 0.3 (Draft)  
-**Last Updated:** 2026-05-30  
-**Status:** Planning
+A self-hosted weekly RSS digest that tracks releases from your curated list of open source projects and publishes them as a static feed you can subscribe to in any RSS reader.
 
------
-
-## Overview
-
-A weekly automated digest that monitors a user-defined list of open source projects and publishes release notes and changelogs as an RSS feed — readable in any RSS reader (Feedly, NetNewsWire, Reeder, etc.).
-
-No paid services. No API keys beyond a free GitHub personal access token.
-
------
-
-## Goals
-
-- Track releases and changelogs for a curated list of OSS projects
-- Publish a weekly RSS feed that updates automatically
-- Keep the watchlist simple to configure (a single YAML file)
-- No paid services, no email provider, no external API keys required
-
------
-
-## Delivery Channel — RSS Feed
-
-A static `feed.xml` file hosted on **GitHub Pages** (free). Updated weekly by a GitHub Actions cron job.
-
-- Subscribe once in any RSS reader using the feed URL
-- Old digests stay permanently browsable
-- No spam filters, no inbox clutter, no deliverability issues
-- Compatible with: Feedly, NetNewsWire, Reeder, Miniflux, and any other RSS reader
-
-**Feed URL pattern:**
-
+**Your feed URL:**
 ```
-https://{your-github-username}.github.io/{repo-name}/feed.xml
+https://rickyf115.github.io/oss-feed/feed.xml
 ```
 
------
+> Subscribe once in Feedly, NetNewsWire, Reeder, Miniflux, or any other RSS reader. The feed updates automatically every Monday at 08:00 UTC.
 
-## Project Watchlist Configuration
+---
 
-Projects are defined in a single YAML file committed to the repo:
+## How it works
+
+```
+watchlist.yml  →  GitHub Actions (weekly cron)  →  feed.xml  →  GitHub Pages  →  your RSS reader
+```
+
+- A cron job fetches the latest release for each watched project via the GitHub Releases API or a direct RSS/Atom feed URL.
+- New releases are written to `feed.xml` (RSS 2.0) and committed back to the repo.
+- GitHub Pages serves `feed.xml` as a public URL at no cost.
+- `state.json` tracks what has already been reported so the feed never re-announces old releases.
+
+---
+
+## Quick start (fork this repo)
+
+### 1. Fork the repository
+
+Click **Fork** on GitHub. The workflow, watchlist, and all scripts come with it.
+
+### 2. Enable GitHub Pages
+
+In your fork: **Settings → Pages → Source → Deploy from a branch → `main` / `/ (root)` → Save.**
+
+Your feed will be live at:
+```
+https://{your-username}.github.io/oss-feed/feed.xml
+```
+
+### 3. (Optional) Add a GitHub token
+
+Without a token the GitHub API allows 60 requests/hour — enough for most watchlists. If yours grows large, add a Personal Access Token:
+
+1. Generate a [fine-grained PAT](https://github.com/settings/tokens) with **Public Repositories (read-only)** access.
+2. Add it to your fork: **Settings → Secrets and variables → Actions → New repository secret**, named `GH_TOKEN`.
+
+### 4. Edit the watchlist
+
+Open `watchlist.yml` and add or remove projects. The workflow runs on the next Monday, or trigger it manually from **Actions → Update OSS Feed → Run workflow**.
+
+### 5. Subscribe to your feed
+
+Paste your feed URL into any RSS reader and subscribe.
+
+---
+
+## Watchlist format (`watchlist.yml`)
 
 ```yaml
-# watchlist.yml
 projects:
-  - name: "Astro"
-    github: "withastro/astro"
-    tags: ["frontend", "framework"]
+  # Track via GitHub Releases API (recommended for GitHub-hosted projects)
+  - name: "Vite"
+    github: "vitejs/vite"
+    tags: ["frontend", "tooling"]
+    notes: "Next-gen frontend build tool"
 
-  - name: "Hono"
-    github: "honojs/hono"
-    tags: ["backend", "api"]
+  # Track via a direct RSS/Atom feed URL (for projects that publish one)
+  - name: "Apache Kafka"
+    feed_url: "https://github.com/apache/kafka/releases.atom"
+    tags: ["backend", "streaming"]
 
-  - name: "Zed Editor"
-    github: "zed-industries/zed"
-    tags: ["tooling", "editor"]
+  # Include pre-releases / betas (GitHub API only)
+  - name: "My Experimental Tool"
+    github: "owner/repo"
+    tags: ["tooling"]
+    include_prereleases: true
 ```
 
-**Fields:**
+### Field reference
 
-|Field                |Required|Description                                   |
-|---------------------|--------|----------------------------------------------|
-|`name`               |Yes     |Human-readable display name                   |
-|`github`             |Yes     |`owner/repo` slug on GitHub                   |
-|`tags`               |No      |User-defined labels for grouping              |
-|`include_prereleases`|No      |Default: `false`                              |
-|`notes`              |No      |Free-text reminder of why you’re watching this|
+| Field                | Required | Description |
+|----------------------|----------|-------------|
+| `name`               | Yes      | Human-readable display name shown in feed titles |
+| `github`             | One of   | `owner/repo` slug — uses the GitHub Releases API |
+| `feed_url`           | One of   | Any HTTPS RSS 2.0 or Atom feed URL |
+| `tags`               | No       | Labels for grouping entries in the weekly digest |
+| `include_prereleases`| No       | Default `false`. Set `true` to include pre-releases and drafts. Adds a `[Beta]` prefix to the feed title. GitHub API projects only — direct feeds cannot distinguish pre-releases. |
+| `notes`              | No       | Free-text reminder of why you're tracking this project |
 
------
+---
 
-## Data Source
+## Feed output
 
-|Source             |What it provides                  |Method                                     |
-|-------------------|----------------------------------|-------------------------------------------|
-|GitHub Releases API|Version tags, release notes, dates|`GET /repos/{owner}/{repo}/releases/latest`|
+Each weekly run produces two types of feed entries:
 
-No authentication required. Optionally, a GitHub personal access token (PAT) can be added as a repository secret to raise the rate limit from 60 → 5,000 requests/hour — useful if your watchlist grows large or you run the workflow manually during testing.
+### Weekly digest (top of feed)
 
------
+A summary item appears at the top whenever new releases are found. Releases are grouped by their primary tag:
 
-## RSS Feed Format
+```
+Weekly Digest — Monday, June 2, 2026
 
-Each weekly feed update contains one entry per project with a new release:
+## frontend
+- Astro v5.8.0
+- Vite v6.1.0
+
+## backend
+- Hono v4.4.2
+- Apache Kafka — 4.2.1
+
+## tooling
+- Biome v2.1.0
+```
+
+### Individual release items
+
+Each new release also gets its own feed item with the full release notes, a `<category>` element per tag (so your RSS reader can filter by tag), and a direct link to the GitHub release page.
 
 ```xml
 <item>
   <title>Astro v5.8.0</title>
   <link>https://github.com/withastro/astro/releases/tag/astro%405.8.0</link>
   <pubDate>Tue, 27 May 2026 00:00:00 GMT</pubDate>
-  <description>
-    Release notes for Astro v5.8.0 appear here, pulled directly
-    from the GitHub release.
-  </description>
+  <category>frontend</category>
+  <category>framework</category>
+  <description><![CDATA[Full release notes here…]]></description>
 </item>
 ```
 
------
+---
 
-## Architecture
+## Data sources
 
-```
-[watchlist.yml]
-      │
-      ▼
-[GitHub Actions — weekly cron, every Monday 8am]
-      │
-      ▼
-[Fetcher script — GitHub Releases API per project]
-      │
-      ▼
-[RSS Builder — generates feed.xml in RSS 2.0 format]
-      │
-      ▼
-[GitHub Pages — hosts feed.xml at a public URL]
-      │
-      ▼
-[Your RSS Reader — pulls the feed on its own schedule]
-```
+| Source | Field | Rate limit | Pre-release detection |
+|--------|-------|------------|-----------------------|
+| GitHub Releases API | `github` | 60 req/hr (5,000 with token) | Yes — `include_prereleases` works |
+| Direct RSS/Atom feed | `feed_url` | None (public feeds) | No — all entries treated as stable |
 
------
+---
 
-## Scheduler
+## Running locally
 
-**GitHub Actions free cron** — runs inside the repo itself, no extra infrastructure.
+```bash
+# Install dependencies
+npm install
 
-```yaml
-# .github/workflows/update-feed.yml
-on:
-  schedule:
-    - cron: '0 8 * * 1'  # Every Monday at 8am UTC
-  workflow_dispatch:       # Also allows manual trigger
+# Run the updater (fetches releases and writes feed.xml + state.json)
+GH_TOKEN=your_token npm run update
 
-env:
-  # Optional: add a PAT as a GitHub repo secret named GH_TOKEN
-  # to raise the API rate limit from 60 to 5,000 requests/hour.
-  # If not set, the workflow runs unauthenticated (fine for most watchlists).
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+# Or without a token (subject to the 60 req/hr rate limit)
+npm run update
 ```
 
-Zero cost. Config lives in the repo alongside the watchlist.
+---
 
------
+## Project structure
 
-## State Tracking
-
-A `state.json` file committed to the repo tracks the last-seen release per project, so the feed only adds new entries and doesn’t re-report old releases.
-
-```json
-{
-  "withastro/astro": { "last_seen": "astro@5.8.0", "checked_at": "2026-05-30T08:00:00Z" },
-  "honojs/hono":     { "last_seen": "v4.4.1",      "checked_at": "2026-05-30T08:00:00Z" }
-}
+```
+oss-feed/
+├── .github/
+│   └── workflows/
+│       └── update-feed.yml        # Weekly cron job
+├── scripts/
+│   ├── fetcher.js                 # GitHub Releases API client
+│   ├── direct-feed-fetcher.js     # Direct RSS/Atom feed client
+│   ├── feed-builder.js            # RSS 2.0 serialiser + digest builder
+│   └── update.js                  # Entry point (npm run update)
+├── feed.xml                       # Generated feed — do not edit by hand
+├── state.json                     # Release state — do not edit by hand
+├── watchlist.yml                  # Your project list — edit this
+└── package.json
 ```
 
------
+---
 
-## Phased Roadmap
+## Security
 
-### Phase 1 — MVP
+Release notes are fetched from external sources (GitHub API, third-party feeds) and embedded in the RSS feed. The following controls are in place:
 
-- [ ] `watchlist.yml` with initial project list
-- [ ] Fetcher script (Node.js) — GitHub Releases API per project
-- [ ] RSS 2.0 feed builder — writes `feed.xml`
-- [ ] GitHub Actions cron workflow
-- [ ] GitHub Pages enabled on the repo
-- [ ] State tracking via `state.json`
+- All external content is XML-escaped or CDATA-wrapped before being written to `feed.xml`.
+- `feed_url` values are restricted to HTTPS; loopback addresses and cloud-metadata IPs are blocked.
+- Response sizes are capped (1 MB for API, 2 MB for feeds) to prevent memory exhaustion.
+- The GitHub token is never logged or included in feed output.
 
-### Phase 2 — Polish
+See [`exploits.md`](exploits.md) for the full security catalogue.
 
-- [ ] Group feed entries by tag
-- [ ] Pre-release / beta toggle per project
-- [ ] README with setup instructions and feed URL
+---
 
-### Phase 3 — Optional Extras
+## Roadmap
 
-- [ ] Webhook support (post to Slack or Discord on new release)
-- [ ] Simple web page rendering the feed as HTML (via GitHub Pages)
-
------
-
-## Open Questions
-
-1. **Watchlist contents:** Which projects do you want to track first?
-1. **GitHub token:** Do you have one, or should setup instructions include creating one?
-1. **Repo name:** `oss-aggregator`? Something else?
-1. **Cron timing:** Monday 8am UTC — does that work, or a different day/time?
-
------
-
-## Next Steps
-
-1. Confirm watchlist (which projects to track)
-1. Create the GitHub repo
-1. Build Phase 1 scripts and workflow
-1. Enable GitHub Pages on the repo
-1. Subscribe to the feed URL in your RSS reader
+| Phase | Status | Items |
+|-------|--------|-------|
+| Phase 1 — MVP | ✅ Complete | Fetcher, RSS builder, GitHub Actions cron, state tracking |
+| Phase 2 — Polish | ✅ Complete | Tag grouping, pre-release labels, this README |
+| Phase 3 — Extras | Planned | Webhooks (Slack/Discord), HTML feed page |
