@@ -5,8 +5,16 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 May 2026 04:17:56 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 04:37:03 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Apache Kafka — 4.2.1</title>
+    <link>https://github.com/apache/kafka/releases/tag/4.2.1</link>
+    <guid isPermaLink="true">tag:github.com,2008:Repository/2211243/4.2.1</guid>
+    <pubDate>Thu, 28 May 2026 12:50:01 GMT</pubDate>
+    <description><![CDATA[&lt;p&gt;Apache Kafka 4.2.1 release&lt;/p&gt;]]></description>
+  </item>
 
   <item>
     <title>Astro astro@6.4.2</title>
