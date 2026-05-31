@@ -45,6 +45,7 @@ The agent must proactively identify and mitigate security vulnerabilities. The f
 ### 3.1 Input Validation
 
 - All `github` slug values from `watchlist.yml` must be validated against the strict `owner/repo` regex before being used in any network request.
+- All `feed_url` values must be validated: HTTPS protocol only; loopback addresses, cloud metadata IPs, and RFC-1918 private ranges are blocked before any connection attempt.
 - No user-supplied value may be interpolated into a hostname, port, or URL path without validation.
 
 ### 3.2 Output Encoding

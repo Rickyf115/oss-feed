@@ -4,6 +4,22 @@ All notable changes to this project are documented here.
 
 ---
 
+## [Unreleased] — 2026-05-31 (patch 2)
+
+### Added — direct `feed_url` data source
+
+- **`scripts/direct-feed-fetcher.js`** — fetches and parses arbitrary HTTPS RSS 2.0 or Atom feeds. Implements `validateFeedUrl()` (HTTPS-only, loopback/metadata/private-range block), 2 MB response cap, 15 s timeout, redirect rejection, and a lightweight Atom + RSS regex parser.
+- **`watchlist.yml`** — replaced failing `apache/kafka` GitHub slug with `feed_url: "https://github.com/apache/kafka/releases.atom"`. Root cause: kafka.apache.org returns HTTP 403 to automated clients; GitHub's Atom feed for the same repo is confirmed working and contains identical release data.
+- **`scripts/update.js`** — routes each project to the right fetcher (`processGithubSlug` vs `processDirectFeed`) based on which field is present in the watchlist entry. State key for feed-URL projects is the URL itself; `last_seen` stores the Atom `<id>` / RSS `<guid>` to detect new entries.
+
+### Updated — documentation (per agent contract)
+
+- **`exploits.md`** — added §10 (SSRF via `feed_url`) and §11 (regex XML parsing of untrusted content) with threats, mitigations, and residual risks. Updated summary table.
+- **`architecture.md`** — added `direct-feed-fetcher.js` component description, updated data-flow diagram to show dual-source routing, updated security boundaries table and file map.
+- **`changelog.md`** — this entry.
+
+---
+
 ## [Unreleased] — 2026-05-31
 
 ### Added — Phase 1 MVP

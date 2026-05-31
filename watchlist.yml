@@ -39,6 +39,9 @@ projects:
     notes: "Fast formatter and linter written in Rust"
 
   - name: "Apache Kafka"
-    github: "apache/kafka"
+    feed_url: "https://github.com/apache/kafka/releases.atom"
     tags: ["backend", "streaming"]
-    notes: "Test project — distributed event streaming platform"
+    notes: >
+      kafka.apache.org returns HTTP 403 to automated requests.
+      Using GitHub's native Atom feed for Apache Kafka releases instead —
+      same release data, confirmed working.

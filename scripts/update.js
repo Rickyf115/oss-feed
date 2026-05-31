@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import yaml from 'js-yaml';
 import { fetchLatestRelease } from './fetcher.js';
+import { fetchDirectFeed } from './direct-feed-fetcher.js';
 import { buildFeed } from './feed-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -38,10 +39,97 @@ function loadState() {
   }
 }
 
+/**
+ * Process a project that uses a direct RSS/Atom feed URL.
+ * State key is the feed URL itself; deduplication uses the entry GUID.
+ */
+async function processDirectFeed(project, state, newItems) {
+  const { name, feed_url: feedUrl } = project;
+  const stateKey = feedUrl;
+
+  let entry;
+  try {
+    entry = await fetchDirectFeed(feedUrl);
+  } catch (err) {
+    console.error(`[ERROR] ${feedUrl}: ${err.message}`);
+    return;
+  }
+
+  if (!entry) {
+    console.log(`[SKIP] ${feedUrl}: no entries found`);
+    return;
+  }
+
+  const lastSeen = state.projects[stateKey]?.last_seen;
+
+  if (lastSeen !== entry.guid) {
+    console.log(`[NEW]  ${name} — ${entry.title}`);
+    newItems.push({
+      title: `${name} — ${entry.title}`,
+      link: entry.link,
+      guid: entry.guid,
+      pubDate: entry.pubDate,
+      description: entry.description,
+    });
+  } else {
+    console.log(`[OK]   ${name} — ${entry.title} (already in feed)`);
+  }
+
+  state.projects[stateKey] = {
+    last_seen: entry.guid,
+    checked_at: new Date().toISOString(),
+  };
+}
+
+/**
+ * Process a project that uses a GitHub owner/repo slug via the GitHub Releases API.
+ */
+async function processGithubSlug(project, state, newItems, token) {
+  const { name, github: slug, include_prereleases: includePrerelease = false } = project;
+
+  let release;
+  try {
+    release = await fetchLatestRelease(slug, token);
+  } catch (err) {
+    console.error(`[ERROR] ${slug}: ${err.message}`);
+    return;
+  }
+
+  if (!release) {
+    console.log(`[SKIP] ${slug}: no releases found`);
+    return;
+  }
+
+  if (!includePrerelease && (release.prerelease || release.draft)) {
+    console.log(`[SKIP] ${slug}: latest (${release.tag_name}) is pre-release or draft`);
+    return;
+  }
+
+  const lastSeen = state.projects[slug]?.last_seen;
+
+  if (lastSeen !== release.tag_name) {
+    console.log(`[NEW]  ${slug} — ${release.tag_name}`);
+    newItems.push({
+      title: `${name} ${release.tag_name}`,
+      link: release.html_url,
+      guid: release.html_url,
+      pubDate: new Date(release.published_at).toUTCString(),
+      description: release.body || 'No release notes provided.',
+    });
+  } else {
+    console.log(`[OK]   ${slug} — ${release.tag_name} (already in feed)`);
+  }
+
+  state.projects[slug] = {
+    last_seen: release.tag_name,
+    checked_at: new Date().toISOString(),
+  };
+}
+
 async function main() {
   const token = process.env.GH_TOKEN ?? '';
   if (!token) {
-    console.log('[INFO] GH_TOKEN not set — using unauthenticated API (60 req/hr limit)');
+    console.log('[INFO] GH_TOKEN not set — using unauthenticated GitHub API (60 req/hr limit)');
   }
 
   const watchlist = yaml.load(readFileSync(PATHS.watchlist, 'utf8'));
@@ -55,50 +143,15 @@ async function main() {
   const newItems = [];
 
   for (const project of projects) {
-    const { name, github: slug, include_prereleases: includePrerelease = false } = project;
+    const { name, github: slug, feed_url: feedUrl } = project;
 
-    if (!slug) {
-      console.warn(`[WARN] Project "${name}" is missing a 'github' field — skipping`);
-      continue;
-    }
-
-    let release;
-    try {
-      release = await fetchLatestRelease(slug, token);
-    } catch (err) {
-      console.error(`[ERROR] ${slug}: ${err.message}`);
-      continue;
-    }
-
-    if (!release) {
-      console.log(`[SKIP] ${slug}: no releases found`);
-      continue;
-    }
-
-    if (!includePrerelease && (release.prerelease || release.draft)) {
-      console.log(`[SKIP] ${slug}: latest (${release.tag_name}) is pre-release or draft`);
-      continue;
-    }
-
-    const lastSeen = state.projects[slug]?.last_seen;
-
-    if (lastSeen !== release.tag_name) {
-      console.log(`[NEW]  ${slug} — ${release.tag_name}`);
-      newItems.push({
-        title: `${name} ${release.tag_name}`,
-        link: release.html_url,
-        guid: release.html_url,
-        pubDate: new Date(release.published_at).toUTCString(),
-        description: release.body || 'No release notes provided.',
-      });
+    if (feedUrl) {
+      await processDirectFeed(project, state, newItems);
+    } else if (slug) {
+      await processGithubSlug(project, state, newItems, token);
     } else {
-      console.log(`[OK]   ${slug} — ${release.tag_name} (already in feed)`);
+      console.warn(`[WARN] "${name}" has neither 'github' nor 'feed_url' — skipping`);
     }
-
-    state.projects[slug] = {
-      last_seen: release.tag_name,
-      checked_at: new Date().toISOString(),
-    };
   }
 
   // Prepend new items to the front and enforce the size cap.
