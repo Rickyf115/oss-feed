@@ -188,10 +188,48 @@ See [`exploits.md`](exploits.md) for the full security catalogue.
 
 ---
 
+## Webhook notifications (Slack / Discord)
+
+After each run that finds new releases, the updater posts a grouped summary to any configured webhooks.
+
+**Setup:** Add one or both of the following as repository secrets:
+
+| Secret name | Platform | Where to get the URL |
+|---|---|---|
+| `SLACK_WEBHOOK_URL` | Slack | [Create an Incoming Webhook](https://api.slack.com/messaging/webhooks) in your workspace |
+| `DISCORD_WEBHOOK_URL` | Discord | Channel settings → Integrations → Webhooks → New Webhook |
+
+The notification groups releases by tag — the same layout as the weekly digest item in the feed:
+
+```
+📦 Weekly OSS Digest — 3 new releases
+
+frontend
+• Astro v5.8.0
+• Vite v6.1.0
+
+backend
+• Hono v4.4.2
+```
+
+Notifications are best-effort: a webhook failure never aborts the feed update or causes the workflow to fail.
+
+---
+
+## HTML feed page
+
+An `index.html` is generated on every run alongside `feed.xml`. It renders the same releases as a browsable web page, grouped by tag, with direct links to each GitHub release.
+
+**Page URL:** `https://rickyf115.github.io/oss-feed/`
+
+The page is self-contained (no external fonts, no JavaScript, no CDN dependencies) and respects the user's `prefers-color-scheme` setting for dark/light mode.
+
+---
+
 ## Roadmap
 
 | Phase | Status | Items |
 |-------|--------|-------|
 | Phase 1 — MVP | ✅ Complete | Fetcher, RSS builder, GitHub Actions cron, state tracking |
 | Phase 2 — Polish | ✅ Complete | Tag grouping, pre-release labels, this README |
-| Phase 3 — Extras | Planned | Webhooks (Slack/Discord), HTML feed page |
+| Phase 3 — Extras | ✅ Complete | Slack/Discord webhooks, HTML feed page |

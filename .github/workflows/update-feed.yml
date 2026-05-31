@@ -28,16 +28,21 @@ jobs:
 
       - name: Run feed updater
         env:
-          # Optional: add a GitHub PAT as a repo secret named GH_TOKEN to raise
-          # the API rate limit from 60 to 5,000 requests/hour.
+          # Optional: GitHub PAT to raise API rate limit from 60 to 5,000 req/hr.
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          # Optional: Slack Incoming Webhook URL for release notifications.
+          # Add as a repo secret named SLACK_WEBHOOK_URL.
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          # Optional: Discord Webhook URL for release notifications.
+          # Add as a repo secret named DISCORD_WEBHOOK_URL.
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: npm run update
 
       - name: Commit and push updated files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add feed.xml state.json
+          git add feed.xml state.json index.html
           # Only commit when there are actual changes to avoid empty commits.
           git diff --staged --quiet \
             || git commit -m "chore: update feed $(date -u +%Y-%m-%dT%H:%M:%SZ)"

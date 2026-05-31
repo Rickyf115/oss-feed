@@ -5,6 +5,8 @@ import yaml from 'js-yaml';
 import { fetchLatestRelease } from './fetcher.js';
 import { fetchDirectFeed } from './direct-feed-fetcher.js';
 import { buildFeed, buildDigestDescription, sortItemsByTag } from './feed-builder.js';
+import { sendNotifications } from './notifier.js';
+import { buildHtml } from './html-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -13,6 +15,7 @@ const PATHS = {
   watchlist: resolve(ROOT, 'watchlist.yml'),
   state: resolve(ROOT, 'state.json'),
   feed: resolve(ROOT, 'feed.xml'),
+  html: resolve(ROOT, 'index.html'),
 };
 
 const FEED_CONFIG = {
@@ -219,9 +222,19 @@ async function main() {
   writeFileSync(PATHS.feed, feedXml, 'utf8');
   writeFileSync(PATHS.state, JSON.stringify(state, null, 2) + '\n', 'utf8');
 
+  // Regenerate the HTML page on every run so it always reflects current state.
+  const lastBuildDate = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
+  });
+  const html = buildHtml(state.feed_items, FEED_CONFIG.feedUrl, lastBuildDate);
+  writeFileSync(PATHS.html, html, 'utf8');
+
   console.log(
     `\nDone. ${newItems.length} new release(s). Feed total: ${state.feed_items.length} item(s).`
   );
+
+  // Send webhook notifications last — failures here must not abort the feed update.
+  await sendNotifications(newItems, FEED_CONFIG.feedUrl);
 }
 
 main().catch((err) => {

@@ -163,6 +163,51 @@ Execution flow:
 
 ---
 
+### `scripts/notifier.js`
+
+**Role:** Webhook notification dispatcher for Slack and Discord.  
+**Imports:** Node.js built-ins `https` and `url` only.
+
+Exposes a single function:
+
+```
+sendNotifications(newItems: object[], feedUrl: string) → Promise<void>
+```
+
+Reads `SLACK_WEBHOOK_URL` and `DISCORD_WEBHOOK_URL` from the environment. If neither is set, logs an INFO message and returns immediately. For each configured webhook:
+
+1. Validates the URL: HTTPS-only, hostname must be `hooks.slack.com`, `discord.com`, or `discordapp.com`.
+2. Builds a platform-specific payload (`buildSlackPayload` / `buildDiscordPayload`) that groups new releases by primary tag. Release body text is never included — only title and URL to avoid formatting injection.
+3. POSTs the JSON payload with a 10-second timeout.
+4. Logs a warning on failure but never throws — notification errors must not abort the feed update.
+
+The webhook URL is never included in any log or error message.
+
+---
+
+### `scripts/html-builder.js`
+
+**Role:** Static HTML page generator.  
+**Imports:** Nothing (pure string manipulation).
+
+Exposes a single function:
+
+```
+buildHtml(feedItems: object[], feedUrl: string, lastBuildDate: string) → string
+```
+
+Produces a self-contained `index.html` with:
+- Inline CSS only — no external fonts, no JavaScript, no CDN calls.
+- `prefers-color-scheme` dark/light theme via CSS variables.
+- Feed items grouped by primary tag, sorted alphabetically.
+- Weekly Digest summary items filtered out (display only individual release cards).
+- `[Beta]` items highlighted with a distinct left-border accent.
+- `<link rel="alternate" type="application/rss+xml">` in `<head>` for browser RSS discovery.
+
+All user-supplied values are processed through `escapeHtml()`. URL fields pass through `safeHref()` which blocks `javascript:` and `data:` schemes.
+
+---
+
 ### `.github/workflows/update-feed.yml`
 
 **Role:** Automation scheduler and CI runner.
@@ -175,8 +220,8 @@ Steps:
 1. `actions/checkout@v4` — clone the repo.
 2. `actions/setup-node@v4` — install Node.js 20.
 3. `npm ci` — reproducible install from `package-lock.json`.
-4. `npm run update` — run the updater (token injected via `secrets.GH_TOKEN`).
-5. `git add feed.xml state.json && git diff --staged --quiet || git commit … && git push` — commit and push only if files changed.
+4. `npm run update` — run the updater; injects `GH_TOKEN`, `SLACK_WEBHOOK_URL`, and `DISCORD_WEBHOOK_URL` from repo secrets. All three are optional.
+5. `git add feed.xml state.json index.html && git diff --staged --quiet || git commit … && git push` — commit and push only if files changed.
 
 Permissions: `contents: write` only (no other GitHub permissions granted).
 
@@ -253,8 +298,10 @@ oss-feed/
 │       └── update-feed.yml        # CI/CD scheduler
 ├── scripts/
 │   ├── fetcher.js                 # GitHub Releases API client
-│   ├── direct-feed-fetcher.js     # RSS/Atom direct feed client + parser
-│   ├── feed-builder.js            # RSS 2.0 serialiser
+│   ├── direct-feed-fetcher.js     # Direct RSS/Atom feed client + parser
+│   ├── feed-builder.js            # RSS 2.0 serialiser, digest builder, tag sorter
+│   ├── html-builder.js            # Static HTML page generator
+│   ├── notifier.js                # Slack + Discord webhook dispatcher
 │   └── update.js                  # Orchestration entry point
 ├── .nojekyll                      # Disable Jekyll on GitHub Pages
 ├── agent-contract.md              # Agent development contract
@@ -262,9 +309,10 @@ oss-feed/
 ├── changelog.md                   # Change log
 ├── exploits.md                    # Security vulnerability catalogue
 ├── feed.xml                       # Generated RSS feed (auto-updated)
+├── index.html                     # Generated HTML page (auto-updated)
 ├── package.json                   # Node.js project manifest
 ├── package-lock.json              # Locked dependency tree
-├── README.md                      # Project spec and roadmap
+├── README.md                      # Setup guide and reference
 ├── state.json                     # Persistent state (auto-updated)
 └── watchlist.yml                  # User watchlist configuration
 ```

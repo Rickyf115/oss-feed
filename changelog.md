@@ -4,6 +4,25 @@ All notable changes to this project are documented here.
 
 ---
 
+## [Unreleased] — 2026-05-31 (Phase 3)
+
+### Added — webhooks and HTML page
+
+- **`scripts/notifier.js`** — sends a grouped Slack and/or Discord notification after each run that finds new releases. Reads `SLACK_WEBHOOK_URL` / `DISCORD_WEBHOOK_URL` from environment; validates HTTPS + allowlisted hostname before any request; escapes platform-specific formatting characters; never logs webhook URLs; failures are warnings, not errors.
+- **`scripts/html-builder.js`** — generates `index.html`: a self-contained static page with inline CSS, `prefers-color-scheme` dark/light theme, releases grouped by tag with `[Beta]` accents, and an RSS `<link>` in `<head>` for browser discovery. All user content HTML-escaped; links validated via `safeHref()`.
+- **`scripts/update.js`** — imports and calls `sendNotifications()` and `buildHtml()` at the end of each run; `PATHS.html` added; HTML regenerated on every run.
+- **`.github/workflows/update-feed.yml`** — `SLACK_WEBHOOK_URL` and `DISCORD_WEBHOOK_URL` injected from repo secrets; `index.html` added to the `git add` step.
+- **`index.html`** — initial generated HTML page committed to repo.
+- **`README.md`** — added Webhook notifications section (setup instructions, payload preview) and HTML feed page section.
+
+### Updated — documentation (per agent contract)
+
+- **`exploits.md`** — added §12 (XSS via HTML page), §13 (webhook URL leakage), §14 (SSRF via webhook URLs), §15 (notification content injection). Updated summary table.
+- **`architecture.md`** — added `notifier.js` and `html-builder.js` component descriptions; updated workflow step list and file map.
+- **`changelog.md`** — this entry.
+
+---
+
 ## [Unreleased] — 2026-05-31 (Phase 2)
 
 ### Added — tag grouping, pre-release labels, setup README

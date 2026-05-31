@@ -121,7 +121,9 @@ Documentation updates must be included in the same PR as the code changes they d
 
 ---
 
-## 9. Acceptance Criteria for Phase 1
+## 9. Acceptance Criteria
+
+### Phase 1
 
 A Phase 1 implementation is considered complete when:
 
@@ -134,3 +136,21 @@ A Phase 1 implementation is considered complete when:
 - [ ] `architecture.md` accurately describes all components.
 - [ ] `changelog.md` records all changes made in the session.
 - [ ] A pull request is open against `main` for owner review.
+
+### Phase 2
+
+- [ ] Feed items carry `<category>` elements matching watchlist tags.
+- [ ] A "Weekly Digest" summary item is prepended whenever new releases are found.
+- [ ] New items are sorted by primary tag within each run.
+- [ ] Pre-releases include a `[Beta]` prefix in the feed title.
+- [ ] `README.md` contains a complete user-facing setup guide.
+
+### Phase 3
+
+- [ ] `npm run update` generates a valid `index.html` alongside `feed.xml`.
+- [ ] `index.html` is self-contained (no external JS, fonts, or CDN).
+- [ ] `index.html` groups releases by tag with `[Beta]` accented cards.
+- [ ] Webhook notifications fire when `SLACK_WEBHOOK_URL` or `DISCORD_WEBHOOK_URL` are set.
+- [ ] Webhook failures log a warning and do not abort the feed update.
+- [ ] `exploits.md` covers XSS (HTML page), webhook URL leakage, SSRF via webhooks, and notification content injection.
+- [ ] All Phase 3 docs updated in the same PR as the code.
