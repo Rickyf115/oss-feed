@@ -1,0 +1,44 @@
+# OSS Feed watchlist — add any GitHub project you want to track.
+#
+# Fields:
+#   name                (required) Human-readable display name
+#   github              (required) "owner/repo" slug on GitHub
+#   tags                (optional) Labels for grouping
+#   include_prereleases (optional, default false) Include pre-release / draft releases
+#   notes               (optional) Free-text reminder of why you're watching this
+
+projects:
+  - name: "Astro"
+    github: "withastro/astro"
+    tags: ["frontend", "framework"]
+    notes: "Popular full-stack web framework"
+
+  - name: "Hono"
+    github: "honojs/hono"
+    tags: ["backend", "api"]
+    notes: "Lightweight, ultrafast web framework"
+
+  - name: "Zed Editor"
+    github: "zed-industries/zed"
+    tags: ["tooling", "editor"]
+    notes: "High-performance collaborative code editor"
+
+  - name: "Bun"
+    github: "oven-sh/bun"
+    tags: ["runtime", "tooling"]
+    notes: "Fast JavaScript runtime and toolkit"
+
+  - name: "Vite"
+    github: "vitejs/vite"
+    tags: ["frontend", "tooling"]
+    notes: "Next generation frontend build tool"
+
+  - name: "Biome"
+    github: "biomejs/biome"
+    tags: ["tooling", "linter"]
+    notes: "Fast formatter and linter written in Rust"
+
+  - name: "Apache Kafka"
+    github: "apache/kafka"
+    tags: ["backend", "streaming"]
+    notes: "Test project — distributed event streaming platform"

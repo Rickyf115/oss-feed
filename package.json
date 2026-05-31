@@ -1,0 +1,16 @@
+{
+  "name": "oss-feed",
+  "version": "1.0.0",
+  "description": "Weekly OSS release digest RSS feed",
+  "type": "module",
+  "scripts": {
+    "update": "node scripts/update.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
