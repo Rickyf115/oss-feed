@@ -5,8 +5,27 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 May 2026 04:37:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 13:40:19 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — Monday, June 1, 2026</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-06-01</guid>
+    <pubDate>Mon, 01 Jun 2026 13:40:19 GMT</pubDate>
+    <description><![CDATA[## frontend
+- [Vite v8.0.16](https://github.com/vitejs/vite/releases/tag/v8.0.16)]]></description>
+  </item>
+
+  <item>
+    <title>Vite v8.0.16</title>
+    <link>https://github.com/vitejs/vite/releases/tag/v8.0.16</link>
+    <guid isPermaLink="true">https://github.com/vitejs/vite/releases/tag/v8.0.16</guid>
+    <pubDate>Mon, 01 Jun 2026 09:50:08 GMT</pubDate>
+    <category>frontend</category>
+    <category>tooling</category>
+    <description><![CDATA[Please refer to [CHANGELOG.md](https://github.com/vitejs/vite/blob/v8.0.16/packages/vite/CHANGELOG.md) for details.]]></description>
+  </item>
 
   <item>
     <title>Apache Kafka — 4.2.1</title>

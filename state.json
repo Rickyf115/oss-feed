@@ -2,34 +2,54 @@
   "projects": {
     "withastro/astro": {
       "last_seen": "astro@6.4.2",
-      "checked_at": "2026-05-31T04:37:01.861Z"
+      "checked_at": "2026-06-01T13:40:18.121Z"
     },
     "honojs/hono": {
       "last_seen": "v4.12.23",
-      "checked_at": "2026-05-31T04:37:01.989Z"
+      "checked_at": "2026-06-01T13:40:18.272Z"
     },
     "zed-industries/zed": {
       "last_seen": "v1.4.4",
-      "checked_at": "2026-05-31T04:37:02.177Z"
+      "checked_at": "2026-06-01T13:40:18.479Z"
     },
     "oven-sh/bun": {
       "last_seen": "bun-v1.3.14",
-      "checked_at": "2026-05-31T04:37:02.377Z"
+      "checked_at": "2026-06-01T13:40:18.695Z"
     },
     "vitejs/vite": {
-      "last_seen": "v8.0.14",
-      "checked_at": "2026-05-31T04:37:02.507Z"
+      "last_seen": "v8.0.16",
+      "checked_at": "2026-06-01T13:40:18.841Z"
     },
     "biomejs/biome": {
       "last_seen": "@biomejs/biome@2.4.16",
-      "checked_at": "2026-05-31T04:37:02.635Z"
+      "checked_at": "2026-06-01T13:40:18.989Z"
     },
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.2.1",
-      "checked_at": "2026-05-31T04:37:03.079Z"
+      "checked_at": "2026-06-01T13:40:19.508Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — Monday, June 1, 2026",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-01",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 01 Jun 2026 13:40:19 GMT",
+      "description": "## frontend\n- [Vite v8.0.16](https://github.com/vitejs/vite/releases/tag/v8.0.16)",
+      "tags": []
+    },
+    {
+      "title": "Vite v8.0.16",
+      "link": "https://github.com/vitejs/vite/releases/tag/v8.0.16",
+      "guid": "https://github.com/vitejs/vite/releases/tag/v8.0.16",
+      "pubDate": "Mon, 01 Jun 2026 09:50:08 GMT",
+      "description": "Please refer to [CHANGELOG.md](https://github.com/vitejs/vite/blob/v8.0.16/packages/vite/CHANGELOG.md) for details.",
+      "tags": [
+        "frontend",
+        "tooling"
+      ]
+    },
     {
       "title": "Apache Kafka — 4.2.1",
       "link": "https://github.com/apache/kafka/releases/tag/4.2.1",
