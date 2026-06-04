@@ -44,12 +44,20 @@ function validateFeedUrl(rawUrl) {
 }
 
 /**
- * Extract inner text from the first matching XML tag, stripping CDATA wrappers.
+ * Extract inner text from the first matching XML tag, stripping CDATA wrappers
+ * and decoding XML character entities so callers receive decoded text/HTML.
  */
 function extractText(xml, tag) {
   const m = xml.match(new RegExp(`<${tag}(?:[^>]*)>([\\s\\S]*?)<\\/${tag}>`, 'i'));
   if (!m) return null;
-  return m[1].replace(/<!\[CDATA\[([\s\S]*?)]]>/g, '$1').trim();
+  return m[1]
+    .replace(/<!\[CDATA\[([\s\S]*?)]]>/g, '$1')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/&amp;/g, '&') // must be last — avoids double-decoding &amp;lt; → <
+    .trim();
 }
 
 /**
