@@ -4,6 +4,39 @@ All notable changes to this project are documented here.
 
 ---
 
+## [Unreleased] — 2026-06-04 (watchlist update)
+
+### Changed — watchlist refocused on Kafka / Kubernetes / observability stack
+
+Replaced the initial sample watchlist with a curated production-focused list.
+
+**Removed:** Astro, Hono, Zed Editor, Bun, Vite, Biome (sample projects)
+
+**Kept:** Apache Kafka (feed_url — kafka.apache.org blocks automated access)
+
+**Added (13 projects total):**
+
+| Project | Slug | Tags |
+|---|---|---|
+| Kafka Minion | `redpanda-data/kminion` | streaming, observability |
+| Kubernetes | `kubernetes/kubernetes` | kubernetes, core |
+| Helm | `helm/helm` | kubernetes, packaging |
+| ArgoCD | `argoproj/argo-cd` | kubernetes, gitops |
+| cert-manager | `cert-manager/cert-manager` | kubernetes, security |
+| external-dns | `kubernetes-sigs/external-dns` | kubernetes, networking |
+| Prometheus | `prometheus/prometheus` | observability, metrics |
+| Prometheus Operator | `prometheus-operator/prometheus-operator` | observability, kubernetes |
+| kube-state-metrics | `kubernetes/kube-state-metrics` | observability, kubernetes |
+| Thanos | `thanos-io/thanos` | observability, metrics |
+| Grafana Mimir | `grafana/mimir` | observability, metrics |
+| Grafana | `grafana/grafana` | observability, dashboards |
+
+**Considered but excluded:**
+- HAProxy / VPA — removed per user request
+- Twistlock — closed-source commercial product (Palo Alto Prisma Cloud); no public GitHub releases to track
+
+---
+
 ## [Unreleased] — 2026-05-31 (Phase 3)
 
 ### Added — webhooks and HTML page
