@@ -165,13 +165,10 @@ async function processGithubSlug(project, state, newItems, token) {
  * Inserted at position 0 so it appears first in the feed.
  */
 function buildDigestItem(newItems) {
-  const dateStr = new Date().toLocaleDateString('en-US', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC',
-  });
   const isoDate = new Date().toISOString().slice(0, 10);
 
   return {
-    title: `Weekly Digest — ${dateStr}`,
+    title: `Weekly Digest — ${isoDate}`,
     link: FEED_CONFIG.link,
     guid: `${FEED_CONFIG.link}digest/${isoDate}`,
     guidIsPermalink: false,
