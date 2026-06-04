@@ -118,18 +118,21 @@ Used by projects that specify a `feed_url` field in `watchlist.yml`.
 
 ### `scripts/feed-builder.js`
 
-**Role:** RSS 2.0 document serialiser, digest builder, and item sorter.  
+**Role:** RSS 2.0 document serialiser, Markdown-to-HTML converter, digest builder, and item sorter.  
 **Imports:** Nothing (pure string manipulation).
 
-Exposes five functions:
+Exposes six functions:
 
 | Function                  | Purpose                                                                          |
 |---------------------------|----------------------------------------------------------------------------------|
 | `escapeXml()`             | Encode `& < > " '` as XML entities for element text / attributes                 |
 | `cdata()`                 | Wrap a string in `<![CDATA[…]]>`, escaping embedded `]]>` sequences              |
-| `buildDigestDescription()`| Build a Markdown digest summary grouping new items by their primary tag          |
+| `markdownToHtml()`        | Convert GitHub-flavoured Markdown to safe HTML for RSS `<description>` fields   |
+| `buildDigestDescription()`| Build an HTML digest grouping new items by primary tag (`<h3>` + `<ul>`)        |
 | `sortItemsByTag()`        | Stable-sort an item array by primary tag (alphabetically); untagged items last   |
 | `buildFeed()`             | Assemble a complete RSS 2.0 document; emits `<category>` per tag on each item   |
+
+`markdownToHtml()` handles the patterns most common in GitHub release notes: fenced code blocks, headings (h1–h3), blockquotes, bullet and ordered lists, horizontal rules, bold, italic, strikethrough, inline code, `[text](url)` links, and bare URL auto-linking. It uses a placeholder tokeniser to avoid double-escaping: processed HTML tokens are stashed before plain-text HTML-escaping, then restored at the end. Non-http(s) link schemes are replaced with `#` to block `javascript:` injection.
 
 The feed document includes an `atom:link` self-referential element for RSS reader compatibility. Items that carry a `tags` array receive one `<category>` element per tag, enabling tag-based filtering in RSS readers.
 
