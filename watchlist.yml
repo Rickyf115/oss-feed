@@ -1,47 +1,80 @@
-# OSS Feed watchlist — add any GitHub project you want to track.
+# OSS Feed watchlist — edit this file to add or remove tracked projects.
 #
 # Fields:
 #   name                (required) Human-readable display name
-#   github              (required) "owner/repo" slug on GitHub
-#   tags                (optional) Labels for grouping
-#   include_prereleases (optional, default false) Include pre-release / draft releases
-#   notes               (optional) Free-text reminder of why you're watching this
+#   github              (one of)   "owner/repo" slug — uses GitHub Releases API
+#   feed_url            (one of)   Any HTTPS RSS 2.0 or Atom feed URL
+#   tags                (optional) Labels for grouping in the weekly digest
+#   include_prereleases (optional, default false) Include pre-releases (github only)
+#   notes               (optional) Free-text reminder of why you're tracking this
 
 projects:
-  - name: "Astro"
-    github: "withastro/astro"
-    tags: ["frontend", "framework"]
-    notes: "Popular full-stack web framework"
 
-  - name: "Hono"
-    github: "honojs/hono"
-    tags: ["backend", "api"]
-    notes: "Lightweight, ultrafast web framework"
-
-  - name: "Zed Editor"
-    github: "zed-industries/zed"
-    tags: ["tooling", "editor"]
-    notes: "High-performance collaborative code editor"
-
-  - name: "Bun"
-    github: "oven-sh/bun"
-    tags: ["runtime", "tooling"]
-    notes: "Fast JavaScript runtime and toolkit"
-
-  - name: "Vite"
-    github: "vitejs/vite"
-    tags: ["frontend", "tooling"]
-    notes: "Next generation frontend build tool"
-
-  - name: "Biome"
-    github: "biomejs/biome"
-    tags: ["tooling", "linter"]
-    notes: "Fast formatter and linter written in Rust"
+  # ── Streaming ───────────────────────────────────────────────────────────────
 
   - name: "Apache Kafka"
     feed_url: "https://github.com/apache/kafka/releases.atom"
-    tags: ["backend", "streaming"]
+    tags: ["streaming", "backend"]
     notes: >
       kafka.apache.org returns HTTP 403 to automated requests.
-      Using GitHub's native Atom feed for Apache Kafka releases instead —
-      same release data, confirmed working.
+      Using GitHub's native Atom feed instead — same release data.
+
+  - name: "Kafka Minion"
+    github: "redpanda-data/kminion"
+    tags: ["streaming", "observability"]
+    notes: "Prometheus exporter for Apache Kafka"
+
+  # ── Kubernetes core ──────────────────────────────────────────────────────────
+
+  - name: "Kubernetes"
+    github: "kubernetes/kubernetes"
+    tags: ["kubernetes", "core"]
+
+  - name: "Helm"
+    github: "helm/helm"
+    tags: ["kubernetes", "packaging"]
+
+  - name: "ArgoCD"
+    github: "argoproj/argo-cd"
+    tags: ["kubernetes", "gitops"]
+
+  # ── Kubernetes operators & controllers ───────────────────────────────────────
+
+  - name: "cert-manager"
+    github: "cert-manager/cert-manager"
+    tags: ["kubernetes", "security"]
+    notes: "TLS certificate management for Kubernetes"
+
+  - name: "external-dns"
+    github: "kubernetes-sigs/external-dns"
+    tags: ["kubernetes", "networking"]
+    notes: "Synchronises Kubernetes Services and Ingresses with DNS providers"
+
+  # ── Observability ────────────────────────────────────────────────────────────
+
+  - name: "Prometheus"
+    github: "prometheus/prometheus"
+    tags: ["observability", "metrics"]
+
+  - name: "Prometheus Operator"
+    github: "prometheus-operator/prometheus-operator"
+    tags: ["observability", "kubernetes"]
+
+  - name: "kube-state-metrics"
+    github: "kubernetes/kube-state-metrics"
+    tags: ["observability", "kubernetes"]
+    notes: "Exposes Kubernetes object state as Prometheus metrics"
+
+  - name: "Thanos"
+    github: "thanos-io/thanos"
+    tags: ["observability", "metrics"]
+    notes: "Highly available Prometheus with long-term storage"
+
+  - name: "Grafana Mimir"
+    github: "grafana/mimir"
+    tags: ["observability", "metrics"]
+    notes: "Horizontally scalable long-term Prometheus storage"
+
+  - name: "Grafana"
+    github: "grafana/grafana"
+    tags: ["observability", "dashboards"]
