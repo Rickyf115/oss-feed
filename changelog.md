@@ -18,6 +18,8 @@ RSS readers displayed release notes as raw Markdown characters (`##`, `- `, `**`
 
 - **`scripts/update.js`** — GitHub release bodies are now converted via `markdownToHtml(release.body)` before being stored as feed item descriptions. Items with no release notes get `<p>No release notes provided.</p>`.
 
+- **`scripts/html-builder.js`** — Added `stripHtml()` to remove HTML tags and decode entities before `truncate()` generates the card excerpt. Without this, HTML descriptions (e.g. `<p>...</p>`) would be HTML-escaped by `escapeHtml()` and render as literal `&lt;p&gt;` text in the card.
+
 ### Updated — documentation (per agent contract)
 
 - **`exploits.md`** — Added §16 (`javascript:` scheme injection via Markdown links); updated summary table.

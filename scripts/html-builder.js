@@ -37,6 +37,19 @@ function formatDate(pubDate) {
   }
 }
 
+/** Strip HTML tags and decode basic entities to produce plain text. */
+function stripHtml(html) {
+  return String(html ?? '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /** Truncate a string to maxLen characters, appending "…" if cut. */
 function truncate(str, maxLen = 200) {
   const s = String(str ?? '').replace(/\s+/g, ' ').trim();
@@ -53,7 +66,7 @@ function renderItem(item) {
   const tags = (item.tags ?? []).map((t) => renderTagBadge(t)).join('');
   const betaBadge = isBeta ? renderTagBadge('beta', true) : '';
   const date = formatDate(item.pubDate);
-  const excerpt = truncate(item.description, 220);
+  const excerpt = truncate(stripHtml(item.description), 220);
 
   return `
       <article class="card${isBeta ? ' card-beta' : ''}">
