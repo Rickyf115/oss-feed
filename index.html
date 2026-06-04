@@ -186,7 +186,7 @@
     <div class="container">
       <div>
         <h1>OSS Feed</h1>
-        <p class="subtitle">Weekly release digest &mdash; 1 release tracked &bull; Updated Thursday, June 4, 2026</p>
+        <p class="subtitle">Weekly release digest &mdash; 13 releases tracked &bull; Updated Thursday, June 4, 2026</p>
       </div>
       <a class="subscribe-btn" href="https://rickyf115.github.io/oss-feed/feed.xml">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
@@ -198,8 +198,116 @@
   <main class="container">
 
     <section>
+      <h2 class="section-heading">kubernetes</h2>
+      <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes/kubernetes/releases/tag/v1.36.1" target="_blank" rel="noopener noreferrer">Kubernetes v1.36.1</a>
+          <time class="card-date" datetime="Tue, 12 May 2026 16:39:25 GMT">May 12, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">core</span></div>
+        <p class="card-desc">See kubernetes-announce@ . Additional binary downloads are linked in the CHANGELOG . See the CHANGELOG for more details.</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/helm/helm/releases/tag/v4.2.0" target="_blank" rel="noopener noreferrer">Helm v4.2.0</a>
+          <time class="card-date" datetime="Thu, 14 May 2026 01:13:00 GMT">May 14, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">packaging</span></div>
+        <p class="card-desc">Helm v4.2.0 is a feature release. Users are encouraged to upgrade for the best experience. The community keeps growing, and we&#x27;d love to see you there! Join the discussion in Kubernetes Slack : - for questions and just t…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/argoproj/argo-cd/releases/tag/v3.4.3" target="_blank" rel="noopener noreferrer">ArgoCD v3.4.3</a>
+          <time class="card-date" datetime="Thu, 28 May 2026 12:24:00 GMT">May 28, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">gitops</span></div>
+        <p class="card-desc">Quick Start Non-HA: kubectl create namespace argocd kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.3/manifests/install.yaml HA: kubectl create namespace…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/cert-manager/cert-manager/releases/tag/v1.20.2" target="_blank" rel="noopener noreferrer">cert-manager v1.20.2</a>
+          <time class="card-date" datetime="Sat, 11 Apr 2026 15:12:30 GMT">Apr 11, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">security</span></div>
+        <p class="card-desc">cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters. v1.20.2 fixes invalid YAML generated in the Helm chart when both webhook.config and webhook.volumes are defined, …</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.21.0" target="_blank" rel="noopener noreferrer">external-dns v0.21.0</a>
+          <time class="card-date" datetime="Mon, 06 Apr 2026 12:19:06 GMT">Apr 6, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">networking</span></div>
+        <p class="card-desc">:warning: Breaking Changes chore(digitalocean)!: remove in-tree provider by @simonoff in #6283 chore(source)!: remove cloudfoundry support by @ivankatliarchuk in #6074 feat!: generalize PTR record support from rfc2136 to…</p>
+      </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-heading">observability</h2>
+      <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/prometheus/prometheus/releases/tag/v3.12.0" target="_blank" rel="noopener noreferrer">Prometheus v3.12.0</a>
+          <time class="card-date" datetime="Thu, 28 May 2026 17:40:13 GMT">May 28, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This release contains security fixes, new features (especially around PromQL and Service Discovery), performance improvements in TSDB, Start Timestamp improvements and numerous bug fixes. Thanks to all contributors! Key …</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.91.0" target="_blank" rel="noopener noreferrer">Prometheus Operator v0.91.0</a>
+          <time class="card-date" datetime="Tue, 05 May 2026 09:15:16 GMT">May 5, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">kubernetes</span></div>
+        <p class="card-desc">[CHANGE] Enforce mutual exclusion of basicAuth , authorization and oauth2 in ScrapeConfig CRD. #8480 [CHANGE] Add minimum length validations to string fields in ScrapeConfig CRD. #8479 [CHANGE] Add validations for Victor…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.19.0" target="_blank" rel="noopener noreferrer">kube-state-metrics v2.19.0</a>
+          <time class="card-date" datetime="Thu, 21 May 2026 07:33:44 GMT">May 21, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">kubernetes</span></div>
+        <p class="card-desc">v2.19.0 / 2026-05-05 Notes #### The v2.19.0 tag was force-moved from it&#x27;s original commit ( https://github.com/kubernetes/kube-state-metrics/commit/b18fbda7881baa84f6cf51dff2a727191b58d049 to the one succeeding it ( http…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/thanos-io/thanos/releases/tag/v0.41.0" target="_blank" rel="noopener noreferrer">Thanos v0.41.0</a>
+          <time class="card-date" datetime="Thu, 12 Feb 2026 10:32:11 GMT">Feb 12, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This is a good one, among several bug fixes, we have batched Series and Query RPCs now - this should lead to drastic improvements in network bandwidth and decent improvements in CPU/Memory usage of Querier and all its en…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/grafana/mimir/releases/tag/mimir-3.1.0" target="_blank" rel="noopener noreferrer">Grafana Mimir mimir-3.1.0</a>
+          <time class="card-date" datetime="Tue, 02 Jun 2026 17:40:49 GMT">Jun 2, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This release contains 1440 PRs from 97 authors, including new contributors Alex Weaver, Ali Asghar, Anas, Andy Hay, Bernd Hois, Charbel Mitri, Chris, CR, Dominik Eisenberg, Elsa Adjei, Federico Torres, francoposa, Gerard…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/grafana/grafana/releases/tag/v13.0.1%2Bsecurity-01" target="_blank" rel="noopener noreferrer">Grafana v13.0.1+security-01</a>
+          <time class="card-date" datetime="Tue, 12 May 2026 13:08:35 GMT">May 12, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">dashboards</span></div>
+        <p class="card-desc">Download page What&#x27;s new highlights Security : CVE-2026-28374 Security : CVE-2026-28376 Security : CVE-2026-28383 Security : CVE-2026-28380 Security : CVE-2026-33376 Security : CVE-2026-28379 Security : CVE-2026-33377 Se…</p>
+      </article>
+      </div>
+    </section>
+
+    <section>
       <h2 class="section-heading">streaming</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.1" target="_blank" rel="noopener noreferrer">Kafka Minion v2.3.1</a>
+          <time class="card-date" datetime="Tue, 28 Apr 2026 10:52:29 GMT">Apr 28, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">observability</span></div>
+        <p class="card-desc">Changelog 87bd78558d1af0eb35e96e42c3eed9d2ef47b940: chore(ci): upgrade GHA actions to Node.js 24-compatible versions (@sbocinec) 06c23ebd877734debe28c8c2b5304faf3365bfa9: Merge pull request #330 from redpanda-data/st/ci-…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/apache/kafka/releases/tag/4.2.1" target="_blank" rel="noopener noreferrer">Apache Kafka — 4.2.1</a>
