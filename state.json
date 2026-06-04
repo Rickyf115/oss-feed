@@ -26,55 +26,55 @@
     },
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.2.1",
-      "checked_at": "2026-06-04T03:36:03.938Z"
+      "checked_at": "2026-06-04T03:57:17.339Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.1",
-      "checked_at": "2026-06-04T03:36:04.273Z"
+      "checked_at": "2026-06-04T03:57:17.509Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.1",
-      "checked_at": "2026-06-04T03:36:04.430Z"
+      "checked_at": "2026-06-04T03:57:17.607Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.0",
-      "checked_at": "2026-06-04T03:36:04.653Z"
+      "checked_at": "2026-06-04T03:57:17.730Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.4.3",
-      "checked_at": "2026-06-04T03:36:04.807Z"
+      "checked_at": "2026-06-04T03:57:17.841Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.20.2",
-      "checked_at": "2026-06-04T03:36:04.951Z"
+      "checked_at": "2026-06-04T03:57:17.930Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-04T03:36:05.089Z"
+      "checked_at": "2026-06-04T03:57:18.014Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-04T03:36:05.225Z"
+      "checked_at": "2026-06-04T03:57:18.109Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.91.0",
-      "checked_at": "2026-06-04T03:36:05.389Z"
+      "checked_at": "2026-06-04T03:57:18.211Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.0",
-      "checked_at": "2026-06-04T03:36:05.536Z"
+      "checked_at": "2026-06-04T03:57:18.333Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-04T03:36:05.686Z"
+      "checked_at": "2026-06-04T03:57:18.430Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.1.0",
-      "checked_at": "2026-06-04T03:36:05.847Z"
+      "checked_at": "2026-06-04T03:57:18.533Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.0.1+security-01",
-      "checked_at": "2026-06-04T03:36:05.995Z"
+      "checked_at": "2026-06-04T03:57:18.628Z"
     }
   },
   "feed_items": [
