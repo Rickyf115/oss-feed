@@ -4,6 +4,30 @@ All notable changes to this project are documented here.
 
 ---
 
+## [Unreleased] — 2026-06-04 (feed description fix)
+
+### Fixed — raw Markdown appearing as literal text in RSS readers
+
+RSS readers displayed release notes as raw Markdown characters (`##`, `- `, `**`, backticks) instead of formatted text, because `<description>` CDATA sections contained unprocessed Markdown strings.
+
+**Root cause:** `release.body` from the GitHub API and the output of `buildDigestDescription()` were both raw Markdown strings. Feed readers treat CDATA content as HTML, not Markdown, so they rendered the syntax characters literally.
+
+**Changes:**
+
+- **`scripts/feed-builder.js`** — Added `markdownToHtml(md)`: a dependency-free Markdown-to-HTML converter using a placeholder tokeniser. Handles fenced code blocks, headings (h1–h3), blockquotes, bullet/ordered lists, horizontal rules, bold, italic, strikethrough, inline code, `[text](url)` Markdown links, and bare URL auto-linking. Non-http(s) link hrefs are replaced with `#` to block `javascript:` injection (see exploits.md §16). `buildDigestDescription()` updated to emit HTML (`<h3>`, `<ul>`, `<li>`, `<a>`) instead of Markdown.
+
+- **`scripts/update.js`** — GitHub release bodies are now converted via `markdownToHtml(release.body)` before being stored as feed item descriptions. Items with no release notes get `<p>No release notes provided.</p>`.
+
+- **`scripts/html-builder.js`** — Added `stripHtml()` to remove HTML tags and decode entities before `truncate()` generates the card excerpt. Without this, HTML descriptions (e.g. `<p>...</p>`) would be HTML-escaped by `escapeHtml()` and render as literal `&lt;p&gt;` text in the card.
+
+### Updated — documentation (per agent contract)
+
+- **`exploits.md`** — Added §16 (`javascript:` scheme injection via Markdown links); updated summary table.
+- **`architecture.md`** — Updated `feed-builder.js` component description to document `markdownToHtml()` and the placeholder tokeniser approach.
+- **`changelog.md`** — This entry.
+
+---
+
 ## [Unreleased] — 2026-06-04 (watchlist update)
 
 ### Changed — watchlist refocused on Kafka / Kubernetes / observability stack

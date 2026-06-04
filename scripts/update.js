@@ -4,7 +4,7 @@ import { dirname, resolve } from 'path';
 import yaml from 'js-yaml';
 import { fetchLatestRelease } from './fetcher.js';
 import { fetchDirectFeed } from './direct-feed-fetcher.js';
-import { buildFeed, buildDigestDescription, sortItemsByTag } from './feed-builder.js';
+import { buildFeed, buildDigestDescription, sortItemsByTag, markdownToHtml } from './feed-builder.js';
 import { sendNotifications } from './notifier.js';
 import { buildHtml } from './html-builder.js';
 
@@ -145,7 +145,7 @@ async function processGithubSlug(project, state, newItems, token) {
         link: release.html_url,
         guid: release.html_url,
         pubDate: new Date(release.published_at).toUTCString(),
-        description: release.body || 'No release notes provided.',
+        description: markdownToHtml(release.body) || '<p>No release notes provided.</p>',
         tags,
         isPrerelease,
       })
