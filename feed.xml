@@ -5,8 +5,37 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2026 04:25:09 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 12:36:37 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-06-08</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-06-08</guid>
+    <pubDate>Mon, 08 Jun 2026 12:36:37 GMT</pubDate>
+    <description><![CDATA[<h3>streaming</h3>
+<ul>
+  <li><a href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.2">Kafka Minion v2.3.2</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kafka Minion v2.3.2</title>
+    <link>https://github.com/redpanda-data/kminion/releases/tag/v2.3.2</link>
+    <guid isPermaLink="true">https://github.com/redpanda-data/kminion/releases/tag/v2.3.2</guid>
+    <pubDate>Fri, 05 Jun 2026 12:55:20 GMT</pubDate>
+    <category>streaming</category>
+    <category>observability</category>
+    <description><![CDATA[<h2>Changelog</h2>
+<ul>
+<li>b62638bec2d23c8cdb659013f54eeb077257db4c: Bump Go toolchain to 1.26.3 to address Snyk findings (@twmb)</li>
+<li>9f005ebf91d7b86bdb2f3e7850647c78927fea41: security: bump golang.org/x/net to v0.55.0 (CVE-2026-39821) (@frenchfrywpepper)</li>
+<li>5ad819839c850916ff045c0cde25b6c476eddafa: Merge pull request #341 from redpanda-data/sarah/snyk-xnet-idna-cve-2026-39821 (@frenchfrywpepper)</li>
+</ul>
+<h2>Docker Image</h2>
+<p>Use the following command to pull this release's Docker image:</p>
+<pre><code>docker pull redpandadata/kminion:v2.3.2</code></pre>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-06-04</title>

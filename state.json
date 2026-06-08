@@ -2,58 +2,78 @@
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.2.1",
-      "checked_at": "2026-06-04T04:25:07.556Z"
+      "checked_at": "2026-06-08T12:36:36.424Z"
     },
     "redpanda-data/kminion": {
-      "last_seen": "v2.3.1",
-      "checked_at": "2026-06-04T04:25:07.790Z"
+      "last_seen": "v2.3.2",
+      "checked_at": "2026-06-08T12:36:36.545Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.1",
-      "checked_at": "2026-06-04T04:25:07.910Z"
+      "checked_at": "2026-06-08T12:36:36.633Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.0",
-      "checked_at": "2026-06-04T04:25:08.070Z"
+      "checked_at": "2026-06-08T12:36:36.747Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.4.3",
-      "checked_at": "2026-06-04T04:25:08.210Z"
+      "checked_at": "2026-06-08T12:36:36.853Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.20.2",
-      "checked_at": "2026-06-04T04:25:08.328Z"
+      "checked_at": "2026-06-08T12:36:36.946Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-04T04:25:08.443Z"
+      "checked_at": "2026-06-08T12:36:37.030Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-04T04:25:08.564Z"
+      "checked_at": "2026-06-08T12:36:37.124Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.91.0",
-      "checked_at": "2026-06-04T04:25:08.718Z"
+      "checked_at": "2026-06-08T12:36:37.220Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.0",
-      "checked_at": "2026-06-04T04:25:08.852Z"
+      "checked_at": "2026-06-08T12:36:37.325Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-04T04:25:08.967Z"
+      "checked_at": "2026-06-08T12:36:37.431Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.1.0",
-      "checked_at": "2026-06-04T04:25:09.135Z"
+      "checked_at": "2026-06-08T12:36:37.526Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.0.1+security-01",
-      "checked_at": "2026-06-04T04:25:09.262Z"
+      "checked_at": "2026-06-08T12:36:37.637Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-06-08",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-08",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 08 Jun 2026 12:36:37 GMT",
+      "description": "<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://github.com/redpanda-data/kminion/releases/tag/v2.3.2\">Kafka Minion v2.3.2</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Kafka Minion v2.3.2",
+      "link": "https://github.com/redpanda-data/kminion/releases/tag/v2.3.2",
+      "guid": "https://github.com/redpanda-data/kminion/releases/tag/v2.3.2",
+      "pubDate": "Fri, 05 Jun 2026 12:55:20 GMT",
+      "description": "<h2>Changelog</h2>\n<ul>\n<li>b62638bec2d23c8cdb659013f54eeb077257db4c: Bump Go toolchain to 1.26.3 to address Snyk findings (@twmb)</li>\n<li>9f005ebf91d7b86bdb2f3e7850647c78927fea41: security: bump golang.org/x/net to v0.55.0 (CVE-2026-39821) (@frenchfrywpepper)</li>\n<li>5ad819839c850916ff045c0cde25b6c476eddafa: Merge pull request #341 from redpanda-data/sarah/snyk-xnet-idna-cve-2026-39821 (@frenchfrywpepper)</li>\n</ul>\n<h2>Docker Image</h2>\n<p>Use the following command to pull this release's Docker image:</p>\n<pre><code>docker pull redpandadata/kminion:v2.3.2</code></pre>",
+      "tags": [
+        "streaming",
+        "observability"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-06-04",
       "link": "https://rickyf115.github.io/oss-feed/",
