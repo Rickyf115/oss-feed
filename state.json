@@ -1,59 +1,134 @@
 {
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
-      "last_seen": "tag:github.com,2008:Repository/2211243/4.2.1",
-      "checked_at": "2026-06-08T12:36:36.424Z"
+      "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1-rc0",
+      "checked_at": "2026-06-15T14:26:18.558Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.2",
-      "checked_at": "2026-06-08T12:36:36.545Z"
+      "checked_at": "2026-06-15T14:26:18.664Z"
     },
     "kubernetes/kubernetes": {
-      "last_seen": "v1.36.1",
-      "checked_at": "2026-06-08T12:36:36.633Z"
+      "last_seen": "v1.36.2",
+      "checked_at": "2026-06-15T14:26:18.747Z"
     },
     "helm/helm": {
-      "last_seen": "v4.2.0",
-      "checked_at": "2026-06-08T12:36:36.747Z"
+      "last_seen": "v4.2.1",
+      "checked_at": "2026-06-15T14:26:18.840Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.4.3",
-      "checked_at": "2026-06-08T12:36:36.853Z"
+      "checked_at": "2026-06-15T14:26:18.936Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.20.2",
-      "checked_at": "2026-06-08T12:36:36.946Z"
+      "checked_at": "2026-06-15T14:26:19.017Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-08T12:36:37.030Z"
+      "checked_at": "2026-06-15T14:26:19.091Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-08T12:36:37.124Z"
+      "checked_at": "2026-06-15T14:26:19.190Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.91.0",
-      "checked_at": "2026-06-08T12:36:37.220Z"
+      "checked_at": "2026-06-15T14:26:19.271Z"
     },
     "kubernetes/kube-state-metrics": {
-      "last_seen": "v2.19.0",
-      "checked_at": "2026-06-08T12:36:37.325Z"
+      "last_seen": "v2.19.1",
+      "checked_at": "2026-06-15T14:26:19.365Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-08T12:36:37.431Z"
+      "checked_at": "2026-06-15T14:26:19.449Z"
     },
     "grafana/mimir": {
-      "last_seen": "mimir-3.1.0",
-      "checked_at": "2026-06-08T12:36:37.526Z"
+      "last_seen": "mimir-3.1.1",
+      "checked_at": "2026-06-15T14:26:19.548Z"
     },
     "grafana/grafana": {
-      "last_seen": "v13.0.1+security-01",
-      "checked_at": "2026-06-08T12:36:37.637Z"
+      "last_seen": "v13.0.2",
+      "checked_at": "2026-06-15T14:26:19.630Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-06-15",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-15",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 15 Jun 2026 14:26:19 GMT",
+      "description": "<h3>kubernetes</h3>\n<ul>\n  <li><a href=\"https://github.com/kubernetes/kubernetes/releases/tag/v1.36.2\">Kubernetes v1.36.2</a></li>\n  <li><a href=\"https://github.com/helm/helm/releases/tag/v4.2.1\">Helm v4.2.1</a></li>\n</ul>\n\n<h3>observability</h3>\n<ul>\n  <li><a href=\"https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.19.1\">kube-state-metrics v2.19.1</a></li>\n  <li><a href=\"https://github.com/grafana/mimir/releases/tag/mimir-3.1.1\">Grafana Mimir mimir-3.1.1</a></li>\n  <li><a href=\"https://github.com/grafana/grafana/releases/tag/v13.0.2\">Grafana v13.0.2</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://github.com/apache/kafka/releases/tag/4.3.1-rc0\">Apache Kafka — 4.3.1-rc0</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Kubernetes v1.36.2",
+      "link": "https://github.com/kubernetes/kubernetes/releases/tag/v1.36.2",
+      "guid": "https://github.com/kubernetes/kubernetes/releases/tag/v1.36.2",
+      "pubDate": "Fri, 12 Jun 2026 11:34:56 GMT",
+      "description": "<p>See <a href=\"https://groups.google.com/forum/#!forum/kubernetes-announce\">kubernetes-announce@</a>. Additional binary downloads are linked in the <a href=\"https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md\">CHANGELOG</a>.</p>\n<p>See the <a href=\"https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md\">CHANGELOG</a> for more details.</p>",
+      "tags": [
+        "kubernetes",
+        "core"
+      ]
+    },
+    {
+      "title": "Helm v4.2.1",
+      "link": "https://github.com/helm/helm/releases/tag/v4.2.1",
+      "guid": "https://github.com/helm/helm/releases/tag/v4.2.1",
+      "pubDate": "Fri, 12 Jun 2026 15:06:26 GMT",
+      "description": "<p>Helm v4.2.1 is a patch release. Users are encouraged to upgrade for the best experience.</p>\n<p>The community keeps growing, and we'd love to see you there!</p>\n<ul>\n<li>Join the discussion in <a href=\"https://kubernetes.slack.com\">Kubernetes Slack</a>:</li>\n</ul>\n<p>  -  for questions and just to hang out</p>\n<p>  -  for discussing PRs, code, and bugs</p>\n<ul>\n<li>Hang out at the Public Developer Call: Thursday, 9:30 Pacific via <a href=\"https://zoom.us/j/696660622\">Zoom</a></li>\n<li>Test, debug, and contribute charts: <a href=\"https://artifacthub.io/packages/search?kind=0\">ArtifactHub/packages</a></li>\n</ul>\n<h2>Notable Changes</h2>\n<ul>\n<li>Fixed data race detected by -race flag when concurrent goroutines (upgrade + rollback, install + uninstall) both call GetWaiterWithOptions on the same FailingKubeClient instance #31925</li>\n<li>Fixed helm command success messages writing to stderr instead of stdout. Now correctly outputing to stdout #32056</li>\n<li>Fixed Helm 4 emitting \"unable to find exact version\" when using version range constraints #31757</li>\n<li>Fixed a race condition in WaitForDelete where the status observer canceled the watch too early, causing intermittent failures when running a full test suite #32081</li>\n<li>Bumped golang.org/x/net to v0.55.0 to address GO-2026-5026 #32153</li>\n<li>Fixed SDK errors by upgrading dependencies: cli-utils 1.2.1, controller-runtime 0.24.1 and k8s 1.36.1 #32128</li>\n<li>Dependency updates</li>\n</ul>\n<h2>Installation and Upgrading</h2>\n<p>Download Helm v4.2.1. The common platform binaries are here:</p>\n<ul>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-darwin-amd64.tar.gz\">MacOS amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-darwin-amd64.tar.gz.sha256sum\">checksum</a> / 2a21c9f368d608bcf6eb794ebc06514eb6b529a846b60fe4a43dea7bcce65228)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-darwin-arm64.tar.gz\">MacOS arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-darwin-arm64.tar.gz.sha256sum\">checksum</a> / 896472d2ec0740c60f64a9df0fc30d478beee38a1a2a6ed91aa6e6ee177c1575)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-amd64.tar.gz\">Linux amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-amd64.tar.gz.sha256sum\">checksum</a> / 479dca836e5b45e8bd222400c5591b0e3a647378f03ff96597180db97c17fdae)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-arm.tar.gz\">Linux arm</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-arm.tar.gz.sha256sum\">checksum</a> / 49e8f7856de6eab170dc09671cfb0578cc455d820df5b0f54e6453058dc0e3f3)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-arm64.tar.gz\">Linux arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-arm64.tar.gz.sha256sum\">checksum</a> / 596b9a73d366c1e72ce67d595c22805480e30914593aafbc9f547694e72814db)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-386.tar.gz\">Linux i386</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-386.tar.gz.sha256sum\">checksum</a> / e038eab680f22b1cebe68fd0536cf2397b0c10798dcb23c28e500e0804ec1a55)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-loong64.tar.gz\">Linux loong64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-loong64.tar.gz.sha256sum\">checksum</a> / 8ae26f15638d951c4ed21d0d3018b8800a137646e5e5151a3856cf324c2852ae)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-ppc64le.tar.gz\">Linux ppc64le</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-ppc64le.tar.gz.sha256sum\">checksum</a> / 6f34eca5e314e941577a07be6c8b356f66b9cdefbed1175da1e7916368febcfc)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-s390x.tar.gz\">Linux s390x</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-s390x.tar.gz.sha256sum\">checksum</a> / e6355691887d4185b7e077f058483c04f353229feb7d4a72edc3ebe0b8738a6a)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-linux-riscv64.tar.gz\">Linux riscv64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-linux-riscv64.tar.gz.sha256sum\">checksum</a> / 16a4299f14ff1ffa79bb22115051911c662fa2ecdd90e85b65d7d143e8de9d02)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-windows-amd64.zip\">Windows amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-windows-amd64.zip.sha256sum\">checksum</a> / 6e7fa7839444b8ddc407c5bcdb1edd1024f57d09c2db971dec511ee2f2616eb0)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.1-windows-arm64.zip\">Windows arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.1-windows-arm64.zip.sha256sum\">checksum</a> / ae4c9acd0d9acd1f9e9da2f60105f793f65fd49ab7c03c6c7d13804c3b885657)</li>\n</ul>\n<p>This release was signed with <code>208D D36E D5BB 3745 A167 43A4 C7C6 FBB5 B91C 1155</code> and can be found at @scottrigby <a href=\"https://keybase.io/r6by\">keybase account</a>. Please use the attached signatures for verifying this release using <code>gpg</code>.</p>\n<p>The <a href=\"https://helm.sh/docs/intro/quickstart/\">Quickstart Guide</a> will get you going from there. For <strong>upgrade instructions</strong> or detailed installation notes, check the <a href=\"https://helm.sh/docs/intro/install/\">install guide</a>. You can also use a <a href=\"https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4\">script to install</a> on any system with <code>bash</code>.</p>\n<h2>What's Next</h2>\n<ul>\n<li>4.2.2 and 3.21.2 are the next patch releases scheduled for July 8, 2026</li>\n<li>4.3.0 and 3.22.0 are the next minor releases scheduled for September 9, 2026</li>\n</ul>\n<h2>Changelog</h2>\n<ul>\n<li>fix: protect FailingKubeClient.RecordedWaitOptions from data race (#31925) d591a19b953bd9cfdf7d9ddd83c2f4ffdaeafb29 (Terry Howe)</li>\n<li>fix: route registry client output to stdout instead of stderr (#32056) 2a9fcae29280472edec988c6bf0528e4ae79b33a (Terry Howe)</li>\n<li>chore(deps): bump oras.land/oras-go/v2 from 2.6.0 to 2.6.1 ffa5bd693eee68ba9c1ba42d160c69114eda962c (dependabot[bot])</li>\n<li>chore(deps): bump golang.org/x/crypto from 0.52.0 to 0.53.0 9f9dbaf94008044a516cda4837565237306578a7 (dependabot[bot])</li>\n<li>chore(deps): bump golang.org/x/term from 0.43.0 to 0.44.0 64a2891699ae9c8f2d0e06d5db3dd117649886a2 (dependabot[bot])</li>\n<li>chore(deps): bump golang.org/x/text from 0.37.0 to 0.38.0 e54a4a2b7d4ed9ca3bb4be7562f76dd5f2fd8f71 (dependabot[bot])</li>\n<li>chore(deps): bump github/codeql-action from 4.36.1 to 4.36.2 acb762b0ef8882b062ba8f6b87261411309875b8 (dependabot[bot])</li>\n<li>chore(deps): bump github/codeql-action from 4.36.0 to 4.36.1 768586df3f2a79fca5202b6713f8675bb097a904 (dependabot[bot])</li>\n<li>fix(version): avoid false range detection on prerelease x/X eabfae560459d1ffe1f7a3268d5441238e9f84b2 (Benoit Tigeot)</li>\n<li>fix(version): version range || can has no space e3fd51f331e14fb4056951540d2f2ffde81b405c (Benoit Tigeot)</li>\n<li>feat: report in debug the version we select with version range arg 1e47395a9566bcaaaf7ed9e31a8367eb1f95e0a3 (Benoit Tigeot)</li>\n<li>fix: prevent warning when using version range constraints a33e23939a85ac60eb9a6bee818f2c5459fda576 (Benoit Tigeot)</li>\n<li>fix(kube): always propagate context.Canceled in WaitForDelete fa06d4455724afe22bbe00af7925549a82d95e6c (Terry Howe)</li>\n<li>fix(kube): prevent spurious early exit in WaitForDelete during informer sync 360d4835df0fb8bd7cbde4cad0cbc79de01a6e93 (Terry Howe)</li>\n<li>chore(deps): bump github.com/tetratelabs/wazero from 1.11.0 to 1.12.0 7651edf21e31b5c33df82e67f23855d1358d021d (dependabot[bot])</li>\n<li>chore(deps): bump golang.org/x/crypto from 0.51.0 to 0.52.0 b132e7e43f3620eb60ef3524527c1b2fceed90e9 (dependabot[bot])</li>\n<li>fix(deps): bump golang.org/x/net to v0.55.0 to address GO-2026-5026 eee491a7461a524b87e5bb73ea5a0c4f82c72469 (Terry Howe)</li>\n<li>chore(deps): bump golangci/golangci-lint-action from 9.2.0 to 9.2.1 3e3c5751b1723239cbce042533db0d84b65c6bc1 (dependabot[bot])</li>\n<li>chore(deps): bump github/codeql-action from 4.35.5 to 4.36.0 c4ce2bb364dbfb781059e628572d7177ba191cc4 (dependabot[bot])</li>\n<li>chore(deps): bump actions/stale from 10.2.0 to 10.3.0 3892dc2a11b2e111acddcbc55d5a4733ba461f20 (dependabot[bot])</li>\n<li>chore(deps): bump github/codeql-action from 4.35.4 to 4.35.5 c4bbb6263f59fe541acd75ce0b508034c65899e1 (dependabot[bot])</li>\n<li>chore(deps): bump golang.org/x/crypto from 0.50.0 to 0.51.0 a0d7f16b58aa4cb9dbaf8c37055faa28b1b350ae (dependabot[bot])</li>\n<li>chore(deps): bump github/codeql-action from 4.35.3 to 4.35.4 8a3de054b5ab1b59f60c790fad39861e294671f1 (dependabot[bot])</li>\n<li>fix(upstream): upgrade to cli-utils 1.2.1, controller-runtime 0.24.1 and k8s 1.36.1 57a4803bd4953d8ef9d51d927f492ecaaf5df9db (Matheus Pimenta)</li>\n<li>chore(deps): bump github.com/fluxcd/cli-utils from 1.2.0 to 1.2.1 b33ae02b9cd7fcba804391ab3d364739cb2a8780 (dependabot[bot])</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/helm/helm/compare/v4.2.0...v4.2.1\">https://github.com/helm/helm/compare/v4.2.0...v4.2.1</a></p>",
+      "tags": [
+        "kubernetes",
+        "packaging"
+      ]
+    },
+    {
+      "title": "kube-state-metrics v2.19.1",
+      "link": "https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.19.1",
+      "guid": "https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.19.1",
+      "pubDate": "Fri, 12 Jun 2026 05:38:26 GMT",
+      "description": "<h2>v2.19.1 / 2026-06-10</h2>\n<h3>Notes</h3>\n<ul>\n<li>This release builds with Go <code>v1.26.4</code></li>\n<li>This release builds with <code>k8s.io/client-go</code>: <code>v0.35.4</code></li>\n</ul>\n<h3>Changelog</h3>\n<ul>\n<li>[SECURITY] Upgrade Go toolchain to address CVE-2026-42504 (GO-2026-5038) by @slessard in <a href=\"https://github.com/kubernetes/kube-state-metrics/pull/2982\">#2982</a></li>\n<li>[SECURITY] Fix several high-scoring CVEs (golang.org/x/net, oauth2, sys, term, text) by @slessard in <a href=\"https://github.com/kubernetes/kube-state-metrics/pull/2981\">#2981</a></li>\n<li>[BUGFIX] Fix watch-list bookmarks with sharding (WatchListClient compatibility) by @jfremy-openai in <a href=\"https://github.com/kubernetes/kube-state-metrics/pull/2974\">#2974</a></li>\n<li>[BUGFIX] Don't panic on CronJobs with unparseable schedules by @atosatto in <a href=\"https://github.com/kubernetes/kube-state-metrics/pull/2978\">#2978</a></li>\n</ul>\n<p><strong>Full Changelog</strong>:</p>\n<p><a href=\"https://github.com/kubernetes/kube-state-metrics/compare/v2.19.0...v2.19.1\">https://github.com/kubernetes/kube-state-metrics/compare/v2.19.0...v2.19.1</a></p>",
+      "tags": [
+        "observability",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Grafana Mimir mimir-3.1.1",
+      "link": "https://github.com/grafana/mimir/releases/tag/mimir-3.1.1",
+      "guid": "https://github.com/grafana/mimir/releases/tag/mimir-3.1.1",
+      "pubDate": "Fri, 12 Jun 2026 20:40:48 GMT",
+      "description": "<p>This release contains 10 PRs from 5 authors. Thank you!</p>\n<h1>Changelog</h1>\n<h2>3.1.1</h2>\n<h3>Grafana Mimir</h3>\n<ul>\n<li>[CHANGE] Update Docker image bases from Debian 12 to Debian 13 (<code>gcr.io/distroless/static-debian13</code>; race images use <code>base-nossl-debian13</code>). #15629</li>\n<li>[BUGFIX] Upgrade Go to 1.26.4 to address <a href=\"https://pkg.go.dev/vuln/GO-2026-5039\">CVE-2026-42507</a>. #15659</li>\n<li>[BUGFIX] Update <code>golang.org/x/crypto</code> to v0.52.0, <code>golang.org/x/net</code> to v0.55.0, and <code>golang.org/x/sys</code> to v0.44.0 to address <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-39833\">CVE-2026-39833</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-39832\">CVE-2026-39832</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-46597\">CVE-2026-46597</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-42506\">CVE-2026-42506</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-39821\">CVE-2026-39821</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-42502\">CVE-2026-42502</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-25680\">CVE-2026-25680</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-25681\">CVE-2026-25681</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-27136\">CVE-2026-27136</a>, <a href=\"https://nvd.nist.gov/vuln/detail/CVE-2026-39824\">CVE-2026-39824</a>. #15636 #15637 #15638 #15639</li>\n</ul>\n<p><strong>All changes in this release</strong>: <a href=\"https://github.com/grafana/mimir/compare/mimir-3.1.0...mimir-3.1.1\">https://github.com/grafana/mimir/compare/mimir-3.1.0...mimir-3.1.1</a></p>",
+      "tags": [
+        "observability",
+        "metrics"
+      ]
+    },
+    {
+      "title": "Grafana v13.0.2",
+      "link": "https://github.com/grafana/grafana/releases/tag/v13.0.2",
+      "guid": "https://github.com/grafana/grafana/releases/tag/v13.0.2",
+      "pubDate": "Tue, 09 Jun 2026 11:19:16 GMT",
+      "description": "<p><a href=\"https://grafana.com/grafana/download/13.0.2\">Download page</a></p>\n<p><a href=\"https://grafana.com/docs/grafana/latest/whatsnew/\">What's new highlights</a></p>\n<h3>Features and enhancements</h3>\n<ul>\n<li><strong>Dashboards:</strong> Show k8s format in provisioned save <a href=\"https://github.com/grafana/grafana/pull/123045\">#123045</a>, <a href=\"https://github.com/stephaniehingtgen\">@stephaniehingtgen</a></li>\n<li><strong>Docker:</strong> Bump Alpine-based images to 3.23.4 <a href=\"https://github.com/grafana/grafana/pull/122938\">#122938</a>, <a href=\"https://github.com/Proximyst\">@Proximyst</a></li>\n<li><strong>Go:</strong> Update version to 1.26.3 <a href=\"https://github.com/grafana/grafana/pull/124454\">#124454</a>, <a href=\"https://github.com/macabu\">@macabu</a></li>\n<li><strong>Homepage:</strong> Support v2 dashboards if defined by a file <a href=\"https://github.com/grafana/grafana/pull/123029\">#123029</a>, <a href=\"https://github.com/stephaniehingtgen\">@stephaniehingtgen</a></li>\n<li><strong>LibraryPanels:</strong> Return 403 instead of 500 for insufficient permissions <a href=\"https://github.com/grafana/grafana/pull/123467\">#123467</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> Don't mark folders pending due to \\_folder.json metadata <a href=\"https://github.com/grafana/grafana/pull/124139\">#124139</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> Honor ruleset bypass for write workflow validation <a href=\"https://github.com/grafana/grafana/pull/124128\">#124128</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> Negotiate receive-pack capabilities for git pushes <a href=\"https://github.com/grafana/grafana/pull/124130\">#124130</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> Per-verb fallback for the files subresource <a href=\"https://github.com/grafana/grafana/pull/123900\">#123900</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> Scope repository uniqueness by (URL, branch, path) <a href=\"https://github.com/grafana/grafana/pull/124121\">#124121</a>, <a href=\"https://github.com/ferruvich\">@ferruvich</a></li>\n<li><strong>Provisioning:</strong> Surface folder uid-too-long and other validation 4xx as sync warnings <a href=\"https://github.com/grafana/grafana/pull/123888\">#123888</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>Provisioning:</strong> add public<em>root</em>url instance setting for external URLs <a href=\"https://github.com/grafana/grafana/pull/124258\">#124258</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n</ul>\n<h3>Bug fixes</h3>\n<ul>\n<li><strong>DashboardDS:</strong> Fix Mixed panels not updating on time-range change with stale upstreams <a href=\"https://github.com/grafana/grafana/pull/124894\">#124894</a>, <a href=\"https://github.com/ivanortegaalba\">@ivanortegaalba</a></li>\n<li><strong>Jaeger:</strong> Fix log event timestamp unit conversion in trace view <a href=\"https://github.com/grafana/grafana/pull/123707\">#123707</a>, <a href=\"https://github.com/ktw4071\">@ktw4071</a></li>\n<li><strong>K8s Dashboards:</strong> Fix folder permission check to use dashboards:create <a href=\"https://github.com/grafana/grafana/pull/124942\">#124942</a>, <a href=\"https://github.com/mihai-turdean\">@mihai-turdean</a></li>\n<li><strong>PostgreSQL:</strong> Allow sql_engine to return results for EXPLAIN queries <a href=\"https://github.com/grafana/grafana/pull/123246\">#123246</a>, <a href=\"https://github.com/sdague\">@sdague</a></li>\n<li><strong>Provisioning:</strong> Bump nanogit to v0.17.0 to fix pushes with repositories using git modules <a href=\"https://github.com/grafana/grafana/pull/124140\">#124140</a>, <a href=\"https://github.com/MissingRoberto\">@MissingRoberto</a></li>\n<li><strong>RBAC:</strong> Quick fix for global datasource permissions (Enterprise)</li>\n<li><strong>Security</strong>: CVE-2026-9029</li>\n<li><strong>Security</strong>: CVE-2026-33382</li>\n<li><strong>Security</strong>: CVE-2026-42127</li>\n<li><strong>Security</strong>: CVE-2026-42129</li>\n<li><strong>Security</strong>: CVE-2026-10601</li>\n<li><strong>Security</strong>: CVE-2026-8609</li>\n<li><strong>Security</strong>: CVE-2026-8595</li>\n</ul>",
+      "tags": [
+        "observability",
+        "dashboards"
+      ]
+    },
+    {
+      "title": "Apache Kafka — 4.3.1-rc0",
+      "link": "https://github.com/apache/kafka/releases/tag/4.3.1-rc0",
+      "guid": "tag:github.com,2008:Repository/2211243/4.3.1-rc0",
+      "pubDate": "Thu, 11 Jun 2026 20:19:43 GMT",
+      "description": "<p>4.3.1-rc0</p>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-06-08",
       "link": "https://rickyf115.github.io/oss-feed/",
