@@ -19,6 +19,11 @@ projects:
       kafka.apache.org returns HTTP 403 to automated requests.
       Using GitHub's native Atom feed instead — same release data.
 
+  - name: "Warpstream Agent"
+    feed_url: "https://console.warpstream.com/agent-changelog.rss"
+    tags: ["streaming", "backend"]
+    notes: "Warpstream Agent for warpstream control plane connectivity."
+
   - name: "Kafka Minion"
     github: "redpanda-data/kminion"
     tags: ["streaming", "observability"]
