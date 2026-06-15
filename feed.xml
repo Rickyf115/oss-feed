@@ -5,8 +5,29 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2026 14:26:19 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 17:55:56 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-06-15</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-06-15</guid>
+    <pubDate>Mon, 15 Jun 2026 17:55:56 GMT</pubDate>
+    <description><![CDATA[<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v807">Warpstream Agent — WarpStream Agent v807</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v807</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v807</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v807</guid>
+    <pubDate>Fri, 12 Jun 2026 14:25:19 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Orbit Auto Migration is now available.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-06-15</title>

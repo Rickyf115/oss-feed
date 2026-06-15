@@ -2,58 +2,82 @@
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1-rc0",
-      "checked_at": "2026-06-15T14:26:18.558Z"
+      "checked_at": "2026-06-15T17:55:53.589Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.2",
-      "checked_at": "2026-06-15T14:26:18.664Z"
+      "checked_at": "2026-06-15T17:55:54.302Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.2",
-      "checked_at": "2026-06-15T14:26:18.747Z"
+      "checked_at": "2026-06-15T17:55:54.476Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.1",
-      "checked_at": "2026-06-15T14:26:18.840Z"
+      "checked_at": "2026-06-15T17:55:54.673Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.4.3",
-      "checked_at": "2026-06-15T14:26:18.936Z"
+      "checked_at": "2026-06-15T17:55:54.863Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.20.2",
-      "checked_at": "2026-06-15T14:26:19.017Z"
+      "checked_at": "2026-06-15T17:55:55.055Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-15T14:26:19.091Z"
+      "checked_at": "2026-06-15T17:55:55.236Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-15T14:26:19.190Z"
+      "checked_at": "2026-06-15T17:55:55.430Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.91.0",
-      "checked_at": "2026-06-15T14:26:19.271Z"
+      "checked_at": "2026-06-15T17:55:55.618Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.1",
-      "checked_at": "2026-06-15T14:26:19.365Z"
+      "checked_at": "2026-06-15T17:55:55.782Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-15T14:26:19.449Z"
+      "checked_at": "2026-06-15T17:55:55.984Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.1.1",
-      "checked_at": "2026-06-15T14:26:19.548Z"
+      "checked_at": "2026-06-15T17:55:56.161Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.0.2",
-      "checked_at": "2026-06-15T14:26:19.630Z"
+      "checked_at": "2026-06-15T17:55:56.349Z"
+    },
+    "https://console.warpstream.com/agent-changelog.rss": {
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v807",
+      "checked_at": "2026-06-15T17:55:54.044Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-06-15",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-15",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 15 Jun 2026 17:55:56 GMT",
+      "description": "<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v807\">Warpstream Agent — WarpStream Agent v807</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v807",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v807",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v807",
+      "pubDate": "Fri, 12 Jun 2026 14:25:19 GMT",
+      "description": "<ul><li>Orbit Auto Migration is now available.</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-06-15",
       "link": "https://rickyf115.github.io/oss-feed/",
