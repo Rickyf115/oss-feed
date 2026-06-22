@@ -1,63 +1,127 @@
 {
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
-      "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1-rc0",
-      "checked_at": "2026-06-15T17:55:53.589Z"
+      "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1-rc2",
+      "checked_at": "2026-06-22T13:37:28.811Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.2",
-      "checked_at": "2026-06-15T17:55:54.302Z"
+      "checked_at": "2026-06-22T13:37:29.157Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.2",
-      "checked_at": "2026-06-15T17:55:54.476Z"
+      "checked_at": "2026-06-22T13:37:29.266Z"
     },
     "helm/helm": {
-      "last_seen": "v4.2.1",
-      "checked_at": "2026-06-15T17:55:54.673Z"
+      "last_seen": "v4.2.2",
+      "checked_at": "2026-06-22T13:37:29.361Z"
     },
     "argoproj/argo-cd": {
-      "last_seen": "v3.4.3",
-      "checked_at": "2026-06-15T17:55:54.863Z"
+      "last_seen": "v3.4.4",
+      "checked_at": "2026-06-22T13:37:29.456Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.20.2",
-      "checked_at": "2026-06-15T17:55:55.055Z"
+      "checked_at": "2026-06-22T13:37:29.579Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-15T17:55:55.236Z"
+      "checked_at": "2026-06-22T13:37:29.662Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-15T17:55:55.430Z"
+      "checked_at": "2026-06-22T13:37:29.771Z"
     },
     "prometheus-operator/prometheus-operator": {
-      "last_seen": "v0.91.0",
-      "checked_at": "2026-06-15T17:55:55.618Z"
+      "last_seen": "v0.92.0",
+      "checked_at": "2026-06-22T13:37:29.881Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.1",
-      "checked_at": "2026-06-15T17:55:55.782Z"
+      "checked_at": "2026-06-22T13:37:29.967Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-15T17:55:55.984Z"
+      "checked_at": "2026-06-22T13:37:30.053Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.1.1",
-      "checked_at": "2026-06-15T17:55:56.161Z"
+      "checked_at": "2026-06-22T13:37:30.180Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.0.2",
-      "checked_at": "2026-06-15T17:55:56.349Z"
+      "checked_at": "2026-06-22T13:37:30.283Z"
     },
     "https://console.warpstream.com/agent-changelog.rss": {
-      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v807",
-      "checked_at": "2026-06-15T17:55:54.044Z"
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v810",
+      "checked_at": "2026-06-22T13:37:29.021Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-06-22",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-22",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 22 Jun 2026 13:37:30 GMT",
+      "description": "<h3>kubernetes</h3>\n<ul>\n  <li><a href=\"https://github.com/helm/helm/releases/tag/v4.2.2\">Helm v4.2.2</a></li>\n  <li><a href=\"https://github.com/argoproj/argo-cd/releases/tag/v3.4.4\">ArgoCD v3.4.4</a></li>\n</ul>\n\n<h3>observability</h3>\n<ul>\n  <li><a href=\"https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.92.0\">Prometheus Operator v0.92.0</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://github.com/apache/kafka/releases/tag/4.3.1-rc2\">Apache Kafka — 4.3.1-rc2</a></li>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v810\">Warpstream Agent — WarpStream Agent v810</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Helm v4.2.2",
+      "link": "https://github.com/helm/helm/releases/tag/v4.2.2",
+      "guid": "https://github.com/helm/helm/releases/tag/v4.2.2",
+      "pubDate": "Wed, 17 Jun 2026 20:50:16 GMT",
+      "description": "<p>Helm v4.2.2 is a patch release. Users are encouraged to upgrade for the best experience.</p>\n<p>The community keeps growing, and we'd love to see you there!</p>\n<ul>\n<li>Join the discussion in <a href=\"https://kubernetes.slack.com\">Kubernetes Slack</a>:</li>\n</ul>\n<p>  -  for questions and just to hang out</p>\n<p>  -  for discussing PRs, code, and bugs</p>\n<ul>\n<li>Hang out at the Public Developer Call: Thursday, 9:30 Pacific via <a href=\"https://zoom.us/j/696660622\">Zoom</a></li>\n<li>Test, debug, and contribute charts: <a href=\"https://artifacthub.io/packages/search?kind=0\">ArtifactHub/packages</a></li>\n</ul>\n<h2>Notable Changes</h2>\n<ul>\n<li>Revert: Fixed a race condition in WaitForDelete where the status observer canceled the watch too early, causing intermittent failures when running a full test suite #32214</li>\n</ul>\n<h2>Installation and Upgrading</h2>\n<p>Download Helm v4.2.2. The common platform binaries are here:</p>\n<ul>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-darwin-amd64.tar.gz\">MacOS amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-darwin-amd64.tar.gz.sha256sum\">checksum</a> / 10c1e36ee8c5f2e2ee25a16599cb03ab74c0953cd889cacb980a49ba4b6574ba)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-darwin-arm64.tar.gz\">MacOS arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-darwin-arm64.tar.gz.sha256sum\">checksum</a> / 5410a0dae3d5d91f45653b161260d9301aabc4ae80ae50a6605d66884b6df8ea)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-amd64.tar.gz\">Linux amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-amd64.tar.gz.sha256sum\">checksum</a> / 9adafecab4d406853bba163a70e9f104f47dbbf65ce24b7653bae7e36150bcb6)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-arm.tar.gz\">Linux arm</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-arm.tar.gz.sha256sum\">checksum</a> / 7e9490169874695e04ab1af47c5620621fc13c84219a258fcc1afdcd40ca7438)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-arm64.tar.gz\">Linux arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-arm64.tar.gz.sha256sum\">checksum</a> / 78803142087a0069fa4b50d3f32a84d3ef25c14d1ee8a40fbccf86a6216d2f36)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-386.tar.gz\">Linux i386</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-386.tar.gz.sha256sum\">checksum</a> / 8e1fdcda4a476ffc5d1179c7f16d33a3d54267efa08fd720f7678277d68bc2d5)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-loong64.tar.gz\">Linux loong64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-loong64.tar.gz.sha256sum\">checksum</a> / b8bfe96b8b0b0e2af51af4a00ef521cc5a7e03793aea3568cf8500a63ae05041)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-ppc64le.tar.gz\">Linux ppc64le</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-ppc64le.tar.gz.sha256sum\">checksum</a> / 814a80fd98eb9e4c5a9d610f3b9c15ffe120c2f5e39df16a2f491723ebc90126)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-s390x.tar.gz\">Linux s390x</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-s390x.tar.gz.sha256sum\">checksum</a> / d84cdf1123f20cfbef19a2af1cd6afe8b00626bd9846bccb9dae978c810c8274)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-linux-riscv64.tar.gz\">Linux riscv64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-linux-riscv64.tar.gz.sha256sum\">checksum</a> / f07c105180dff2619ab45134b9b47b7845387e8f3299e12ebe0efb87c7548717)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-windows-amd64.zip\">Windows amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-windows-amd64.zip.sha256sum\">checksum</a> / 5fad8562e98c34fa5af3ef904086a5874a6701050f9bf36e30238c975df94dcd)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.2-windows-arm64.zip\">Windows arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.2-windows-arm64.zip.sha256sum\">checksum</a> / 2e993d6a1dd8197a33e65d8e90b26df9d248ff3501701dea401856aa265a2dab)</li>\n</ul>\n<p>This release was signed by @gjenkins8 with key BF88 8333 D96A 1C18 E268 2AAE D79D 67C9 EC01 6739, which can be found at <a href=\"https://keys.openpgp.org/vks/v1/by-fingerprint/BF888333D96A1C18E2682AAED79D67C9EC016739\">https://keys.openpgp.org/vks/v1/by-fingerprint/BF888333D96A1C18E2682AAED79D67C9EC016739</a> Please use the attached signatures for verifying this release using gpg.</p>\n<p>The <a href=\"https://helm.sh/docs/intro/quickstart/\">Quickstart Guide</a> will get you going from there. For <strong>upgrade instructions</strong> or detailed installation notes, check the <a href=\"https://helm.sh/docs/intro/install/\">install guide</a>. You can also use a <a href=\"https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4\">script to install</a> on any system with <code>bash</code>.</p>\n<h2>What's Next</h2>\n<ul>\n<li>4.2.3 and 3.21.2 are the next patch releases scheduled for July 8, 2026</li>\n<li>4.3.0 and 3.22.0 are the next minor releases scheduled for September 9, 2026</li>\n</ul>\n<h2>Changelog</h2>\n<ul>\n<li>Revert \"fix(kube): prevent spurious early exit in WaitForDelete during informer sync\" b05881cf967a5a09e19866799d0edfd40675803a (George Jenkins)</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/helm/helm/compare/v4.2.1...v4.2.2\">https://github.com/helm/helm/compare/v4.2.1...v4.2.2</a></p>",
+      "tags": [
+        "kubernetes",
+        "packaging"
+      ]
+    },
+    {
+      "title": "ArgoCD v3.4.4",
+      "link": "https://github.com/argoproj/argo-cd/releases/tag/v3.4.4",
+      "guid": "https://github.com/argoproj/argo-cd/releases/tag/v3.4.4",
+      "pubDate": "Thu, 18 Jun 2026 09:36:37 GMT",
+      "description": "<h2>Quick Start</h2>\n<h3>Non-HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/install.yaml</code></pre>\n<h3>HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.4/manifests/ha/install.yaml</code></pre>\n<h2>Release Signatures and Provenance</h2>\n<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets\">documentation</a> on how to verify.</p>\n<h2>Release Notes Blog Post</h2>\n<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href=\"https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f\">official blog post</a></p>\n<h2>Upgrading</h2>\n<p>If upgrading from a different minor version, be sure to read the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/\">upgrading</a> documentation.</p>\n<h2>Changelog</h2>\n<h3>Bug fixes</h3>\n<ul>\n<li>146184ea41fa545e0a084c82f05cfe5bd07a9ff9: fix(health): PromotionStrategy stuck Progressing after no-op re-hydration (#28124) (cherry-pick #28125 for 3.4) (#28135) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>e515f51ab1ca500a165b49ca9ec9c402279b6768: fix(rbac): resolve RBAC regression for project-scoped resources in multi-namespace architecture (#25289) (#26573) (#28062) (@wanddynosios)</li>\n<li>7f2fe9576c6b426f00b04abe6dea55cc9cf634c3: fix(ssd): regression causing diff to error on new objects (#27679) (cherry-pick #27703 for 3.4) (#28241) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>5199ea6cb74471e22b9c007b0c4598575bb37e44: fix: add a lock on clusterinformer (cherry-pick #28216 for 3.4) (#28312) (@blakepettersson)</li>\n<li>7a64081225fe7e9688cd7a3d0ad0ff2bc62fde78: fix: exclude live status from normalization (cherry-pick #28201 for 3.4) (#28204) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>0b3436ffe67564506a49007970daa3d9f476856d: fix: fixes parsing of dex passwords with dollar sign (cherry pick of #28027 to 3.4) (#28197) (@ppapapetrou76)</li>\n<li>9ccf66b8fc4500d90091075debed86dc218a3981: fix: resolve cross-generator Values templates in RenderGeneratorParams (#27827) (cherry-pick #27830 for 3.4) (#28128) (@argo-cd-cherry-pick-bot[bot])</li>\n</ul>\n<h3>Other work</h3>\n<ul>\n<li>14ad471bf6102535664cac3b43cb706904c72b35: Merge pull request #28162 from argoproj/cherry-pick-28158-to-release-3.4 (@dudinea)</li>\n<li>0fd000b25fb94fbc2de25dd3c97417e44d28a629: Merge pull request #28164 from argoproj/cherry-pick-28155-to-release-3.4 (@dudinea)</li>\n<li>ff255193d14b0ab7ecf7bea48c9cfda3cc0de46a: chore(ci): bump codecov action to 7.0.0 to fix the GPG issue (cherry-pick #28159 for 3.4) (#28172) (@dudinea)</li>\n<li>e9ff0c571b905989d517ac377c4071b6b6180081: ci: bump goreleaser (cherry-pick #28033 for 3.4) (#28072) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>1c5e37da077808446895092764bd14312c53d76d: ci: use github release notes in goreleaser (cherry-pick #28048 for 3.4) (#28071) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>0c14cfb5117526dd35657e0fddd21c5c612664be: fix(manifest-generate-paths): Normalize repo before using type repo (#28113) (@fm1ck3y)</li>\n<li>c2003f447e49a183b75e3d94e7982c59c012bd5e: test(e2e): Add test for second Sync after initial for different resources/options (#28156) (#28155) (@dudinea)</li>\n<li>9810fa2902e60e48df2acda2353f44b293d4203f: test(e2e): fix cleanup of CRDs for e2e tests (#28157) (#28158) (@dudinea)</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/argoproj/argo-cd/compare/v3.4.3...v3.4.4\">https://github.com/argoproj/argo-cd/compare/v3.4.3...v3.4.4</a></p>\n<p>&lt;a href=\"<a href=\"https://argoproj.github.io/cd/\">https://argoproj.github.io/cd/</a>\"&gt;&lt;img src=\"<a href=\"https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png\">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>\" width=\"25%\" &gt;&lt;/a&gt;</p>",
+      "tags": [
+        "kubernetes",
+        "gitops"
+      ]
+    },
+    {
+      "title": "Prometheus Operator v0.92.0",
+      "link": "https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.92.0",
+      "guid": "https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.92.0",
+      "pubDate": "Thu, 18 Jun 2026 09:21:12 GMT",
+      "description": "<blockquote><p>[!NOTE]</p></blockquote>\n<blockquote><p>The <code>PrometheusTopologySharding</code> and <code>PrometheusShardRetentionPolicy</code> feature gates have been promoted to <strong>Beta</strong> in this release and are now enabled by default. See the <a href=\"https://prometheus-operator.dev/docs/platform/sharding/\">sharding documentation</a> for details.</p></blockquote>\n<ul>\n<li>[CHANGE] Add URL validation for the <code>tokenUrl</code> field in OAuth2 configuration across all CRDs. #8579</li>\n<li>[CHANGE] Add URL validation for the <code>url</code> field in <code>RemoteReadSpec</code> in <code>Prometheus</code> CRD. #8596</li>\n<li>[FEATURE] Migrate retention options from CLI flags to the config file for <code>Prometheus</code> CRD (Prometheus &gt;= v3 uses the config file; older versions continue to use CLI flags). #8547</li>\n<li>[FEATURE] Add <code>staleSeriesCompactionThreshold</code> field to <code>TSDBSpec</code> in <code>Prometheus</code> and <code>PrometheusAgent</code> CRDs. #8563</li>\n<li>[FEATURE] Add <code>labelNameUnderscoreSanitization</code> and <code>labelNamePreserveMultipleUnderscores</code> fields to <code>OTLPConfig</code> in <code>Prometheus</code> and <code>PrometheusAgent</code> CRDs. #8562</li>\n<li>[FEATURE] Add <code>payload</code> field to Webhook receiver in <code>AlertmanagerConfig</code> CRD. #8507</li>\n<li>[ENHANCEMENT] Use pod topology labels for zone sharding on Kubernetes &gt;= 1.35 when the <code>PrometheusTopologySharding</code> feature gate is enabled (removes the need for <code>attachMetadata.node=true</code>). #8564</li>\n<li>[ENHANCEMENT] Add validation for the Slack <code>update_message</code> field in Alertmanager configuration Secret. #8556</li>\n<li>[BUGFIX] Validate target labels in <code>Probe</code> static configuration to prevent invalid Prometheus scrape configs. #7901</li>\n<li>[BUGFIX] Fix goroutine leak and data race in <code>pollBasedListerWatcher</code>. #8593</li>\n<li>[BUGFIX] Validate <code>ProxyConfig</code> in OAuth2 configuration. #8610</li>\n<li>[BUGFIX] Fix SMTP smarthost format error handling in Alertmanager configuration. #8586</li>\n<li>[BUGFIX] Fix missing <code>return</code> in admission webhook after marshal failure. #8582</li>\n<li>[BUGFIX] Fix <code>FindOwner</code> to return <code>nil</code> on <code>meta.Accessor</code> error. #8585</li>\n<li>[BUGFIX] Fix dropped gzip <code>Close</code> errors in <code>GzipConfig</code> and <code>GunzipConfig</code>. #8573</li>\n<li>[BUGFIX] Fix panic on malformed key=value flag input (e.g. <code>--labels \"key\"</code>). #8560</li>\n</ul>",
+      "tags": [
+        "observability",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Apache Kafka — 4.3.1-rc2",
+      "link": "https://github.com/apache/kafka/releases/tag/4.3.1-rc2",
+      "guid": "tag:github.com,2008:Repository/2211243/4.3.1-rc2",
+      "pubDate": "Wed, 17 Jun 2026 18:29:04 GMT",
+      "description": "<p>4.3.1-rc2</p>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v810",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v810",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v810",
+      "pubDate": "Fri, 19 Jun 2026 10:09:17 GMT",
+      "description": "<ul><li>Tableflow:</li><li>  Support sorting and column statistics on `float` and `double` columns.</li><li>Schema Registry: Match Confluent&#39;s protobuf compatibility behavior by allowing a type change on a `oneof` field is now allowed when that field&#39;s `oneof` block is renamed or dissolved.</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-06-15",
       "link": "https://rickyf115.github.io/oss-feed/",
