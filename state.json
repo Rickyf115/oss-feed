@@ -1,63 +1,116 @@
 {
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
-      "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1-rc2",
-      "checked_at": "2026-06-22T13:37:28.811Z"
+      "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1",
+      "checked_at": "2026-06-29T12:37:27.563Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.2",
-      "checked_at": "2026-06-22T13:37:29.157Z"
+      "checked_at": "2026-06-29T12:37:28.330Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.2",
-      "checked_at": "2026-06-22T13:37:29.266Z"
+      "checked_at": "2026-06-29T12:37:28.490Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.2",
-      "checked_at": "2026-06-22T13:37:29.361Z"
+      "checked_at": "2026-06-29T12:37:28.694Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.4.4",
-      "checked_at": "2026-06-22T13:37:29.456Z"
+      "checked_at": "2026-06-29T12:37:28.869Z"
     },
     "cert-manager/cert-manager": {
-      "last_seen": "v1.20.2",
-      "checked_at": "2026-06-22T13:37:29.579Z"
+      "last_seen": "v1.20.3",
+      "checked_at": "2026-06-29T12:37:29.046Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-06-22T13:37:29.662Z"
+      "checked_at": "2026-06-29T12:37:29.215Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.12.0",
-      "checked_at": "2026-06-22T13:37:29.771Z"
+      "checked_at": "2026-06-29T12:37:29.427Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.92.0",
-      "checked_at": "2026-06-22T13:37:29.881Z"
+      "checked_at": "2026-06-29T12:37:29.622Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.1",
-      "checked_at": "2026-06-22T13:37:29.967Z"
+      "checked_at": "2026-06-29T12:37:29.796Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.41.0",
-      "checked_at": "2026-06-22T13:37:30.053Z"
+      "checked_at": "2026-06-29T12:37:29.966Z"
     },
     "grafana/mimir": {
-      "last_seen": "mimir-3.1.1",
-      "checked_at": "2026-06-22T13:37:30.180Z"
+      "last_seen": "mimir-3.1.2",
+      "checked_at": "2026-06-29T12:37:30.148Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.0.2",
-      "checked_at": "2026-06-22T13:37:30.283Z"
+      "checked_at": "2026-06-29T12:37:30.348Z"
     },
     "https://console.warpstream.com/agent-changelog.rss": {
-      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v810",
-      "checked_at": "2026-06-22T13:37:29.021Z"
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v812",
+      "checked_at": "2026-06-29T12:37:28.083Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-06-29",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-06-29",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 29 Jun 2026 12:37:30 GMT",
+      "description": "<h3>kubernetes</h3>\n<ul>\n  <li><a href=\"https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3\">cert-manager v1.20.3</a></li>\n</ul>\n\n<h3>observability</h3>\n<ul>\n  <li><a href=\"https://github.com/grafana/mimir/releases/tag/mimir-3.1.2\">Grafana Mimir mimir-3.1.2</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://github.com/apache/kafka/releases/tag/4.3.1\">Apache Kafka — 4.3.1</a></li>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v812\">Warpstream Agent — WarpStream Agent v812</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "cert-manager v1.20.3",
+      "link": "https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3",
+      "guid": "https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3",
+      "pubDate": "Thu, 25 Jun 2026 15:02:43 GMT",
+      "description": "<p>cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters.</p>\n<p>This patch release fixes a security issue (<a href=\"https://github.com/cert-manager/cert-manager/security/advisories/GHSA-8rvj-mm4h-c258\">\u00010\u0001</a>, HIGH) where the default <code>cert-manager-edit</code> aggregate ClusterRole granted namespace users permission to create ACME <code>Challenge</code> and <code>Order</code> resources directly. A user who could create a <code>Challenge</code> referencing a <code>ClusterIssuer</code> could supply attacker-controlled solver configuration while cert-manager loaded credentials from the <code>ClusterIssuer</code>'s namespace, bypassing Issuer solver selectors (<code>dnsZones</code>, <code>dnsNames</code>, <code>matchLabels</code>). With the acme-dns provider specifically, this could disclose DNS credentials to an attacker-controlled endpoint.</p>\n<p>This release also removes the issuer owner reference from Challenges which was blocking Challenge garbage collection, and updates Go to fix reported CVEs.</p>\n<p>All users should upgrade.</p>\n<blockquote><p>[!WARNING]</p></blockquote>\n<blockquote><p><strong>Potentially breaking change:</strong> The <code>cert-manager-edit</code> aggregate ClusterRole no longer grants <code>create</code> for <code>challenges.acme.cert-manager.io</code> or <code>create</code>, <code>patch</code>, <code>update</code> for <code>orders.acme.cert-manager.io</code>. These resources are internal to cert-manager's ACME workflow and are not intended to be created or modified directly by users. If you have tooling or workflows that create Challenge or Order resources directly (outside of the normal Certificate → CertificateRequest → Order → Challenge flow), you will need to grant those permissions explicitly.</p></blockquote>\n<h2>Changes by Kind</h2>\n<h3>Bug or Regression</h3>\n<ul>\n<li>Security (HIGH): Remove Challenge <code>create</code> and Order <code>create</code>, <code>patch</code>, <code>update</code> verbs from the <code>cert-manager-edit</code> aggregate ClusterRole (<a href=\"https://github.com/cert-manager/cert-manager/security/advisories/GHSA-8rvj-mm4h-c258\">\u00015\u0001</a>). (#8940, @wallrj-cyberark)</li>\n<li>Remove issuer owner reference from challenges blocking challenge garbage collection (#8759, @cert-manager-bot)</li>\n</ul>\n<h3>Other (Cleanup or Flake)</h3>\n<ul>\n<li>Bump go to 1.26.3, other deps to fix several govulncheck issues (#8789, @SgtCoDFish)</li>\n<li>Update Go to <code>v1.26.4</code> to fix CVE-2026-27145, CVE-2026-42504, and CVE-2026-42507 (#8926, @wallrj-cyberark)</li>\n</ul>",
+      "tags": [
+        "kubernetes",
+        "security"
+      ]
+    },
+    {
+      "title": "Grafana Mimir mimir-3.1.2",
+      "link": "https://github.com/grafana/mimir/releases/tag/mimir-3.1.2",
+      "guid": "https://github.com/grafana/mimir/releases/tag/mimir-3.1.2",
+      "pubDate": "Wed, 24 Jun 2026 11:20:38 GMT",
+      "description": "<p>This release contains 3 PRs from 1 authors. Thank you!</p>\n<h1>Changelog</h1>\n<h2>3.1.2</h2>\n<h3>Grafana Mimir</h3>\n<ul>\n<li>[BUGFIX] Ingest storage: Cap maximum Kafka protocol version, the client negotiates with the broker to v3.9.0. #15745</li>\n</ul>\n<p><strong>All changes in this release</strong>: <a href=\"https://github.com/grafana/mimir/compare/mimir-3.1.1...mimir-3.1.2\">https://github.com/grafana/mimir/compare/mimir-3.1.1...mimir-3.1.2</a></p>",
+      "tags": [
+        "observability",
+        "metrics"
+      ]
+    },
+    {
+      "title": "Apache Kafka — 4.3.1",
+      "link": "https://github.com/apache/kafka/releases/tag/4.3.1",
+      "guid": "tag:github.com,2008:Repository/2211243/4.3.1",
+      "pubDate": "Tue, 23 Jun 2026 21:27:59 GMT",
+      "description": "<p>Apache Kafka 4.3.1 release</p>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v812",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v812",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v812",
+      "pubDate": "Tue, 23 Jun 2026 01:01:35 GMT",
+      "description": "<ul><li>Move orbit consumer offset copying job entirely into the agents.</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-06-22",
       "link": "https://rickyf115.github.io/oss-feed/",

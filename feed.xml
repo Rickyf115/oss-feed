@@ -5,8 +5,93 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2026 13:37:30 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 12:37:30 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-06-29</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-06-29</guid>
+    <pubDate>Mon, 29 Jun 2026 12:37:30 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3">cert-manager v1.20.3</a></li>
+</ul>
+
+<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/grafana/mimir/releases/tag/mimir-3.1.2">Grafana Mimir mimir-3.1.2</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://github.com/apache/kafka/releases/tag/4.3.1">Apache Kafka — 4.3.1</a></li>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v812">Warpstream Agent — WarpStream Agent v812</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>cert-manager v1.20.3</title>
+    <link>https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3</link>
+    <guid isPermaLink="true">https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3</guid>
+    <pubDate>Thu, 25 Jun 2026 15:02:43 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>security</category>
+    <description><![CDATA[<p>cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters.</p>
+<p>This patch release fixes a security issue (<a href="https://github.com/cert-manager/cert-manager/security/advisories/GHSA-8rvj-mm4h-c258">0</a>, HIGH) where the default <code>cert-manager-edit</code> aggregate ClusterRole granted namespace users permission to create ACME <code>Challenge</code> and <code>Order</code> resources directly. A user who could create a <code>Challenge</code> referencing a <code>ClusterIssuer</code> could supply attacker-controlled solver configuration while cert-manager loaded credentials from the <code>ClusterIssuer</code>'s namespace, bypassing Issuer solver selectors (<code>dnsZones</code>, <code>dnsNames</code>, <code>matchLabels</code>). With the acme-dns provider specifically, this could disclose DNS credentials to an attacker-controlled endpoint.</p>
+<p>This release also removes the issuer owner reference from Challenges which was blocking Challenge garbage collection, and updates Go to fix reported CVEs.</p>
+<p>All users should upgrade.</p>
+<blockquote><p>[!WARNING]</p></blockquote>
+<blockquote><p><strong>Potentially breaking change:</strong> The <code>cert-manager-edit</code> aggregate ClusterRole no longer grants <code>create</code> for <code>challenges.acme.cert-manager.io</code> or <code>create</code>, <code>patch</code>, <code>update</code> for <code>orders.acme.cert-manager.io</code>. These resources are internal to cert-manager's ACME workflow and are not intended to be created or modified directly by users. If you have tooling or workflows that create Challenge or Order resources directly (outside of the normal Certificate → CertificateRequest → Order → Challenge flow), you will need to grant those permissions explicitly.</p></blockquote>
+<h2>Changes by Kind</h2>
+<h3>Bug or Regression</h3>
+<ul>
+<li>Security (HIGH): Remove Challenge <code>create</code> and Order <code>create</code>, <code>patch</code>, <code>update</code> verbs from the <code>cert-manager-edit</code> aggregate ClusterRole (<a href="https://github.com/cert-manager/cert-manager/security/advisories/GHSA-8rvj-mm4h-c258">5</a>). (#8940, @wallrj-cyberark)</li>
+<li>Remove issuer owner reference from challenges blocking challenge garbage collection (#8759, @cert-manager-bot)</li>
+</ul>
+<h3>Other (Cleanup or Flake)</h3>
+<ul>
+<li>Bump go to 1.26.3, other deps to fix several govulncheck issues (#8789, @SgtCoDFish)</li>
+<li>Update Go to <code>v1.26.4</code> to fix CVE-2026-27145, CVE-2026-42504, and CVE-2026-42507 (#8926, @wallrj-cyberark)</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana Mimir mimir-3.1.2</title>
+    <link>https://github.com/grafana/mimir/releases/tag/mimir-3.1.2</link>
+    <guid isPermaLink="true">https://github.com/grafana/mimir/releases/tag/mimir-3.1.2</guid>
+    <pubDate>Wed, 24 Jun 2026 11:20:38 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>This release contains 3 PRs from 1 authors. Thank you!</p>
+<h1>Changelog</h1>
+<h2>3.1.2</h2>
+<h3>Grafana Mimir</h3>
+<ul>
+<li>[BUGFIX] Ingest storage: Cap maximum Kafka protocol version, the client negotiates with the broker to v3.9.0. #15745</li>
+</ul>
+<p><strong>All changes in this release</strong>: <a href="https://github.com/grafana/mimir/compare/mimir-3.1.1...mimir-3.1.2">https://github.com/grafana/mimir/compare/mimir-3.1.1...mimir-3.1.2</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Apache Kafka — 4.3.1</title>
+    <link>https://github.com/apache/kafka/releases/tag/4.3.1</link>
+    <guid isPermaLink="true">tag:github.com,2008:Repository/2211243/4.3.1</guid>
+    <pubDate>Tue, 23 Jun 2026 21:27:59 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<p>Apache Kafka 4.3.1 release</p>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v812</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v812</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v812</guid>
+    <pubDate>Tue, 23 Jun 2026 01:01:35 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Move orbit consumer offset copying job entirely into the agents.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-06-22</title>
