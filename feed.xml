@@ -5,8 +5,365 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jul 2026 12:06:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2026 11:14:32 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-07-13</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-07-13</guid>
+    <pubDate>Mon, 13 Jul 2026 11:14:32 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/helm/helm/releases/tag/v4.2.3">Helm v4.2.3</a></li>
+  <li><a href="https://github.com/argoproj/argo-cd/releases/tag/v3.4.5">ArgoCD v3.4.5</a></li>
+  <li><a href="https://github.com/cert-manager/cert-manager/releases/tag/v1.21.0">cert-manager v1.21.0</a></li>
+</ul>
+
+<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/prometheus/prometheus/releases/tag/v3.13.1">Prometheus v3.13.1</a></li>
+  <li><a href="https://github.com/thanos-io/thanos/releases/tag/v0.42.0">Thanos v0.42.0</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v820">Warpstream Agent — WarpStream Agent v820</a></li>
+  <li><a href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.3">Kafka Minion v2.3.3</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Helm v4.2.3</title>
+    <link>https://github.com/helm/helm/releases/tag/v4.2.3</link>
+    <guid isPermaLink="true">https://github.com/helm/helm/releases/tag/v4.2.3</guid>
+    <pubDate>Thu, 09 Jul 2026 20:56:43 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>packaging</category>
+    <description><![CDATA[<p>Helm v4.2.3 is a patch release. Users are encouraged to upgrade for the best experience.</p>
+<p>The community keeps growing, and we'd love to see you there!</p>
+<ul>
+<li>Join the discussion in <a href="https://kubernetes.slack.com">Kubernetes Slack</a>:</li>
+</ul>
+<p>  -  for questions and just to hang out</p>
+<p>  -  for discussing PRs, code, and bugs</p>
+<ul>
+<li>Hang out at the Public Developer Call: Thursday, 9:30 Pacific via <a href="https://zoom.us/j/696660622">Zoom</a></li>
+<li>Test, debug, and contribute charts: <a href="https://artifacthub.io/packages/search?kind=0">ArtifactHub/packages</a></li>
+</ul>
+<h2>Installation and Upgrading</h2>
+<p>Download Helm v4.2.3. The common platform binaries are here:</p>
+<ul>
+<li><a href="https://get.helm.sh/helm-v4.2.3-darwin-amd64.tar.gz">MacOS amd64</a> (<a href="https://get.helm.sh/helm-v4.2.3-darwin-amd64.tar.gz.sha256sum">checksum</a> / ff3ac86755a45f3422473bc1200776aac0fe04c5766abe6ca66699f7b564b23b)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-darwin-arm64.tar.gz">MacOS arm64</a> (<a href="https://get.helm.sh/helm-v4.2.3-darwin-arm64.tar.gz.sha256sum">checksum</a> / 048ecf5ad3160f83d918f9fe945238d2132b079640f7b106175331c25f242c64)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-amd64.tar.gz">Linux amd64</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-amd64.tar.gz.sha256sum">checksum</a> / e9b88b4ee95b18c706839c28d3a0220e5bc470e9cd9262410c90793c45ff8b7c)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-arm.tar.gz">Linux arm</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-arm.tar.gz.sha256sum">checksum</a> / ba00678361ca7a03ec42ca1ea459543e1d8eab2a7d5429a5eda71dc9741c8a9b)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-arm64.tar.gz">Linux arm64</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-arm64.tar.gz.sha256sum">checksum</a> / 21abd9354d39b2cd79a8d76be6912cd137a983cbf997193503fb8a6a6e2f2785)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-386.tar.gz">Linux i386</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-386.tar.gz.sha256sum">checksum</a> / 31d57972d36e60388e173327fffcf9d58f272349dfa9ed3e1914f3cd88fe7283)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-loong64.tar.gz">Linux loong64</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-loong64.tar.gz.sha256sum">checksum</a> / 232f82d787d530a621b2006965ed2b99644b4391bbc6261e9787f95700fc44f7)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-ppc64le.tar.gz">Linux ppc64le</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-ppc64le.tar.gz.sha256sum">checksum</a> / 43fc5a4b20839c3669a0748498bd2613b095e288425bf5678c6ba664eb4a0e70)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-s390x.tar.gz">Linux s390x</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-s390x.tar.gz.sha256sum">checksum</a> / 17932091e19d352585b540a482fca9b953d32a8ad7afec72bf9cbbcd96b094cb)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-linux-riscv64.tar.gz">Linux riscv64</a> (<a href="https://get.helm.sh/helm-v4.2.3-linux-riscv64.tar.gz.sha256sum">checksum</a> / 09ff0772730678c652b9ac4a2b32cd20f4e62a2b040403bcacd4ad845d3d3e9c)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-windows-amd64.zip">Windows amd64</a> (<a href="https://get.helm.sh/helm-v4.2.3-windows-amd64.zip.sha256sum">checksum</a> / 5ca7de684c92d48b93d5c34a029fdda57b38e1eac04bc8541bdf1eb249388679)</li>
+<li><a href="https://get.helm.sh/helm-v4.2.3-windows-arm64.zip">Windows arm64</a> (<a href="https://get.helm.sh/helm-v4.2.3-windows-arm64.zip.sha256sum">checksum</a> / 5f444ed097688ed3abaf1d8801e21110d9bddeb6ed13939afcac302888527ab5)</li>
+</ul>
+<p>The <a href="https://helm.sh/docs/intro/quickstart/">Quickstart Guide</a> will get you going from there. For <strong>upgrade instructions</strong> or detailed installation notes, check the <a href="https://helm.sh/docs/intro/install/">install guide</a>. You can also use a <a href="https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4">script to install</a> on any system with <code>bash</code>.</p>
+<h2>What's Next</h2>
+<ul>
+<li>4.2.4 and 3.21.4 are the next patch releases scheduled for August 12, 2026</li>
+<li>4.3.0 and 3.22.0 are the next minor releases scheduled for September 9, 2026</li>
+</ul>
+<h2>Changelog</h2>
+<ul>
+<li>chore(deps): bump golang.org/x/crypto from 0.53.0 to 0.54.0 43e8b7feece8beb0fcba47059ec9b522fd929a64 (Terry Howe)</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>ArgoCD v3.4.5</title>
+    <link>https://github.com/argoproj/argo-cd/releases/tag/v3.4.5</link>
+    <guid isPermaLink="true">https://github.com/argoproj/argo-cd/releases/tag/v3.4.5</guid>
+    <pubDate>Thu, 09 Jul 2026 17:01:16 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>gitops</category>
+    <description><![CDATA[<h2>Quick Start</h2>
+<h3>Non-HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.5/manifests/install.yaml</code></pre>
+<h3>HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.5/manifests/ha/install.yaml</code></pre>
+<h2>Release Signatures and Provenance</h2>
+<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets">documentation</a> on how to verify.</p>
+<h2>Release Notes Blog Post</h2>
+<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href="https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f">official blog post</a></p>
+<h2>Upgrading</h2>
+<p>If upgrading from a different minor version, be sure to read the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/">upgrading</a> documentation.</p>
+<h2>Changelog</h2>
+<h3>Bug fixes</h3>
+<ul>
+<li>e77e4b645cc1ad28b1af74931d8810c514fa75e7: fix(reposerver): honor depth of referenced source instead of primary source (cherry-pick #28339 for 3.4) (#28341) (@alexandresavicki)</li>
+<li>63e67d5e7f502f85b69cd52d6d56e1123b087992: fix(ssa): do not run auth reconcile with SSA  (cherry pick of #27624 and #27601 to 3.4) (#28265) (@Mangaal)</li>
+<li>240390732e7b593a53a237c4f149426e7268f295: fix: auto-sync skipped when newer commit arrives during sync with manifest-generate-paths (#27875) (cherry-pick #28227 for 3.4) (#28331) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>2d18587a4c36d4676dd0514bc4a3c5e0cc8b2ed4: fix: deleted resource are incorrectly shown in UI (cherry-pick #28322 for 3.4) (#28337) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>a82e158db8a56037d8e8b5085d188abd9fba12f0: fix: don't clobber non-ignored fields on "replace" (cherry-pick #27136 for 3.4) (#28507) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>d4c8f1c3c724d4d71c1f4ddb6b255ab36d3bef4a: fix: fixes a regression of dex config env vars substituion - Cherry pick of #28369 in 3.4 (#28411) (@ppapapetrou76)</li>
+</ul>
+<h3>Dependency updates</h3>
+<ul>
+<li>8c7ece50a4dfd731d5e10bedf3a3e692808b3d23: chore(deps): bump golang.org/x/crypto to 0.53.0 (release-3.4) (#28375) (@nmirasch)</li>
+<li>a8f245b7a0a9b4b9ca8538038b521da29b5932f6: chore(deps): update Ubuntu base image to 26.04 LTS (3.4) (#28430) (@suii2210)</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/argoproj/argo-cd/compare/v3.4.4...v3.4.5">https://github.com/argoproj/argo-cd/compare/v3.4.4...v3.4.5</a></p>
+<p>&lt;a href="<a href="https://argoproj.github.io/cd/">https://argoproj.github.io/cd/</a>"&gt;&lt;img src="<a href="https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>" width="25%" &gt;&lt;/a&gt;</p>]]></description>
+  </item>
+
+  <item>
+    <title>cert-manager v1.21.0</title>
+    <link>https://github.com/cert-manager/cert-manager/releases/tag/v1.21.0</link>
+    <guid isPermaLink="true">https://github.com/cert-manager/cert-manager/releases/tag/v1.21.0</guid>
+    <pubDate>Wed, 08 Jul 2026 22:40:40 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>security</category>
+    <description><![CDATA[<p>cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters.</p>
+<p>cert-manager 1.21 brings ACME Renewal Information (ARI) support, AWS IAM authentication for the Vault issuer, several security hardening changes, and continued improvements to Gateway API integration and cainjector. There are three breaking changes related to Helm chart RBAC and metrics values — review them carefully before upgrading.</p>
+<h2>Known Issues</h2>
+<ul>
+<li><strong>Log spam for non-cert-manager-labelled Secret events</strong>: the typed predicates refactoring (#8407) causes <code>filteredEventHandler</code> type assertion failures (<code>"OnAdd missing Object"</code>, <code>"OnUpdate missing ObjectOld"</code>, <code>"OnDelete missing Object"</code>) for every non-cert-manager-labelled Secret event, multiplied by 7 certificate sub-controllers. <strong>This is cosmetic only</strong> — the affected controllers only need events from cert-manager-labelled Secrets (which arrive via the typed informer); the metadata informer events were always filtered out by predicates in previous versions. Issuer and ClusterIssuer controllers are not affected. See #8994 for details.</li>
+</ul>
+<h2>Major Themes</h2>
+<h3>Default <code>tokenrequest</code> RBAC removed from Helm chart</h3>
+<blockquote><p>⚠️ Breaking change</p></blockquote>
+<p>The Helm chart no longer creates a default <code>Role</code> and <code>RoleBinding</code> granting the cert-manager controller permission to create tokens for its own ServiceAccount (<code>serviceaccounts/token: create</code>). No documented workflow requires this RBAC — the Route53 docs section that motivated it was removed in 2024.</p>
+<p>If you use <code>serviceAccountRef.name</code> pointing at the controller ServiceAccount, you must now either create your own <code>Role</code>/<code>RoleBinding</code> granting <code>serviceaccounts/token: create</code>, or migrate to a dedicated ServiceAccount (recommended — see the <a href="https://cert-manager.io/docs/configuration/vault/">Vault</a> or <a href="https://cert-manager.io/docs/configuration/acme/dns01/route53/">Route53</a> documentation).</p>
+<h3>Restrict Challenge and Order RBAC in <code>cert-manager-edit</code> ClusterRole</h3>
+<blockquote><p>⚠️ Potentially breaking change</p></blockquote>
+<p>The <code>cert-manager-edit</code> aggregate ClusterRole no longer grants <code>create</code> for <code>challenges.acme.cert-manager.io</code> or <code>create</code>, <code>patch</code>, <code>update</code> for <code>orders.acme.cert-manager.io</code> (<a href="https://github.com/cert-manager/cert-manager/security/advisories/GHSA-8rvj-mm4h-c258">7</a>). These resources are internal to cert-manager's ACME workflow. Challenge <code>patch</code> and <code>update</code> are retained because users may need them to remove stuck finalizers.</p>
+<p>This change was already shipped in v1.20.3 and v1.19.6, so if you are running one of those versions this will not be a breaking change. If you have tooling that creates Challenge or Order resources directly, you will need to grant those permissions explicitly.</p>
+<h3>Metrics port name and path Helm values removed</h3>
+<blockquote><p>⚠️ Breaking change</p></blockquote>
+<p>The Helm values <code>prometheus.servicemonitor.targetPort</code>, <code>prometheus.servicemonitor.path</code>, and <code>prometheus.podmonitor.path</code> have been removed. The controller Service metrics port has been renamed from <code>tcp-prometheus-servicemonitor</code> to <code>http-metrics</code>. Because the Helm values schema uses <code>additionalProperties: false</code>, users who still have any of the removed keys in their values overrides will see a schema validation error on upgrade — remove them before upgrading. (#8952)</p>
+<h3>ACME and Certificate Management</h3>
+<ul>
+<li><strong>ACME Renewal Information (ARI)</strong>: experimental support for <a href="https://www.rfc-editor.org/rfc/rfc9773">RFC 9773</a> behind the <code>ACMEUseARI</code> feature gate. When enabled, cert-manager queries the ACME server's <code>renewalInfo</code> endpoint for the recommended renewal window, allowing servers like Let's Encrypt to proactively prompt renewal during mass revocations or CA key rollovers. (#8798)</li>
+<li><strong>0 solver option</strong>: skip cert-manager's own self-check and instead wait a configured duration before asking the ACME server to validate. An escape hatch for split-horizon DNS and NAT hairpin environments. See <a href="https://cert-manager.io/docs/configuration/acme/#skip-the-self-check-with-waitinsteadofselfcheck">configuration details</a>. (#8858)</li>
+<li><strong>AWS IAM authentication for Vault</strong>: the Vault issuer now supports IRSA, EKS Pod Identity, and ambient EC2/ECS credentials, removing the need for long-lived AWS Secrets. (#8422)</li>
+<li><strong>Certificate renewal policies</strong>: a new <code>renewalPolicies</code> field on the Certificate API provides more expressive control over renewal scheduling, complementing <code>renewBefore</code> and <code>renewBeforePercentage</code>. (#8258)</li>
+<li><strong>Configurable CertificateRequest retry backoff</strong>: the new <code>--certificate-request-maximum-backoff-duration</code> flag (default: 32 hours) caps the exponential backoff for failed CertificateRequests, useful for environments with scheduled CA maintenance windows. (#8893)</li>
+<li><strong>Modern2026 PKCS#12 profile</strong>: a new FIPS 140-3 compatible encoding profile using AES-256 + SHA-256 KDFs instead of legacy 3DES/RC2. (#8841)</li>
+<li><strong>Webhook certificate renewal after system suspend</strong>: the webhook now detects missed certificate renewals after system suspend (S3/S4) or VM live migration by polling wall-clock time, recovering within one minute of resume. (#8464)</li>
+</ul>
+<h3>Gateway API and cainjector</h3>
+<ul>
+<li><strong>HTTP01 ListenerSet parentRef fallback</strong>: the <code>acme.cert-manager.io/http01-parentreffallback: "true"</code> annotation causes cert-manager to use the parent Gateway for solver HTTPRoutes instead of the ListenerSet, enabling TLS-only ListenerSets to use a shared HTTP listener for ACME challenges. (#8749)</li>
+<li><strong>0 annotation</strong>: exclude specific Gateway TLS listeners from certificate management. (#8727)</li>
+<li><strong>Additional listener protocols</strong>: configurable listener protocols beyond the default set. (#8683)</li>
+<li><strong>0 configuration restructure</strong>: <code>enableGatewayAPI</code> and <code>enableGatewayAPIListenerSet</code> are deprecated in favor of <code>gatewayAPI.enabled</code> / <code>gatewayAPI.enableListenerSet</code>. The old fields continue to work. (#8732)</li>
+<li><strong>0 promoted to GA</strong>: unconditionally enabled; will be removed in a future release. (#8583)</li>
+<li><strong>cainjector server-side apply unconditional</strong>: the <code>ServerSideApply</code> feature gate is deprecated. (#8692)</li>
+<li><strong>cainjector 0 flag</strong>: skip specified namespaces when watching Secrets for injection. (#8614)</li>
+</ul>
+<h3>Deployment and Observability</h3>
+<ul>
+<li><strong>Venafi OAuth token observability</strong>: a new <code>AuthFailed</code> Issuer condition reason distinguishes bad credentials from transient errors. PANW NGTS is now supported as a Venafi backend. (#8808, #8779)</li>
+<li><strong>0 support</strong>: configurable for cert-manager components and ACME HTTP01 solver pods. (#8791, #8976)</li>
+<li><strong>0</strong>: opt-in automatic cleanup of the startupapicheck Job. (#8523)</li>
+<li><strong>0</strong>: propagate <code>global.commonLabels</code> to dynamically-created ACME HTTP01 solver resources. (#8761)</li>
+</ul>
+<h3>Notable Bug Fixes</h3>
+<ul>
+<li><strong>Integer overflow in 0</strong>: Certificates with durations longer than approximately 3 years were incorrectly rejected or assigned incorrect renewal times. (#8947)</li>
+<li><strong>Infinite re-issuance loop</strong>: cert-manager no longer loops when an issuer returns an already-expired certificate. (#8610)</li>
+<li><strong>ACME transient network errors</strong>: challenges no longer permanently fail on TLS handshake timeouts, DNS resolution failures, or context cancellation during nonce fetches and authorization waits. (#8760)</li>
+<li><strong>DNS-over-HTTPS response body cap</strong>: response body reads are now bounded at 128 KB to prevent potential OOM. (#8803)</li>
+<li><strong>Vault path traversal</strong>: the Vault issuer webhook now rejects <code>..</code> path segments, preventing <code>path.Join</code> from silently resolving relative segments. (#8930)</li>
+<li><strong>DNS issuer secrets validated before ready</strong>: prevents silent misconfiguration. (#8255)</li>
+</ul>
+<h2>Community</h2>
+<p>As always, we'd like to thank all of the community members who helped in this release cycle, including all below who merged a PR and anyone that helped by commenting on issues, testing, or getting involved in cert-manager meetings. We're lucky to have you involved.</p>
+<p>A special thanks to:</p>
+<ul>
+<li>@Copilot</li>
+<li>@FelixPhipps</li>
+<li>@Peac36</li>
+<li>@SebTardif</li>
+<li>@apkatsikas</li>
+<li>@bitloi</li>
+<li>@dap0am</li>
+<li>@figaw</li>
+<li>@immanuwell</li>
+<li>@jabbrwcky</li>
+<li>@jnohlgard</li>
+<li>@jsoref</li>
+<li>@ltwongaa</li>
+<li>@lunarwhite</li>
+<li>@mateenali66</li>
+<li>@onurmicoogullari</li>
+<li>@putongyong</li>
+<li>@seanorama</li>
+<li>@texasich</li>
+</ul>
+<p>for their contributions, comments and support!</p>
+<p>Also, thanks to the cert-manager maintainer team for their help in this release:</p>
+<ul>
+<li>@SgtCoDFish</li>
+<li>@ThatsMrTalbot</li>
+<li>@erikgb</li>
+<li>@hjoshi123</li>
+<li>@inteon</li>
+<li>@maelvls</li>
+<li>@munnerz</li>
+<li>@wallrj</li>
+<li>@wallrj-cyberark</li>
+</ul>
+<p>And finally, thanks to the cert-manager steering committee for their feedback in this release cycle:</p>
+<ul>
+<li>@FlorianLiebhart</li>
+<li>@TrilokGeer</li>
+<li>@ianarsenault</li>
+<li>@ssyno</li>
+</ul>
+<h2>Changes since v1.20.0</h2>
+<h3>Feature</h3>
+<ul>
+<li>Add Venafi OAuth token request observability and a new <code>AuthFailed</code> Issuer condition reason to distinguish bad credentials from transient infrastructure errors. (#8808, @FelixPhipps)</li>
+<li>Add <code>certificateRequestMaximumBackoffDuration</code> controller configuration option to cap retry backoff time for failed CertificateRequests. Configurable via config file, <code>--certificate-request-maximum-backoff-duration</code> CLI flag, or Helm value <code>config.certificateRequestMaximumBackoffDuration</code>. Defaults to 32 hours for backward compatibility. (#8893, @lunarwhite)</li>
+<li>Add an optional <code>waitInsteadOfSelfCheck</code> field to ACME HTTP01 and DNS01 solvers so cert-manager can skip its own self-check and ask the ACME server to validate after a configured wait. (#8858, @wallrj)</li>
+<li>Add configurable <code>runtimeClassName</code> support for cert-manager components and ACME HTTP01 solver pods. (#8791, @jsoref)</li>
+<li>Add direct configurable <code>runtimeClassName</code> support for ACME HTTP01 solver pods via the <code>acmesolver.runtimeClassName</code> Helm value. (#8976, @erikgb)</li>
+<li>Add new controller flag <code>--acme-http01-solver-extra-labels</code>, allowing Helm's <code>global.commonLabels</code> to propagate to all dynamically-created ACME HTTP01 solver resources (Pods, Services, Ingresses, or Gateway API HTTPRoutes). (#8761, @lunarwhite)</li>
+<li>Add opt-in <code>startupapicheck.ttlSecondsAfterFinished</code> Helm value to enable automatic cleanup of the startupapicheck Job via the Kubernetes TTL-after-finished controller. (#8523, @dap0am)</li>
+<li>Added ARI support through the ACMEUseARI feature gate. (#8798, @hjoshi123)</li>
+<li>Added AWS IAM authentication support for Vault issuer, including IRSA (IAM Roles for Service Accounts) and ambient credentials (EC2/ECS). (#8422, @bitloi)</li>
+<li>Added <code>cert-manager.io/ignore-tls-listeners</code> annotation for ignoring gwapi listeners. (#8727, @hjoshi123)</li>
+<li>Added option to specify additional listener protocols the GatewayAPI integration will consider when creating certificates. (#8683, @ThatsMrTalbot)</li>
+<li>Adds support for the Modern2026 go-pkcs12 profile and FIPS 140-3 (#8841, @seanorama)</li>
+<li>Cainjector: A new flag <code>--ignore-namespaces</code> was added to the cainjector binary. It can be used to filter out namespaces from being watched for secrets to use for injectables. (#8614, @figaw)</li>
+<li>Disabled client side rate-limiting if AP&amp;F is enabled. (#8757, @hjoshi123)</li>
+<li>Extend the Venafi/CyberArk integration to also support PANW NGTS. (#8779, @FelixPhipps)</li>
+<li>Adding certificate renewal policies (#8258, @hjoshi123)</li>
+<li>Make cainjector use SSA unconditionally and deprecate the ServerSideApply feature gate (#8692, @erikgb)</li>
+<li>Processed annotations <code>cert-manager.io/alt-names</code>, <code>cert-manager.io/ip-sans</code> to Certificates generated from ingress like objects in cert-shim controllers. (#8927, @jabbrwcky)</li>
+<li>Promote the CAInjectorMerging feature gate to GA (#8583, @Copilot)</li>
+<li>When using ACME HTTP-01 with a ListenerSet, setting the annotation <code>acme.cert-manager.io/http01-parentreffallback: "true"</code> causes cert-manager to use the parent Gateway as the solver HTTPRoute parentRef instead of the ListenerSet. This enables TLS-only ListenerSets to rely on a shared Gateway HTTP listener for ACME challenges. (#8749, @apkatsikas)</li>
+</ul>
+<h3>Bug or Regression</h3>
+<ul>
+<li><strong>BREAKING</strong>: The Helm chart no longer ships a default <code>Role</code> and <code>RoleBinding</code> granting the cert-manager controller ServiceAccount permission to create tokens for itself (<code>serviceaccounts/token: create</code>). This RBAC was added in v1.16 (#7213) but no documented workflow requires it, and the motivating Route53 docs section was removed in Oct 2024. If you rely on <code>serviceAccountRef.name</code> pointing at the controller ServiceAccount (an undocumented pattern), you must now create your own <code>Role</code> and <code>RoleBinding</code> granting <code>serviceaccounts/token: create</code> on that ServiceAccount, or migrate to one of the documented patterns (IRSA ambient, or a dedicated ServiceAccount with its own RBAC). (#8931, @wallrj-cyberark)</li>
+<li>ACME challenges no longer terminally fail on transient network errors (TLS handshake timeouts, DNS failures, context cancellation) during nonce fetches and authorization waits. The challenge controller returns the error and lets the workqueue retry with backoff. (#8760, @texasich)</li>
+<li>Add dns issuer secrets validation before marking it as ready (#8255, @Peac36)</li>
+<li>Add missing issuer finalizer RBAC to the order controller to support owner references (#8654, @erikgb)</li>
+<li>ClusterIssuer metrics collector now correctly respects the enabled-controllers configuration, avoiding a redundant startup when only operating within a namespace. (#8822, @lunarwhite)</li>
+<li>Fix Venafi TPP issuer setup and signing regression on master: restore authentication of the vcert connector in the client constructor, which was removed in #8808. (#8843, @wallrj-cyberark)</li>
+<li>Fix a performance issue in the certificateRequestApproval webhook where CertificateRequests referencing a GroupKind whose CRD is not yet installed would trigger repeated API server discovery queries on every admission request. Negative results are now cached for 30 seconds. (#8651, @mateenali66)</li>
+<li>Fix webhook serving certificate not being renewed after system suspend. (#8464, @Peac36)</li>
+<li>Fixed a rare panic in the trigger controller when a Certificate is deleted from the informer cache while a reconcile is in progress (e.g. during namespace teardown). (#8962, @hjoshi123)</li>
+<li>Fixed an integer overflow in <code>renewBeforePercentage</code> calculations that caused Certificates with durations longer than approximately 3 years to be incorrectly rejected by validation or assigned incorrect renewal times. (#8947, @ThatsMrTalbot)</li>
+<li>Fixed duplicate <code>parentRef</code> bug when both issuer config and annotations are present. (#8619, @hjoshi123)</li>
+<li>Fixed infinite re-issuance loop when issuer returns an already expired certificate (#8610, @onurmicoogullari)</li>
+<li>Fixed local <code>e2e-setup-samplewebhook</code> installation to use the samplewebhook image repository and tag from the saved image tarball manifest. (#8821, @wallrj)</li>
+<li>Fixed potential OOM in DNS-over-HTTPS client by bounding response body read with io.LimitReader (128 KB cap). (#8803, @SebTardif)</li>
+<li>Fixed validation of timezone-prefixed renewal window cron specs without a schedule. (#8813, @immanuwell)</li>
+<li>Helm chart bugfix: rename image helper to avoid umbrella chart conflicts (#8753, @FelixPhipps)</li>
+<li>Helm: Fix invalid YAML generated when both <code>webhook.config</code> and <code>webhook.volumes</code> are defined. (#8664, @jnohlgard)</li>
+<li>Remove ACME Challenge <code>create</code> and Order <code>create</code>/<code>patch</code>/<code>update</code> from the cert-manager-edit aggregate ClusterRole to prevent direct manipulation of these internal resources (GHSA-8rvj-mm4h-c258). (#8958, @wallrj-cyberark)</li>
+<li>Remove issuer owner reference from challenges blocking challenge garbage collection (#8743, @erikgb)</li>
+<li>Update logic to identify and preserve the secret matching nextPrivateKeySecretName (#8577, @putongyong)</li>
+<li>Vault Issuer webhook validation now rejects <code>..</code> path segments in <code>spec.vault.path</code> and auth mount path fields, preventing <code>path.Join</code> from silently resolving relative segments before constructing the Vault API request. (#8930, @wallrj-cyberark)</li>
+</ul>
+<h3>Other (Cleanup or Flake)</h3>
+<ul>
+<li>API cleanup: removed deprecated ObjectReference (#8625, @inteon)</li>
+<li>Remove Helm values <code>prometheus.servicemonitor.targetPort</code>, <code>prometheus.servicemonitor.path</code>, and <code>prometheus.podmonitor.path</code>. The metrics path is always <code>/metrics</code> and the target port is always <code>http-metrics</code>. Rename the controller service metrics port from <code>tcp-prometheus-servicemonitor</code> to <code>http-metrics</code> for consistency with other workloads. Users must remove these keys from their value overrides before upgrading. (#8952, @erikgb)</li>
+<li>The <code>enableGatewayAPI</code> and <code>enableGatewayAPIListenerSet</code> fields on <code>ControllerConfiguration</code> are deprecated and moved into the <code>gatewayAPI</code> sub-struct as <code>gatewayAPI.enabled</code> and <code>gatewayAPI.enableListenerSet</code>. The old fields continue to work. (#8732, @ThatsMrTalbot)</li>
+<li>Update base images to Debian 13 (#8849, @ltwongaa)</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Prometheus v3.13.1</title>
+    <link>https://github.com/prometheus/prometheus/releases/tag/v3.13.1</link>
+    <guid isPermaLink="true">https://github.com/prometheus/prometheus/releases/tag/v3.13.1</guid>
+    <pubDate>Fri, 10 Jul 2026 10:34:15 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>This is a bugfix release for 3.13 LTS.</p>
+<ul>
+<li>[BUGFIX] TSDB: Fix the head-chunk cache returning samples from the wrong chunk, or spurious not-found errors, to range queries after head-chunk truncation. #19134</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Thanos v0.42.0</title>
+    <link>https://github.com/thanos-io/thanos/releases/tag/v0.42.0</link>
+    <guid isPermaLink="true">https://github.com/thanos-io/thanos/releases/tag/v0.42.0</guid>
+    <pubDate>Wed, 08 Jul 2026 14:44:35 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>The biggest new things in this release are, I think, Receive component's improvements regarding tenant's lifecycle handling, ability to have per endpoint configuration, and showing fanout information in Thanos Query. Thank you to everyone for your contributions!</p>
+<h3>Fixed</h3>
+<ul>
+<li><a href="https://github.com/thanos-io/thanos/pull/8752">#8752</a>: Query: Fix exemplar proxy stripping external label matchers in multi-tier query topologies. In Query A → Query B → Sidecar setups, external label matchers are now preserved when forwarding to downstream Query nodes so they can route to the correct stores.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8726">#8726</a>: *: Bump <code>thanos-community/grpc-go</code> fork to fix CVE-2026-33186 (CVSS 9.1), an authorization bypass via malformed <code>:path</code> headers that could bypass path-based "deny" rules in <code>grpc/authz</code> interceptors.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8714">#8714</a>: Tracing: Fix <code>tls_config</code> fields (<code>ca_file</code>, <code>cert_file</code>, <code>key_file</code>) being silently ignored when using the OTLP gRPC exporter. Previously, deployments using a private CA or mTLS client certificates had to work around this via <code>OTEL_EXPORTER_OTLP_CERTIFICATE</code> and related environment variables.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8701">#8128</a>: Query-Frontend: Fix panic in <code>AnalyzesMerge</code> caused by indexing the wrong slice variable, leading to an out-of-range access when merging more than two query analyses.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8720">#8720</a>: Receive: Fix 503 errors during restarts in some cases.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8762">#8762</a>: Query-Frontend: Fix trace ID missing from slow query logs, regression from #8618.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8799">#8799</a>: *: Set a <code>KeepaliveEnforcementPolicy</code> with <code>MinTime: 10s</code> on all gRPC servers, matching the client keepalive interval.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8806">#8806</a>: Receive: Validate tenant IDs extracted from split-tenant labels to prevent path traversal.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8810">#8810</a>: Ruler: correctly pass query partial response for gRPC.</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li><a href="https://github.com/thanos-io/thanos/pull/8844">#8691</a>: Cache: add redis key prefix support</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8819">#8691</a>: query/ui: show fanout information</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8691">#8691</a>: Compactor: remove the directory marker objects for some s3 compatible object stores</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8730">#8730</a>: *: add <code>--grpc-server-tls-ciphers</code> to configure cipher suites for gRPC servers.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8730">#8730</a>: Receive: add <code>--remote-write.server-tls-ciphers</code> to configure cipher suites for the HTTP server.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8770">#8770</a>: *: add <code>--grpc-server-tls-curves</code> to configure curves for gRPC servers.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8770">#8770</a>: Receive: add <code>--remote-write.server-tls-curves</code> to configure curves for the HTTP server.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8808">#8808</a>: ruler, sidecar: Add TSDB stats endpoint to gRPC server.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8797">#8797</a>: Receive, Compact, Sidecar: Use <code>os.Root</code> API to confine filesystem access to the service data directory.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8594">#8594</a>: Query: Support per endpoint TLS configuration.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li><a href="https://github.com/thanos-io/thanos/pull/8670">#8670</a>: Receive: <em>breaking :warning:</em> removed <code>--shipper.ignore-unequal-block-size</code>. TSDB now delays compaction until blocks have been uploaded by the shipper, allowing compaction while uploading without risking data loss.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8802">#8802</a>: Cache: add <code>SendToReplicas</code> option while initializing Rueidis client to allow sending read-only requests to Redis replica instances.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8839">#8839</a>: Store: <em>breaking :warning:</em> removed <code>--debug.advertise-compatibility-label</code>. Stores now don't advertise <code>@thanos_compatibility_store_type=store</code> external label by default, breaking compatibility with Thanos Query before v0.8.0.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8830">#8831</a>: Query-Frontend: change <code>time_taken</code> field to <code>time_taken_ms</code> for consistent JSON output for easier parsing by the log collector.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8853">#8853</a>: Compactor: remove labels specified as dedup replica labels in hashmod calculation; this fixes a footgun that users could inadvertently hit.</li>
+<li><a href="https://github.com/thanos-io/thanos/pull/8796">#8796</a>: queryfrontend: add other params to key</li>
+</ul>
+<h3>Removed</h3>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v820</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v820</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v820</guid>
+    <pubDate>Fri, 10 Jul 2026 20:47:52 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Tableflow:</li><li>  Add Schema Registry integration for Avro schemas.</li><li>Enable LZ4 compression in benchmkark-producer CLI command and tweak defaults to be more sane.</li><li>Fix a data race when speculative object storage uploads finish concurrently.</li></ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kafka Minion v2.3.3</title>
+    <link>https://github.com/redpanda-data/kminion/releases/tag/v2.3.3</link>
+    <guid isPermaLink="true">https://github.com/redpanda-data/kminion/releases/tag/v2.3.3</guid>
+    <pubDate>Fri, 10 Jul 2026 16:05:14 GMT</pubDate>
+    <category>streaming</category>
+    <category>observability</category>
+    <description><![CDATA[<h2>Changelog</h2>
+<ul>
+<li>d568f0e994e5dcaf9f7ee8ca20c882532ee8e2a4: security: bump Go toolchain to 1.26.5 (CVE-2026-39822) (@frenchfrywpepper)</li>
+<li>ec695bbdee7c4ae61133ed223d87581655e625ad: Merge pull request #344 from redpanda-data/sarah/snyk-stdos-symlink-cve-2026-39822 (@frenchfrywpepper)</li>
+</ul>
+<h2>Docker Image</h2>
+<p>Use the following command to pull this release's Docker image:</p>
+<pre><code>docker pull redpandadata/kminion:v2.3.3</code></pre>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-07-06</title>

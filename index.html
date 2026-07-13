@@ -186,7 +186,7 @@
     <div class="container">
       <div>
         <h1>OSS Feed</h1>
-        <p class="subtitle">Weekly release digest &mdash; 34 releases tracked &bull; Updated Monday, July 6, 2026</p>
+        <p class="subtitle">Weekly release digest &mdash; 41 releases tracked &bull; Updated Monday, July 13, 2026</p>
       </div>
       <a class="subscribe-btn" href="https://rickyf115.github.io/oss-feed/feed.xml">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
@@ -200,6 +200,30 @@
     <section>
       <h2 class="section-heading">kubernetes</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/helm/helm/releases/tag/v4.2.3" target="_blank" rel="noopener noreferrer">Helm v4.2.3</a>
+          <time class="card-date" datetime="Thu, 09 Jul 2026 20:56:43 GMT">Jul 9, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">packaging</span></div>
+        <p class="card-desc">Helm v4.2.3 is a patch release. Users are encouraged to upgrade for the best experience. The community keeps growing, and we&#x27;d love to see you there! Join the discussion in Kubernetes Slack : - for questions and just to …</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/argoproj/argo-cd/releases/tag/v3.4.5" target="_blank" rel="noopener noreferrer">ArgoCD v3.4.5</a>
+          <time class="card-date" datetime="Thu, 09 Jul 2026 17:01:16 GMT">Jul 9, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">gitops</span></div>
+        <p class="card-desc">Quick Start Non-HA: kubectl create namespace argocd kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.5/manifests/install.yaml HA: kubectl create namespace…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/cert-manager/cert-manager/releases/tag/v1.21.0" target="_blank" rel="noopener noreferrer">cert-manager v1.21.0</a>
+          <time class="card-date" datetime="Wed, 08 Jul 2026 22:40:40 GMT">Jul 8, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">security</span></div>
+        <p class="card-desc">cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters. cert-manager 1.21 brings ACME Renewal Information (ARI) support, AWS IAM authentication for the Vault issuer, sev…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/cert-manager/cert-manager/releases/tag/v1.20.3" target="_blank" rel="noopener noreferrer">cert-manager v1.20.3</a>
@@ -286,6 +310,22 @@
     <section>
       <h2 class="section-heading">observability</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/prometheus/prometheus/releases/tag/v3.13.1" target="_blank" rel="noopener noreferrer">Prometheus v3.13.1</a>
+          <time class="card-date" datetime="Fri, 10 Jul 2026 10:34:15 GMT">Jul 10, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This is a bugfix release for 3.13 LTS. [BUGFIX] TSDB: Fix the head-chunk cache returning samples from the wrong chunk, or spurious not-found errors, to range queries after head-chunk truncation. #19134</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/thanos-io/thanos/releases/tag/v0.42.0" target="_blank" rel="noopener noreferrer">Thanos v0.42.0</a>
+          <time class="card-date" datetime="Wed, 08 Jul 2026 14:44:35 GMT">Jul 8, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">The biggest new things in this release are, I think, Receive component&#x27;s improvements regarding tenant&#x27;s lifecycle handling, ability to have per endpoint configuration, and showing fanout information in Thanos Query. Tha…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/prometheus/prometheus/releases/tag/v3.13.0" target="_blank" rel="noopener noreferrer">Prometheus v3.13.0</a>
@@ -404,6 +444,22 @@
     <section>
       <h2 class="section-heading">streaming</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v820" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v820</a>
+          <time class="card-date" datetime="Fri, 10 Jul 2026 20:47:52 GMT">Jul 10, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">backend</span></div>
+        <p class="card-desc">Tableflow: Add Schema Registry integration for Avro schemas. Enable LZ4 compression in benchmkark-producer CLI command and tweak defaults to be more sane. Fix a data race when speculative object storage uploads finish co…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.3" target="_blank" rel="noopener noreferrer">Kafka Minion v2.3.3</a>
+          <time class="card-date" datetime="Fri, 10 Jul 2026 16:05:14 GMT">Jul 10, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">observability</span></div>
+        <p class="card-desc">Changelog d568f0e994e5dcaf9f7ee8ca20c882532ee8e2a4: security: bump Go toolchain to 1.26.5 (CVE-2026-39822) (@frenchfrywpepper) ec695bbdee7c4ae61133ed223d87581655e625ad: Merge pull request #344 from redpanda-data/sarah/sn…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v815" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v815</a>
