@@ -5,8 +5,63 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2026 11:14:32 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 10:54:51 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-07-20</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-07-20</guid>
+    <pubDate>Mon, 20 Jul 2026 10:54:51 GMT</pubDate>
+    <description><![CDATA[<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/thanos-io/thanos/releases/tag/v0.42.2">Thanos v0.42.2</a></li>
+  <li><a href="https://github.com/grafana/mimir/releases/tag/mimir-3.1.3">Grafana Mimir mimir-3.1.3</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v821">Warpstream Agent — WarpStream Agent v821</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Thanos v0.42.2</title>
+    <link>https://github.com/thanos-io/thanos/releases/tag/v0.42.2</link>
+    <guid isPermaLink="true">https://github.com/thanos-io/thanos/releases/tag/v0.42.2</guid>
+    <pubDate>Fri, 17 Jul 2026 06:51:06 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>Had to do another version release due to broken base image SHAs. No changes.</p>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana Mimir mimir-3.1.3</title>
+    <link>https://github.com/grafana/mimir/releases/tag/mimir-3.1.3</link>
+    <guid isPermaLink="true">https://github.com/grafana/mimir/releases/tag/mimir-3.1.3</guid>
+    <pubDate>Thu, 16 Jul 2026 17:15:13 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>This release contains 5 PRs from 3 authors. Thank you!</p>
+<h1>Changelog</h1>
+<h2>3.1.3</h2>
+<h3>Grafana Mimir</h3>
+<ul>
+<li>[BUGFIX] Fix build failure on Windows and FreeBSD due to reference leaks instrumentation code. Enabling reference leaks instrumentation in those platforms now causes a configuration validation error instead. ##15837</li>
+<li>[BUGFIX] Upgrade Go to 1.26.5 to address <a href="https://pkg.go.dev/vuln/GO-2026-4970">CVE-2026-39822</a> and <a href="https://pkg.go.dev/vuln/GO-2026-5856">CVE-2026-42505</a>. ##16078</li>
+</ul>
+<p><strong>All changes in this release</strong>: <a href="https://github.com/grafana/mimir/compare/mimir-3.1.2...mimir-3.1.3">https://github.com/grafana/mimir/compare/mimir-3.1.2...mimir-3.1.3</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v821</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v821</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v821</guid>
+    <pubDate>Tue, 14 Jul 2026 13:56:55 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Tableflow:</li><li>  Store decimals with precision greater than 18 as FIXED_LEN_BYTE_ARRAY in Parquet.</li><li>  Add a health diagnostic that checks connectivity to schema registry integrations.</li><li>Upgrade Bento for the `parse_big_decimal` bloblang method (Kafka Connect / Debezium decimal decoding).</li><li>OIDC workload identity federation now works on multi-region clusters (and across single-region cluster migrations): the agent holds a short-lived token per region and presents the one minted by whichever region it is talking to.</li><li>Promote `warpstream cli-beta` to `warpstream cli` — it is now the default Kafka CLI. `warpstream cli-beta` still works as a deprecated alias (prints a deprecation warning on stderr) and will be removed in a future release. The previous `warpstream cli` command  has been renamed to `warpstream cli-old` and will be retired eventually; `warpstream kcmd` continues to work as before. Note: this is potentially a breaking change since some commands are different and most of the flags are different.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-07-13</title>
