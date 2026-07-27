@@ -5,8 +5,95 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2026 10:54:51 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 11:26:43 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-07-27</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-07-27</guid>
+    <pubDate>Mon, 27 Jul 2026 11:26:43 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/kubernetes/kubernetes/releases/tag/v1.36.3">Kubernetes v1.36.3</a></li>
+</ul>
+
+<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/grafana/mimir/releases/tag/mimir-3.1.4">Grafana Mimir mimir-3.1.4</a></li>
+  <li><a href="https://github.com/grafana/grafana/releases/tag/v13.1.1">Grafana v13.1.1</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v824">Warpstream Agent — WarpStream Agent v824</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kubernetes v1.36.3</title>
+    <link>https://github.com/kubernetes/kubernetes/releases/tag/v1.36.3</link>
+    <guid isPermaLink="true">https://github.com/kubernetes/kubernetes/releases/tag/v1.36.3</guid>
+    <pubDate>Thu, 23 Jul 2026 00:35:52 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>core</category>
+    <description><![CDATA[<p>See <a href="https://groups.google.com/forum/#!forum/kubernetes-announce">kubernetes-announce@</a>. Additional binary downloads are linked in the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md">CHANGELOG</a>.</p>
+<p>See the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md">CHANGELOG</a> for more details.</p>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana Mimir mimir-3.1.4</title>
+    <link>https://github.com/grafana/mimir/releases/tag/mimir-3.1.4</link>
+    <guid isPermaLink="true">https://github.com/grafana/mimir/releases/tag/mimir-3.1.4</guid>
+    <pubDate>Wed, 22 Jul 2026 03:16:37 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>This release contains 4 PRs from 2 authors. Thank you!</p>
+<h1>Changelog</h1>
+<h2>3.1.4</h2>
+<h3>Grafana Mimir</h3>
+<ul>
+<li>[BUGFIX] Packaging: Fix the DEB/RPM packages shipping the <code>mimir</code>, <code>mimirtool</code>, <code>metaconvert</code>, and <code>query-tee</code> binaries without the executable bit set, which caused <code>mimir.service</code> to fail to start. #16166</li>
+</ul>
+<p><strong>All changes in this release</strong>: <a href="https://github.com/grafana/mimir/compare/mimir-3.1.3...mimir-3.1.4">https://github.com/grafana/mimir/compare/mimir-3.1.3...mimir-3.1.4</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana v13.1.1</title>
+    <link>https://github.com/grafana/grafana/releases/tag/v13.1.1</link>
+    <guid isPermaLink="true">https://github.com/grafana/grafana/releases/tag/v13.1.1</guid>
+    <pubDate>Tue, 21 Jul 2026 10:58:35 GMT</pubDate>
+    <category>observability</category>
+    <category>dashboards</category>
+    <description><![CDATA[<p><a href="https://grafana.com/grafana/download/13.1.1">Download page</a></p>
+<p><a href="https://grafana.com/docs/grafana/latest/whatsnew/">What's new highlights</a></p>
+<h3>Features and enhancements</h3>
+<ul>
+<li><strong>Go:</strong> Update version to 1.26.5 <a href="https://github.com/grafana/grafana/pull/128015">#128015</a>, <a href="https://github.com/macabu">@macabu</a></li>
+<li><strong>Provisioning:</strong> Improve form errors for github connections <a href="https://github.com/grafana/grafana/pull/128177">#128177</a>, [@grafana-writer[bot]](<a href="https://github.com/grafana-writer[bot">https://github.com/grafana-writer[bot</a></li>
+<li><strong>Provisioning:</strong> make sync per-resource write timeout configurable <a href="https://github.com/grafana/grafana/pull/127868">#127868</a>, [@grafana-writer[bot]](<a href="https://github.com/grafana-writer[bot">https://github.com/grafana-writer[bot</a></li>
+</ul>
+<h3>Bug fixes</h3>
+<ul>
+<li><strong>Accessibility:</strong> Ensure <code>InlineToast</code> contents are announced by screenreaders <a href="https://github.com/grafana/grafana/pull/128687">#128687</a>, [@grafana-writer[bot]](<a href="https://github.com/grafana-writer[bot">https://github.com/grafana-writer[bot</a></li>
+<li><strong>DashboardDS:</strong> Fix chained dashboard datasource panels showing stale data <a href="https://github.com/grafana/grafana/pull/127248">#127248</a>, [@grafana-writer[bot]](<a href="https://github.com/grafana-writer[bot">https://github.com/grafana-writer[bot</a></li>
+<li><strong>Provisioning:</strong> make GitHub webhook creation idempotent (fix repos stuck unhealthy with HTTP 422) <a href="https://github.com/grafana/grafana/pull/128201">#128201</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+</ul>
+<h3>Plugin development fixes &amp; changes</h3>
+<ul>
+<li><strong>Pagination:</strong> Set <code>aria-current</code> on active page <a href="https://github.com/grafana/grafana/pull/128518">#128518</a>, [@grafana-writer[bot]](<a href="https://github.com/grafana-writer[bot">https://github.com/grafana-writer[bot</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v824</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v824</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v824</guid>
+    <pubDate>Wed, 22 Jul 2026 20:55:14 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Managed Data Pipelines: when the number of pipelines Agents changes, scale pipeline instance concurrency up or down instead of stopping and restarting all pipelines.</li><li>Fix a throughput bottleneck during Orbit auto-migration `PROXY`.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-07-20</title>
