@@ -5,8 +5,156 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2026 11:26:43 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 11:27:05 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-08-03</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-08-03</guid>
+    <pubDate>Mon, 03 Aug 2026 11:27:05 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/argoproj/argo-cd/releases/tag/v3.4.6">ArgoCD v3.4.6</a></li>
+  <li><a href="https://github.com/cert-manager/cert-manager/releases/tag/v1.21.1">cert-manager v1.21.1</a></li>
+</ul>
+
+<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/prometheus/prometheus/releases/tag/v3.13.2">Prometheus v3.13.2</a></li>
+  <li><a href="https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.0">Prometheus Operator v0.93.0</a></li>
+  <li><a href="https://github.com/thanos-io/thanos/releases/tag/v0.42.4">Thanos v0.42.4</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v826">Warpstream Agent — WarpStream Agent v826</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>ArgoCD v3.4.6</title>
+    <link>https://github.com/argoproj/argo-cd/releases/tag/v3.4.6</link>
+    <guid isPermaLink="true">https://github.com/argoproj/argo-cd/releases/tag/v3.4.6</guid>
+    <pubDate>Fri, 31 Jul 2026 12:12:38 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>gitops</category>
+    <description><![CDATA[<h2>Quick Start</h2>
+<h3>Non-HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.6/manifests/install.yaml</code></pre>
+<h3>HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.4.6/manifests/ha/install.yaml</code></pre>
+<h2>Release Signatures and Provenance</h2>
+<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets">documentation</a> on how to verify.</p>
+<h2>Release Notes Blog Post</h2>
+<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href="https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f">official blog post</a></p>
+<h2>Upgrading</h2>
+<p>If upgrading from a different minor version, be sure to read the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/">upgrading</a> documentation.</p>
+<h2>Changelog</h2>
+<h3>Bug fixes</h3>
+<ul>
+<li>aa9970b380b8c2e9e7cb9bc93be08b52fc9164a1: fix(appset): fall back to create when patch returns NotFound (#17312) (cherry-pick #28645 for 3.4) (#28718) (@rickbrouwer)</li>
+<li>9a91802c48b074fec01e1b07949c4e55caf146f8: fix(diff): don't drop manager-owned descendant fields when filtering webhook mutations (cherry-pick #28819 for 3.4) (#28894) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>4907a99fd2948bc0db78b0a9347cd3077dbba9f7: fix(helm): pass registry passwords through stdin (#17821)  (#28835) (@nitishfy)</li>
+<li>b6d7c82be121ce650749bf07c8ece119313781dc: fix: mount argocd-cmd-params-cm in repo-server so pprof can be enabled (cherry-pick #28863 for 3.4) (#28864) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>cf7c4a73ffd6a9c41e245295cec30a1da21e17db: fix: only do annotation backfill if live unset (cherry-pick #28770 for 3.4) (#28776) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>a3d8e280627905ff58d47e1dc84ea2965bfad7b8: fix: progressive sync fixes (3.4 cherry-picks) (#29000) (@blakepettersson)</li>
+<li>2aa646b934fb5b48f9c03d8dee134a8870f08b10: fix: use Entra ID uti claim as token id when jti is absent (#28625) (cherry-pick #28656 for 3.4) (#28676) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>275d11ec49199ea83d6532d18a6ed6d2790150c7: fix: use OIDC refresh tokens to renew expired sessions (#27041, #12189) (cherry-pick #27777 for 3.4) (#28688) (@argo-cd-cherry-pick-bot[bot])</li>
+</ul>
+<h3>Other work</h3>
+<ul>
+<li>e1becb74c728a992804d39c3ceb2e9e6ae58f0ae: chore: bump version to 3.4.6 on release-3.4 branch (#28959) (@github-actions[bot])</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/argoproj/argo-cd/compare/v3.4.5...v3.4.6">https://github.com/argoproj/argo-cd/compare/v3.4.5...v3.4.6</a></p>
+<p>&lt;a href="<a href="https://argoproj.github.io/cd/">https://argoproj.github.io/cd/</a>"&gt;&lt;img src="<a href="https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>" width="25%" &gt;&lt;/a&gt;</p>]]></description>
+  </item>
+
+  <item>
+    <title>cert-manager v1.21.1</title>
+    <link>https://github.com/cert-manager/cert-manager/releases/tag/v1.21.1</link>
+    <guid isPermaLink="true">https://github.com/cert-manager/cert-manager/releases/tag/v1.21.1</guid>
+    <pubDate>Wed, 29 Jul 2026 15:36:11 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>security</category>
+    <description><![CDATA[<p>cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters.</p>
+<p>v1.21.1 fixes a controller panic for Certificates with <code>spec.renewal.policy: Disabled</code>, a regression in 1.21.0 which caused log spam and dropped Secret informer events, Issuers and ClusterIssuers getting stuck at <code>Ready=False</code> (<code>InvalidSolver</code>) when a referenced ACME DNS-01 solver Secret is created after the Issuer, and the commented Gateway API example in the Helm chart values. It also updates several dependencies to fix reported security vulnerabilities.</p>
+<p>All users should upgrade.</p>
+<h2>Changes by Kind</h2>
+<h3>Bug or Regression</h3>
+<ul>
+<li>Avoid controller panic if a Certificate sets spec.renewal.policy=Disabled (#9038, @sklirg)</li>
+<li>Fix Issuer/ClusterIssuer stuck at Ready=False/InvalidSolver after a missing ACME DNS-01 solver Secret is created (#9083, @SebTardif)</li>
+<li>Fix log spam and dropped Secret informer events for non-cert-manager Secrets, caused by a generics regression introduced in 1.21.0. (#9037, @wallrj-cyberark)</li>
+<li>Fixed the commented Gateway API config example in the Helm chart values to use <code>gatewayAPI.enabled</code> instead of the invalid <code>gatewayAPI.enable</code>. (#9012, @mateenali66)</li>
+</ul>
+<h3>Other (Cleanup or Flake)</h3>
+<ul>
+<li>Bump <code>golang.org/x/text</code> to v0.40.0 to fix a reported security vulnerability (#9039, @wallrj-cyberark)</li>
+<li>Bump <code>google.golang.org/grpc</code> to v1.82.1 to fix a reported security vulnerability (#9063)</li>
+<li>Bump <code>github.com/google/cel-go</code> to v0.29.0 to fix a reported security vulnerability (#9072)</li>
+<li>Bump <code>go.opentelemetry.io/otel</code> to v1.44.0 to fix a reported security vulnerability (#9073)</li>
+<li>Update distroless base images (#9000, #9025)</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Prometheus v3.13.2</title>
+    <link>https://github.com/prometheus/prometheus/releases/tag/v3.13.2</link>
+    <guid isPermaLink="true">https://github.com/prometheus/prometheus/releases/tag/v3.13.2</guid>
+    <pubDate>Thu, 30 Jul 2026 13:25:26 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<h2>What's Changed</h2>
+<ul>
+<li>[SECURITY] Bump golang.org/x/text to v0.39.0 (CVE-2026-56852) and google.golang.org/grpc to v1.82.1 (GHSA-hrxh-6v49-42gf). #19290 by @krajorama</li>
+<li>[BUGFIX] PromQL: Preallocate the active query tracker file to avoid SIGBUS crashes when the data disk is full. #19289 by @akshajrawat</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/prometheus/prometheus/compare/v3.13.1...v3.13.2">https://github.com/prometheus/prometheus/compare/v3.13.1...v3.13.2</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Prometheus Operator v0.93.0</title>
+    <link>https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.0</link>
+    <guid isPermaLink="true">https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.0</guid>
+    <pubDate>Tue, 28 Jul 2026 14:30:04 GMT</pubDate>
+    <category>observability</category>
+    <category>kubernetes</category>
+    <description><![CDATA[<ul>
+<li>[CHANGE] Switch from uint to int types in the Go definition of the CRDs and add API validations to reject negative values. #8662 #8666</li>
+<li>[CHANGE] Keep local Prometheus compaction enabled when the Thanos sidecar uploads to object storage, for Prometheus &gt;= v3.9.0 and Thanos &gt;= v0.41.0. The operator now coordinates uploads through the shipper meta file (<code>--storage.tsdb.delay-compact-file.path</code>, <code>--shipper.meta-file-name</code>, <code>--shipper.ignore-unequal-block-size</code>) instead of disabling compaction. Set <code>spec.disableCompaction: true</code> to keep the previous behavior. #8694</li>
+<li>[CHANGE] Define a default value of 1 for <code>.spec.shards</code> for <code>Prometheus</code> and <code>PrometheusAgent</code> CRDs. #8691</li>
+<li>[CHANGE/BUGFIX] Add validation markers to all unsigned int fields to reject negative values. #8662</li>
+<li>[CHANGE/BUGFIX] Disable metadata sending when the remote-write configuration uses message version v2.0. #8700</li>
+<li>[FEATURE] Add <code>updateMessage</code> field to the Slack receiver in the <code>AlertmanagerConfig</code> CRD. #8506</li>
+<li>[FEATURE] Add <code>chunkEncoding</code> field to <code>TSDBSpec</code> for runtime float encoding selection in <code>Prometheus</code> and <code>PrometheusAgent</code> CRDs. #8675</li>
+<li>[ENHANCEMENT] Use pod's name as the peer name for Alertmanager &gt;= v0.30.0. #8705</li>
+<li>[BUGFIX] Create IPv6 EndpointSlice for the <code>kubelet</code> Service on dual-stack clusters. #8682</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Thanos v0.42.4</title>
+    <link>https://github.com/thanos-io/thanos/releases/tag/v0.42.4</link>
+    <guid isPermaLink="true">https://github.com/thanos-io/thanos/releases/tag/v0.42.4</guid>
+    <pubDate>Thu, 30 Jul 2026 14:33:20 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>Had to do another version release due to broken base image SHAs. No changes.</p>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/thanos-io/thanos/compare/v0.42.3...v0.42.4">https://github.com/thanos-io/thanos/compare/v0.42.3...v0.42.4</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v826</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v826</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v826</guid>
+    <pubDate>Wed, 29 Jul 2026 22:08:02 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Tableflow:</li><li>  Introduce a maximum uncompressed row size limit for Tableflow ingestion, measured after projection and transforms. Records that exceed the limit are handled based on the configured DLQ policy.</li><li>  Use a more precise memory measurement for Tableflow ingestion buffering.</li><li>Added new metric `warpstream_orbit_auto_migration_unproxied_source_writes_num_records`: counts the number of detected unproxied records to the source cluster that bypassed the WarpStream proxy.</li><li>  tags: `topic=&lt;topic&gt;`</li><li>Add `agent_group` to root metric tags so metrics like `warpstream.agent_kafka_request_latency` and `warpstream_consumer_group_lag` are groupable by agent group in Datadog.</li><li>Fix SASL OAUTHBEARER rejecting non-RS256 tokens (e.g. ES512) when the OAuth 2.x authorization server is discovered via RFC 8414 and does not advertise `id_token_signing_alg_values_supported`.</li><li>Fix events queries returning an internal error instead of a &#34;no events data found&#34; message when an event topic was created moments earlier and the stream metadata cache had not caught up yet.</li><li>Adds support for auto-migrating idempotent producers via Orbit.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-07-27</title>
