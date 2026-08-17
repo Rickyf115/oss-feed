@@ -2,62 +2,115 @@
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.3.1",
-      "checked_at": "2026-08-10T09:25:05.695Z"
+      "checked_at": "2026-08-17T08:45:31.761Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.4",
-      "checked_at": "2026-08-10T09:25:05.956Z"
+      "checked_at": "2026-08-17T08:45:32.241Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.36.3",
-      "checked_at": "2026-08-10T09:25:06.048Z"
+      "checked_at": "2026-08-17T08:45:32.314Z"
     },
     "helm/helm": {
-      "last_seen": "v4.2.3",
-      "checked_at": "2026-08-10T09:25:06.190Z"
+      "last_seen": "v4.2.4",
+      "checked_at": "2026-08-17T08:45:32.409Z"
     },
     "argoproj/argo-cd": {
-      "last_seen": "v3.5.0",
-      "checked_at": "2026-08-10T09:25:06.301Z"
+      "last_seen": "v3.5.1",
+      "checked_at": "2026-08-17T08:45:32.536Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.21.1",
-      "checked_at": "2026-08-10T09:25:06.400Z"
+      "checked_at": "2026-08-17T08:45:32.627Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.21.0",
-      "checked_at": "2026-08-10T09:25:06.490Z"
+      "checked_at": "2026-08-17T08:45:32.729Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.13.2",
-      "checked_at": "2026-08-10T09:25:06.614Z"
+      "checked_at": "2026-08-17T08:45:32.885Z"
     },
     "prometheus-operator/prometheus-operator": {
-      "last_seen": "v0.93.0",
-      "checked_at": "2026-08-10T09:25:06.766Z"
+      "last_seen": "v0.93.1",
+      "checked_at": "2026-08-17T08:45:32.963Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.19.1",
-      "checked_at": "2026-08-10T09:25:06.837Z"
+      "checked_at": "2026-08-17T08:45:33.078Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.42.4",
-      "checked_at": "2026-08-10T09:25:06.943Z"
+      "checked_at": "2026-08-17T08:45:33.156Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.1.4",
-      "checked_at": "2026-08-10T09:25:07.082Z"
+      "checked_at": "2026-08-17T08:45:33.313Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.1.3",
-      "checked_at": "2026-08-10T09:25:07.197Z"
+      "checked_at": "2026-08-17T08:45:33.401Z"
     },
     "https://console.warpstream.com/agent-changelog.rss": {
-      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v827",
-      "checked_at": "2026-08-10T09:25:05.787Z"
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v830",
+      "checked_at": "2026-08-17T08:45:32.067Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-08-17",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-08-17",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 17 Aug 2026 08:45:33 GMT",
+      "description": "<h3>kubernetes</h3>\n<ul>\n  <li><a href=\"https://github.com/helm/helm/releases/tag/v4.2.4\">Helm v4.2.4</a></li>\n  <li><a href=\"https://github.com/argoproj/argo-cd/releases/tag/v3.5.1\">ArgoCD v3.5.1</a></li>\n</ul>\n\n<h3>observability</h3>\n<ul>\n  <li><a href=\"https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.1\">Prometheus Operator v0.93.1</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v830\">Warpstream Agent — WarpStream Agent v830</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Helm v4.2.4",
+      "link": "https://github.com/helm/helm/releases/tag/v4.2.4",
+      "guid": "https://github.com/helm/helm/releases/tag/v4.2.4",
+      "pubDate": "Thu, 13 Aug 2026 15:33:04 GMT",
+      "description": "<p>Helm v4.2.4 is a patch release. Users are encouraged to upgrade for the best experience.</p>\n<p>The community keeps growing, and we'd love to see you there!</p>\n<ul>\n<li>Join the discussion in <a href=\"https://kubernetes.slack.com\">Kubernetes Slack</a>:</li>\n</ul>\n<p>  -  for questions and just to hang out</p>\n<p>  -  for discussing PRs, code, and bugs</p>\n<ul>\n<li>Hang out at the Public Developer Call: Thursday, 9:30 Pacific via <a href=\"https://zoom-lfx.platform.linuxfoundation.org/meeting/91295593969?password=17825db5-c698-44cc-9f00-ef1f61f5d3fb\">Zoom</a></li>\n<li>Test, debug, and contribute charts: <a href=\"https://artifacthub.io/packages/search?kind=0\">ArtifactHub/packages</a></li>\n</ul>\n<h2>Notable Changes</h2>\n<ul>\n<li>fix: Improve error reporting for helm template --debug with --show-only- #31185 by @kyokuping</li>\n<li>fix: fetch logs from all containers in test pods- #32099 by @SebTardif</li>\n<li>fix(provenance): check error return in Digest and encodeRelease- #32136 by @SebTardif</li>\n<li>fix panic on repeated IsReachable calls- #32184 by @atkrad</li>\n<li>fix: set [pull,push] scope when helm push to a registry(use token auth) - v4- #31211 by @kimsungmin1</li>\n<li>Fix missing conflict retry with server-side apply- #32088 by @Kajot-dev</li>\n<li>Properly format the extra field in gzipped packages- #31884 by @ouillie</li>\n<li>Fix vanishing empty lines- #32327 by @matheuscscp</li>\n<li>fix: pass registry client to downloader.Manager in upgrade- #32400 by @SetagGnaw</li>\n<li>chore(deps): bump google.golang.org/grpc from 1.80.0 to 1.82.1- for GO-2026-6061 #32450</li>\n<li>fix: bump go.opentelemetry.io/otel to v1.44.0 for GO-2026-5158- #32521 by @TerryHowe</li>\n</ul>\n<h2>Installation and Upgrading</h2>\n<p>Download Helm v4.2.4. The common platform binaries are here:</p>\n<ul>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-darwin-amd64.tar.gz\">MacOS amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-darwin-amd64.tar.gz.sha256sum\">checksum</a> / 6c163d687ca03c3b5c01928e53bbbcf9518278f47ce7a2f249a5a08e8bdaa2bc)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-darwin-arm64.tar.gz\">MacOS arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-darwin-arm64.tar.gz.sha256sum\">checksum</a> / d747eb4e28bd2727173d15b759fa0a17822291ec09db7ced3d55af290a3661a2)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-amd64.tar.gz\">Linux amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-amd64.tar.gz.sha256sum\">checksum</a> / c306b46f719b0a4da32d0f78ee21bf90ce8d602f15b22ab753f0674d1670a7f3)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-arm.tar.gz\">Linux arm</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-arm.tar.gz.sha256sum\">checksum</a> / 894e901f7daaf9b458baad7b5c685bfeef49070d7d53f99687bd5846a6c13639)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-arm64.tar.gz\">Linux arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-arm64.tar.gz.sha256sum\">checksum</a> / 564de2191b881e9f71b5606b25345821ea1682f06ab90499d3ab22b530176da1)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-386.tar.gz\">Linux i386</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-386.tar.gz.sha256sum\">checksum</a> / 45297aeac0c65173a89e8de832997f952ba5115c2db09b2e3f2c23a601e70583)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-loong64.tar.gz\">Linux loong64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-loong64.tar.gz.sha256sum\">checksum</a> / faafbfecc1a06196e650c3ce0c74d5ac32cb1c0c0a855fa76e59dd100cb8d4c4)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-ppc64le.tar.gz\">Linux ppc64le</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-ppc64le.tar.gz.sha256sum\">checksum</a> / 5c00073e9d493de201384bb7eb19d60615bd7c39db52148473e8ce6da84bc70a)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-s390x.tar.gz\">Linux s390x</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-s390x.tar.gz.sha256sum\">checksum</a> / 5396a35fca5fa46e5614140363f389ce66f96886c1b25f256d9e3028299422fa)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-linux-riscv64.tar.gz\">Linux riscv64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-linux-riscv64.tar.gz.sha256sum\">checksum</a> / d8532a3524ca842887b15ab794377dc9c8ced8f26264c84171b4b0aafff05411)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-windows-amd64.zip\">Windows amd64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-windows-amd64.zip.sha256sum\">checksum</a> / e94d83a4706fd82078c98dade2079fa9d9680c1c2bfb93bfc304ee6bc2412a32)</li>\n<li><a href=\"https://get.helm.sh/helm-v4.2.4-windows-arm64.zip\">Windows arm64</a> (<a href=\"https://get.helm.sh/helm-v4.2.4-windows-arm64.zip.sha256sum\">checksum</a> / dbe8b49ea9877abe3d77354a792efb01920da9f65a492fcb8b4fce4e08bbae8f)</li>\n</ul>\n<p>This release was signed with <code>208D D36E D5BB 3745 A167 43A4 C7C6 FBB5 B91C 1155</code> and can be found at @scottrigby <a href=\"https://keybase.io/r6by\">keybase account</a>. Please use the attached signatures for verifying this release using <code>gpg</code>.</p>\n<p>The <a href=\"https://helm.sh/docs/intro/quickstart/\">Quickstart Guide</a> will get you going from there. For <strong>upgrade instructions</strong> or detailed installation notes, check the <a href=\"https://helm.sh/docs/intro/install/\">install guide</a>. You can also use a <a href=\"https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4\">script to install</a> on any system with <code>bash</code>.</p>\n<h2>What's Next</h2>\n<ul>\n<li>4.3.0 and 3.22.0 are the next minor releases scheduled for September 9, 2026</li>\n</ul>\n<h2>Changelog</h2>\n<ul>\n<li>Minimal fix to build failure from #31211. 3900f434fd3ef2b84065dc04508df48f288dba00 (Scott Rigby)</li>\n<li>fix: bump go.opentelemetry.io/otel to v1.44.0 for GO-2026-5158 (#32521) f7c6e8f0f1e0e649e8d03b1535db4f3b8d0c9af2 (Terry Howe)</li>\n<li>chore(deps): bump google.golang.org/grpc from 1.80.0 to 1.82.1 035a2c38e9a75ca0988c8449c0b7257f30d04064 (dependabot[bot])</li>\n<li>fix: pass registry client to downloader.Manager in upgrade f76a5f46a952f731cc1543f348121297c8b3f6cc (Gates Wang)</li>\n<li>Apply suggestions 5a7c6c7c732b04ad6517b452d538da9e18993d67 (Will Noble)</li>\n<li>Properly format the extra field in gzipped packages 22818486ce0fc18d92e01ba39faf65f70ffa8865 (Will Noble)</li>\n<li>Fix missing conflict retry with server-side apply (#32088) 2c979a17ac6b6d7bfe2d6650b69fa9effe963d4d (Jakub Jaruszewski)</li>\n<li>Potential fix for pull request finding 2bd2c66544634e419ede3cfa18952cce5a5acd08 (kimsungmin1)</li>\n<li>fix(registry): resolve golangci-lint issues in token-auth tests 183a5402291c553898b9c404bc17c95c81ea1c6c (kimsm28)</li>\n<li>chore: go mod tidy after rebase on main 08d8da1aa9080772e57ab5bf5b00b3c13364af00 (kimsm28)</li>\n<li>fix(registry): use plain-http registry in token-auth scope test 9655b5aecc0d36142d0620ff5ed762065a997739 (kimsm28)</li>\n<li>Update pkg/registry/client.go 430dfac3eeab03886f511761e3969f738f760364 (Terry Howe)</li>\n<li>test: improve client<em>scope</em>test.go to avoid data races and brittle assertions 9569605eccf8318fe25bf78c46c4eb462ce8fc3f (kimsm28)</li>\n<li>fix typos in withScopeHint function comment 63f2b6809919e5e8e3e04f52064a536a14f1ff9b (kimsm28)</li>\n<li>fix registry test failures by adjusting DockerRegistryHost and auth server listener management f7488c0be8c65dd16386c215cac4332900667278 (kimsm28)</li>\n<li>fix variable naming requestUrl -&gt; requestURL 8fe78fbe46eb2db5c75ab1cc89699c750017dca6 (kimsm28)</li>\n<li>fix typo, remove unnecessary code, fix to avoid to use the assertion in http hanlder d0670d2fb2c3426cde4b41927b5e9b8b4370df93 (kimsm28)</li>\n<li>change suite.Nil, suite.NotNill to more proper function(suite.NoError, suite.Error) 804256ef659226f26b2222ccb8f9cf18ef1b1946 (kimsungmin1)</li>\n<li>change client<em>scope</em>test.go to use httptest d79bceb807692512461d8007040c41bcd1547041 (kimsungmin1)</li>\n<li>fix typo d34fcd9264225a1e6296c4b0ee124dc69f3b3ecc (kimsungmin1)</li>\n<li>remove freeport dependency 9fbd190c30addb4786e4fe930a0fe98bf354116a (kimsungmin1)</li>\n<li>add newline in license header 9275661357afdfe12b8ce561e8103673f16cca8d (kimsungmin1)</li>\n<li>fix scope when helm push to a registry that use token auth fef91f3e6942a20148542461eaebfb24f2c09584 (kimsungmin1)</li>\n<li>fix panic on repeated IsReachable calls e89ce68bc5fec430bc1e2f0aef1aca6a2e71f795 (Mohammad Abdolirad)</li>\n<li>fix(provenance): check error return in Digest ff1ac83bfb1246cdf1b57a4db0042085cc8b265d (Sebastien Tardif)</li>\n<li>fix: address review feedback 4b4dedb2bdcfac886c124a361a5126e3c5e3c5df (Sebastien Tardif)</li>\n<li>fix: fetch logs from all containers in test pods 7c8010322b8639cdf7844ac1ae5f8d444db43935 (Sebastien Tardif)</li>\n<li>chore: rename savedErr to clear its specific purpose ecc9cd2f1b5b53dadcd12395c032bc5b3ca02937 (Jeaeun Kim)</li>\n<li>chore: fix lint f6211ba49bfbf5768ea44be3a1402869a4709b37 (Jeaeun Kim)</li>\n<li>chore: store err separately for clarity 3507ea5bfdbad921684ac131896b6968c76e9ca6 (Jeaeun Kim)</li>\n<li>chore: Improve error reporting for <code>helm template --debug</code> with <code>--show-only</code> 211ffae93d2d741a2dbcd74b4aa2a1bc2fc27d5f (Jeaeun Kim)</li>\n<li>Address review comments 51a9837ba177812c381515886c4f0cd0b7a633e6 (Matheus Pimenta)</li>\n<li>Fix vanishing empty lines 83a8b70ffc1bcf97bb293cf6b35bd3b5093e8c30 (Matheus Pimenta)</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/helm/helm/compare/v4.2.3...v4.2.4\">https://github.com/helm/helm/compare/v4.2.3...v4.2.4</a></p>",
+      "tags": [
+        "kubernetes",
+        "packaging"
+      ]
+    },
+    {
+      "title": "ArgoCD v3.5.1",
+      "link": "https://github.com/argoproj/argo-cd/releases/tag/v3.5.1",
+      "guid": "https://github.com/argoproj/argo-cd/releases/tag/v3.5.1",
+      "pubDate": "Wed, 12 Aug 2026 12:12:58 GMT",
+      "description": "<h2>Quick Start</h2>\n<h3>Non-HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.1/manifests/install.yaml</code></pre>\n<h3>HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.1/manifests/ha/install.yaml</code></pre>\n<h2>Release Signatures and Provenance</h2>\n<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets\">documentation</a> on how to verify.</p>\n<h2>Release Notes Blog Post</h2>\n<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href=\"https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f\">official blog post</a></p>\n<h2>Upgrading</h2>\n<p>If upgrading from a different minor version, be sure to read the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/\">upgrading</a> documentation.</p>\n<h2>Changelog</h2>\n<h3>Bug fixes</h3>\n<ul>\n<li>33f3bc59faeec96204cda3a5ae211be17d15f1ac: fix(appset): stop progressive sync reconciling in a tight loop (#27577) (#29139) (@himeshp)</li>\n<li>d358e75b3539c3fc43eb2372317bde7a0d01c55f: fix(appset): verify terminating Applications against the API server (#29042) (#29138) (@himeshp)</li>\n<li>ecf37373a9d3a72b259a73abfee7ce27226b960a: fix(controller): cherry-pick treat <code>timeout.reconciliation=0</code> as disabled soft expiry (#27683) (#29007) (@aali309)</li>\n<li>978fa65006565baaaf35894918fd661d610f5953: fix(controller): reuse server-side diff result when masking Secret data (#27858) (#29074) (@1ovsss)</li>\n<li>f399c84f85fc4e3a19ac1e8314ff111493d26fee: fix(controller): use diff cache when timeout.reconciliation is disabled (cherry-pick #29073 for 3.5) (#29158) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>960bed7f2efcdc8b43fe392dd6d17cf95507c9f2: fix(server): prevent SSD CLI secret mask spoofing (cherry-pick #29089 for 3.5) (#29130) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>9f360f4953a1dc0f3474aa9c482d72366863ea33: fix(ssd): hide secret in last-applied-configuration annotation (#28989) (#29052) (@pjiang-dev)</li>\n</ul>\n<h3>Other work</h3>\n<ul>\n<li>109ca7ca71139e514114499d294a492e7910a965: chore: bump version to 3.5.1 on release-3.5 branch (#29165) (@github-actions[bot])</li>\n<li>b44fbbc2e040e303c18a69182fd5dbe2c36cfdf9: fix(manifest-generate-paths): Consistent gen manifest cache key (#28074 and #29037) (#29049) (@agaudreault)</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/argoproj/argo-cd/compare/v3.5.0...v3.5.1\">https://github.com/argoproj/argo-cd/compare/v3.5.0...v3.5.1</a></p>\n<p>&lt;a href=\"<a href=\"https://argoproj.github.io/cd/\">https://argoproj.github.io/cd/</a>\"&gt;&lt;img src=\"<a href=\"https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png\">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>\" width=\"25%\" &gt;&lt;/a&gt;</p>",
+      "tags": [
+        "kubernetes",
+        "gitops"
+      ]
+    },
+    {
+      "title": "Prometheus Operator v0.93.1",
+      "link": "https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.1",
+      "guid": "https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.1",
+      "pubDate": "Mon, 10 Aug 2026 14:41:12 GMT",
+      "description": "<ul>\n<li>[BUGFIX] Fix duplicate kubelet targets for nodes reporting several addresses of the same IP family. #8739</li>\n<li>[BUGFIX] Fix argument list for Thanos containers when custom TLS ciphers or curves are specified. #8749</li>\n</ul>",
+      "tags": [
+        "observability",
+        "kubernetes"
+      ]
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v830",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v830",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v830",
+      "pubDate": "Thu, 13 Aug 2026 17:28:36 GMT",
+      "description": "<ul><li>Tableflow:</li><li>  A `schema` can now be defined inline in schema registry mode and will be used as the schema used to write records in Parquet files. This is handy for defining transforms that change of the shape of the data being inserted into the table.</li><li>The `error handling connection, closing it` log now includes the `client_id` of the Kafka client that was using the connection.</li><li>Remove noisy log when the context is canceled for speculative reads.</li><li>The auto migration forwarded produce metrics `warpstream.agent_kafka_produce_forwarded_records_counter`, `warpstream.agent_kafka_produce_forwarded_compressed_bytes_counter` and `warpstream.agent_kafka_produce_forwarded_compressed_bytes` are now tagged by `outcome`, so records that the source Kafka cluster rejected are reported alongside the ones it accepted. Possible values are `success`, `error`, and `unverified` (used when producing with `acks=0`, where the source cluster sends no response and the Agent cannot confirm the records were accepted).</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-08-10",
       "link": "https://rickyf115.github.io/oss-feed/",
