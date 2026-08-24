@@ -186,7 +186,7 @@
     <div class="container">
       <div>
         <h1>OSS Feed</h1>
-        <p class="subtitle">Weekly release digest &mdash; 62 releases tracked &bull; Updated Monday, August 17, 2026</p>
+        <p class="subtitle">Weekly release digest &mdash; 71 releases tracked &bull; Updated Monday, August 24, 2026</p>
       </div>
       <a class="subscribe-btn" href="https://rickyf115.github.io/oss-feed/feed.xml">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
@@ -200,6 +200,22 @@
     <section>
       <h2 class="section-heading">kubernetes</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes/kubernetes/releases/tag/v1.36.4" target="_blank" rel="noopener noreferrer">Kubernetes v1.36.4</a>
+          <time class="card-date" datetime="Thu, 20 Aug 2026 11:48:16 GMT">Aug 20, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">core</span></div>
+        <p class="card-desc">See kubernetes-announce@ . Additional binary downloads are linked in the CHANGELOG . See the CHANGELOG for more details.</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.22.0" target="_blank" rel="noopener noreferrer">external-dns v0.22.0</a>
+          <time class="card-date" datetime="Thu, 20 Aug 2026 12:32:17 GMT">Aug 20, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">networking</span></div>
+        <p class="card-desc">General information Action required before upgrade :warning: The default annotation prefix is now external-dns.kubernetes.io/ with no fallback (#6424) - :rotating light: This change can delete_ all your DNS records. - :i…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/helm/helm/releases/tag/v4.2.4" target="_blank" rel="noopener noreferrer">Helm v4.2.4</a>
@@ -358,6 +374,38 @@
     <section>
       <h2 class="section-heading">observability</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/prometheus/prometheus/releases/tag/v3.14.0" target="_blank" rel="noopener noreferrer">Prometheus v3.14.0</a>
+          <time class="card-date" datetime="Tue, 18 Aug 2026 08:49:40 GMT">Aug 18, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">[CHANGE] API: Deprecate the stats query parameter of /api/v1/query and /api/v1/query_range for values other than true and all . Other values still enable basic statistics but now return a deprecation warning; they will b…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.20.0" target="_blank" rel="noopener noreferrer">kube-state-metrics v2.20.0</a>
+          <time class="card-date" datetime="Tue, 18 Aug 2026 08:46:24 GMT">Aug 18, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">kubernetes</span></div>
+        <p class="card-desc">v2.20.0 / 2026-08-16 Notes Custom Resource State (CRS) metrics are now feature-frozen; no new CRS features will be accepted going forward. See #3050 for details. This release builds with Go v1.26.6 This release builds wi…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/grafana/mimir/releases/tag/mimir-3.2.0" target="_blank" rel="noopener noreferrer">Grafana Mimir mimir-3.2.0</a>
+          <time class="card-date" datetime="Wed, 19 Aug 2026 13:59:51 GMT">Aug 19, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This release contains 702 PRs from 61 authors, including new contributors Antonio Pitasi, Arpit Jain, Dylan Wylie, Felix von Platen, Geet Manghnani, J Stickler, Joseph Cheverton-Wynne, Matt Van Horn, Nabil, Oleg V. Kozly…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/grafana/grafana/releases/tag/v13.2.0" target="_blank" rel="noopener noreferrer">Grafana v13.2.0</a>
+          <time class="card-date" datetime="Tue, 18 Aug 2026 12:48:13 GMT">Aug 18, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">dashboards</span></div>
+        <p class="card-desc">Download page What&#x27;s new highlights Security CVE-2026-17183 Features and enhancements Alerting: Add Import tab in alerting settings page #129051 , @rodrigopk Alerting: Add notification template import to the import-to-GM…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.93.1" target="_blank" rel="noopener noreferrer">Prometheus Operator v0.93.1</a>
@@ -564,6 +612,30 @@
     <section>
       <h2 class="section-heading">streaming</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/apache/kafka/releases/tag/4.4.0-rc0" target="_blank" rel="noopener noreferrer">Apache Kafka — 4.4.0-rc0</a>
+          <time class="card-date" datetime="Fri, 21 Aug 2026 12:12:47 GMT">Aug 21, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">backend</span></div>
+        <p class="card-desc">4.4.0-rc0</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v833" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v833</a>
+          <time class="card-date" datetime="Fri, 21 Aug 2026 17:20:51 GMT">Aug 21, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">backend</span></div>
+        <p class="card-desc">Make sure that agent metrics include the `virtual_cluster_name` tag when possible. Tableflow: deletion file rewrites now stream output Parquet row groups instead of buffering the entire output file in memory until close.</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.5" target="_blank" rel="noopener noreferrer">Kafka Minion v2.3.5</a>
+          <time class="card-date" datetime="Mon, 17 Aug 2026 13:08:54 GMT">Aug 17, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">observability</span></div>
+        <p class="card-desc">Changelog 88fffc4cf02ae5f55793fc98180db14a7699fc45: security: bump Go toolchain to 1.26.6 (stdlib CVEs) (@frenchfrywpepper) 4f3867a4400b731feda1f17f2e96dea36158d2ab: Merge pull request #348 from redpanda-data/sarah/snyk-…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v830" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v830</a>

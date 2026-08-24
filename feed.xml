@@ -5,8 +5,973 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Aug 2026 08:45:33 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 08:51:02 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-08-24</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-08-24</guid>
+    <pubDate>Mon, 24 Aug 2026 08:51:02 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/kubernetes/kubernetes/releases/tag/v1.36.4">Kubernetes v1.36.4</a></li>
+  <li><a href="https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.22.0">external-dns v0.22.0</a></li>
+</ul>
+
+<h3>observability</h3>
+<ul>
+  <li><a href="https://github.com/prometheus/prometheus/releases/tag/v3.14.0">Prometheus v3.14.0</a></li>
+  <li><a href="https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.20.0">kube-state-metrics v2.20.0</a></li>
+  <li><a href="https://github.com/grafana/mimir/releases/tag/mimir-3.2.0">Grafana Mimir mimir-3.2.0</a></li>
+  <li><a href="https://github.com/grafana/grafana/releases/tag/v13.2.0">Grafana v13.2.0</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://github.com/apache/kafka/releases/tag/4.4.0-rc0">Apache Kafka — 4.4.0-rc0</a></li>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v833">Warpstream Agent — WarpStream Agent v833</a></li>
+  <li><a href="https://github.com/redpanda-data/kminion/releases/tag/v2.3.5">Kafka Minion v2.3.5</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kubernetes v1.36.4</title>
+    <link>https://github.com/kubernetes/kubernetes/releases/tag/v1.36.4</link>
+    <guid isPermaLink="true">https://github.com/kubernetes/kubernetes/releases/tag/v1.36.4</guid>
+    <pubDate>Thu, 20 Aug 2026 11:48:16 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>core</category>
+    <description><![CDATA[<p>See <a href="https://groups.google.com/forum/#!forum/kubernetes-announce">kubernetes-announce@</a>. Additional binary downloads are linked in the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md">CHANGELOG</a>.</p>
+<p>See the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md">CHANGELOG</a> for more details.</p>]]></description>
+  </item>
+
+  <item>
+    <title>external-dns v0.22.0</title>
+    <link>https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.22.0</link>
+    <guid isPermaLink="true">https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.22.0</guid>
+    <pubDate>Thu, 20 Aug 2026 12:32:17 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>networking</category>
+    <description><![CDATA[<h2>General information</h2>
+<p><strong>Action required before upgrade</strong></p>
+<ul>
+<li>:warning: The default annotation prefix is now <code>external-dns.kubernetes.io/</code> with no fallback (#6424)</li>
+</ul>
+<p>   - :rotating<em>light: This change can </em>delete_ <strong>all</strong> your DNS records.</p>
+<p>   - :information_source: You can either migrate your annotations or set <code>--annotation-prefix=external-dns.alpha.kubernetes.io/</code>.</p>
+<p>   - :arrow_right: It's recommended to try this version with <code>--dry-run=true</code> &amp; <code>--policy=create-only</code>.</p>
+<ul>
+<li>:warning: To avoid any unwanted DNS records deletion from the annotation prefix change, <code>--policy</code> is now required with no default (#6508).</li>
+</ul>
+<p><strong>Important</strong></p>
+<ul>
+<li>:warning: <strong>CRD/API upgrades</strong>: Gateway API <code>TLSRoute</code> now uses <code>v1</code>, standard channel since Gateway API v1.5.0 (#6367). Ambassador <code>Host</code> now uses <code>getambassador.io/v3alpha1</code> (#6482). Pi-hole v5 API is removed, v6+ only (#6406).</li>
+<li>:information_source: On AWS, ownership TXT records for A ALIAS now use the <code>a-</code> prefix (#6523). Migration is automatic and ownership is preserved</li>
+</ul>
+<p>   - Leftover <code>cname-</code> records can be cleaned with <code>scripts/aws-cleanup-legacy-txt-records.py --alias-cname-cleanup</code>.</p>
+<ul>
+<li>:information<em>source: This release removes </em>in-tree_ support for Akamai, Plural &amp; Transip (#6485).</li>
+</ul>
+<p>   - Users needing those providers can use a previous version of ExternalDNS or a webhook-based provider. Gandi is marked for removal (#6634).</p>
+<ul>
+<li>:information_source: New: <a href="https://kubernetes-sigs.github.io/external-dns/latest/registry/crd/">0 registry</a> as an alternative to TXT (#5372)</li>
+<li>:information_source: DNAME record support (#6553), and <code>--rfc2136-axfr</code> replacing the deprecated <code>--rfc2136-tsig-axfr</code> (#6598).</li>
+</ul>
+<h2>:warning: Breaking Changes</h2>
+<ul>
+<li>[annotations] switch default annotations prefix to GA by @mloiseleur in #6424</li>
+<li>[config] require explicit --policy flag by @mloiseleur in #6508</li>
+<li>[provider/pihole] drop Pi-hole v5 API support by @ivankatliarchuk in #6406</li>
+<li>[registry/txt] use a- prefix for AWS A ALIAS ownership TXT records by @mloiseleur in #6523</li>
+<li>remove unmaintained providers (akamai, plural, transip) by @mloiseleur in #6485</li>
+<li>[source/gateway-api] migrate TLSRoute to v1 by @ecray in #6367</li>
+</ul>
+<h2>:rocket: Features</h2>
+<ul>
+<li>add DNAME record type support by @clwluvw in #6553</li>
+<li>add isSource template function to scope --fqdn-template by source by @ivankatliarchuk in #6625</li>
+<li>[aws] add aws-hosted-zone-id annotation to pin records to a specific zone by @namnt2307 in #6559</li>
+<li>[aws] support alias=A and alias=AAAA to create single record type by @u-kai in #5997</li>
+<li>[endpoint] support multiple RefObjects per endpoint and per event by @ivankatliarchuk in #6495</li>
+<li>[registry] new CRD option by @mloiseleur in #5372</li>
+<li>[rfc2136] add --rfc2136-axfr, deprecate --rfc2136-tsig-axfr by @mloiseleur in #6598</li>
+<li>[source] add --fqdn-* flag support to f5-virtualserver and f5-transportserver sources by @ivankatliarchuk in #6470</li>
+<li>[source] add --fqdn-* flag support to gloo-proxy source by @ivankatliarchuk in #6475</li>
+<li>[source] add --fqdn-* flag support to traefik-proxy source by @ivankatliarchuk in #6468</li>
+<li>[source] add label filter support to contour, f5, kong, skipper, traefik sources by @ivankatliarchuk in #6538</li>
+<li>[source/ambassador] migrate Host CRD to emissary-ingress v3alpha1 by @mloiseleur in #6482</li>
+<li>[source] apply controller annotation filter at indexer level by @ivankatliarchuk in #6426</li>
+<li>[source] attach RefObject to all remaining sources by @mloiseleur in #6492</li>
+<li>[source/fake] extend fake source to emit all supported record types by @ivankatliarchuk in #6308</li>
+<li>[source] migrate contour, f5, kong, traefik sources to indexer-based filtering by @ivankatliarchuk in #6542</li>
+<li>[source] migrate ingress and node sources to Indexers pattern by @ivankatliarchuk in #6445</li>
+<li>[source] set transformer on all informers by @vflaux in #6451</li>
+<li>[source/template] add fqdn-target-template to pod/service/node and consolidate duplicate template helpers by @ivankatliarchuk in #6497</li>
+<li>[template] support repeatable --fqdn-template, --target-template, --fqdn-target-template flags by @ivankatliarchuk in #6429</li>
+<li>[test/crd] support CRD integration tests by @ivankatliarchuk in #6412</li>
+</ul>
+<h2>:bug: Bug fixes</h2>
+<ul>
+<li>[alibabacloud] fix TXT record value comparison during record updates by @jiangzm in #6487</li>
+<li>[aws] incorrect behavior for non-aliasable record types by @u-kai in #6017</li>
+<li>[awssd] use namespace-aware parsing for dotted service names by @am-ltk in #6365</li>
+<li>[aws] unescape wildcard alias target on read by @ulascansenturk in #6471</li>
+<li>[cloudflare] send SRV records as structured data by @tpaulus in #6560</li>
+<li>[coredns] return AAAA for IPv6 targets by @mloiseleur in #6489</li>
+<li>[coredns] unexpected delete when owner is activated by @farodin91 in #6206</li>
+<li>[coredns] write PTR records without random prefix to etcd by @dongjiang1989 in #6478</li>
+<li>create/update event generation for webhook provider by @tommasopozzetti in #6361</li>
+<li>[dnsimple] read back all supported record types and fix record lookup by type by @Churi12 in #6517</li>
+<li>[dynamodb] avoid nil region option panic by @vissieza in #6417</li>
+<li>[events] encapsulate ObjectReference fields by @ivankatliarchuk in #6423</li>
+<li>[mapper] prevent index out of bounds in ToEndpointName with multi-dot suffix by @carterpewpew in #6433</li>
+<li>pin smartystreets/assertions. mark gandi provider for removal by @ivankatliarchuk in #6634</li>
+<li>preserve equals signs in endpoint label values by @immanuwell in #6443</li>
+<li>[provider/cloudflare] trim surrounding whitespace from API token by @gecube in #6533</li>
+<li>[provider] normalize alias=A/AAAA to alias=true after AdjustEndpoints by @u-kai in #6454</li>
+<li>[provider/rfc2136] use independent counters for AXFR and update nameserver rotation by @pujitha24 in #6591</li>
+<li>[service] switch Endpoints() to indexer-based filtering by @ivankatliarchuk in #6344</li>
+<li>[source/crd] allow SRV targets with trailing dot in DNSEndpoint by @SAY-5 in #6383</li>
+<li>[source/fake.go] make fakeSource endpoint generation deterministic by @vflaux in #6411</li>
+<li>[source] parse gloo-proxy aggregateListener virtual hosts by @pujitha24 in #6628</li>
+<li>[source] preserve Skipper custom token file by @PragalvaXFREZ in #6583</li>
+<li>[source] SingletonClientGenerator once-init errors by @carterpewpew in #6398</li>
+<li>[source] use correct key when checking for existing alias in postProcessor by @u-kai in #6388</li>
+<li>support ownership recognition of txt records by @HartmannVolker in #6435</li>
+</ul>
+<h2>:memo: Documentation</h2>
+<ul>
+<li>add Tencent Cloud webhook provider by @QianChenglong in #6432</li>
+<li>[ai] add instructions for agents by @mloiseleur in #6453</li>
+<li>[aws] correct hosted zone annotation prefix by @immanuwell in #6569</li>
+<li>[ci] validate docs build on PRs targeting master by @ivankatliarchuk in #6351</li>
+<li>clarify release tag vs kustomize manifest lag by @VedantMadane in #6626</li>
+<li>[crd] clarify annotation-filter behavior for DNSEndpoint by @immanuwell in #6530</li>
+<li>[faq] explain how to migrate a hostname between sources by @mloiseleur in #6490</li>
+<li>fix deps, build &amp; links warning by @mloiseleur in #6350</li>
+<li>[proposal] libdns provider adapter by @mloiseleur in #6509</li>
+<li>[readme] remove retired go report card badge by @scholar7r in #6549</li>
+<li>[README] restructure provider and source listings by @mloiseleur in #6499</li>
+<li>[readme] update Unifi webhook URL by @onedr0p in #6534</li>
+<li>[rfc2136] fix duplicated word in tutorial by @s3onghyun in #6504</li>
+<li>[traefik] clarify explicit target requirement by @immanuwell in #6502</li>
+<li>[tutorials/aws] document AWS SDK credential provider chain by @alekc in #6444</li>
+<li>[tutorials/aws] fix grammatical error by @Jawwad78 in #6384</li>
+<li>[tutorials/ovh] Add single-link credential creation by @fhoekstra in #6397</li>
+<li>[webhook] add namecheap webhook provider by @evandeaubl in #6631</li>
+<li>[webhook] add NAVER Cloud Platform webhook provider by @inerplat in #6575</li>
+<li>[webhook] add Porkbun webhook provider to registry by @mattgmoser in #6409</li>
+<li>[webhook] add reference to netbird external-dns provider by @kgrotel in #6460</li>
+</ul>
+<h2>:package: Docker Image</h2>
+<pre><code># This pull command only works when it's released
+docker pull registry.k8s.io/external-dns/external-dns:v0.22.0</code></pre>
+<h2>:package: Others</h2>
+<p>&lt;details&gt;&lt;summary&gt;chore&lt;/summary&gt;</p>
+<ul>
+<li>add fuzz tests for parsing and normalization functions by @Raffo in #6525</li>
+<li>bump dependencies for update by @Raffo in #6643</li>
+<li>bump k8s deps to v0.36.0 and remove deprecated scheme.Builder by @ivankatliarchuk in #6407</li>
+<li>bump to go version 1.26.6 by @Raffo in #6635</li>
+<li>[cobra] cleanup up leftover Cobra code by @vflaux in #6448</li>
+<li>fix grpc vuln by upgrading lib by @Raffo in #6614</li>
+<li>fix typos across codebase by @Raffo in #6385</li>
+<li>fix x/text vulnerability by upgrading by @Raffo in #6615</li>
+<li>follow the OpenSSF recommendations for github permissions by @Raffo in #6378</li>
+<li>[release] updates kustomize &amp; docs with v0.21.0 by @mloiseleur in #6349</li>
+<li>update CI workflows to pin pip packages and go packages by @Raffo in #6498</li>
+<li>update maintainers by @mloiseleur in #6421</li>
+<li>update reviewers by @mloiseleur in #6427</li>
+<li>update security contacts by @Raffo in #6425</li>
+</ul>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;ci&lt;/summary&gt;</p>
+<ul>
+<li>[docs] use latest as alias by @mloiseleur in #6352</li>
+<li>[e2e] use rollout status for etcd instead of kubectl wait by @u-kai in #6474</li>
+<li>[github] pin github action by @ivankatliarchuk in #6428</li>
+<li>replace GrantBirki/json-yaml-validate action with jq by @Raffo in #6318</li>
+<li>replace pre-commit with a SHA-pinned file-hygiene script by @Raffo in #6374</li>
+</ul>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;deps&lt;/summary&gt;</p>
+<ul>
+<li>bump github.com/cloudflare/cloudflare-go from v5 to v7 by @bayazee in #6550</li>
+<li>bump github.com/projectcontour/contour from 1.33.3 to 1.33.4 by @app/dependabot in #6395</li>
+<li>bump gitpython from 3.1.50 to 3.1.52 in /docs/scripts by @app/dependabot in #6576</li>
+<li>bump gitpython from 3.1.52 to 3.1.54 in /docs/scripts by @app/dependabot in #6585</li>
+<li>bump gitpython from 3.1.54 to 3.1.57 in /docs/scripts by @app/dependabot in #6613</li>
+<li>bump gitpython from 3.1.57 to 3.1.58 in /docs/scripts by @app/dependabot in #6621</li>
+<li>bump mkdocs-git-revision-date-localized-plugin from 1.5.1 to 1.5.2 in /docs/scripts in the mkdocs-deps group by @app/dependabot in #6464</li>
+<li>bump mkdocs-git-revision-date-localized-plugin from 1.5.2 to 1.5.3 in /docs/scripts in the mkdocs-deps group by @app/dependabot in #6532</li>
+<li>bump mkdocs-material from 9.7.6 to 9.7.7 in /docs/scripts in the mkdocs-deps group across 1 directory by @app/dependabot in #6601</li>
+<li>bump pymdown-extensions from 10.21.3 to 11.0 in /docs/scripts by @app/dependabot in #6584</li>
+<li>bump pymdown-extensions from 11.0 to 11.0.1 in /docs/scripts by @app/dependabot in #6622</li>
+<li>bump the dev-dependencies group across 1 directory with 20 updates by @app/dependabot in #6410</li>
+<li>bump the dev-dependencies group with 10 updates by @app/dependabot in #6441</li>
+<li>bump the dev-dependencies group with 12 updates by @app/dependabot in #6459</li>
+<li>bump the dev-dependencies group with 22 updates by @app/dependabot in #6488</li>
+<li>bump the dev-dependencies group with 3 updates by @app/dependabot in #6420</li>
+<li>bump the dev-dependencies group with 4 updates by @app/dependabot in #6362</li>
+<li>bump the dev-dependencies group with 4 updates by @app/dependabot in #6403</li>
+<li>bump the dev-dependencies group with 5 updates by @app/dependabot in #6463</li>
+<li>bump the dev-dependencies group with 6 updates by @app/dependabot in #6452</li>
+<li>bump the dev-dependencies group with 9 updates by @app/dependabot in #6531</li>
+<li>bump the dev-dependencies group with 9 updates by @app/dependabot in #6602</li>
+<li>bump the mkdocs-deps group in /docs/scripts with 2 updates by @app/dependabot in #6404</li>
+<li>[go] bump go from 1.26.1 -&gt; 1.26.5 by @ivankatliarchuk in #6568</li>
+</ul>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;refactor&lt;/summary&gt;</p>
+<ul>
+<li>[alibabacloud/test] optimize alidns unit tests by @jiangzm in #6506</li>
+<li>[controller] controller.Run to return error by @ivankatliarchuk in #6345</li>
+<li>[controller] replace custom SIGTERM handler with NotifyContext by @vflaux in #5821</li>
+<li>[endpoint] add WithAliasProperty and replace alias string literals by @u-kai in #6455</li>
+<li>[endpoint] export ProviderSpecificAlias and consolidate usage by @u-kai in #6342</li>
+<li>[endpoint] move MergeEndpoints from source to endpoint package by @ivankatliarchuk in #6413</li>
+<li>[events] use typed queue and revisit event controller by @ivankatliarchuk in #6346</li>
+<li>[exoscale] migrate provider to egoscale v3 and apex DNS record handling by @natalie-o-perret in #6371</li>
+<li>[pdns] replace unmaintained ffledgling/pdns-go with joeig/go-powerdns/v3 by @mloiseleur in #6486</li>
+<li>[registry/crd] build REST config from shared client package by @mloiseleur in #6514</li>
+<li>[source/gloo] migrate to indexers, add annotation/label/controller filters by @ivankatliarchuk in #6515</li>
+<li>[source] migrate AnnotationFilter from string to labels.Selector by @ivankatliarchuk in #6526</li>
+<li>use Set structs instead of map[]struct{} by @vflaux in #6360</li>
+</ul>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;security&lt;/summary&gt;</p>
+<ul>
+<li>[github] added openssf github action by @ivankatliarchuk in #6245</li>
+</ul>
+<p>&lt;/details&gt;</p>
+<p>&lt;details&gt;&lt;summary&gt;test&lt;/summary&gt;</p>
+<ul>
+<li>[crd] assert the generated CRDs are installable by @mloiseleur in #6619</li>
+<li>[e2e] retry downloads to survive transient network errors by @u-kai in #6603</li>
+<li>[gandi] extend coverage with mock adapters by @amarkdotdev in #6518</li>
+<li>[ingress] fix endpoint count and improve assertion output by @ivankatliarchuk in #6194</li>
+<li>[integration/crd] add SRV record scenario covering RFC 2782 trailing dot by @ivankatliarchuk in #6422</li>
+<li>[pkg/rfc2317] cover bare IPv6 and invalid-mask edge cases by @SAY-5 in #6437</li>
+<li>[registry/crd] expand unit test coverage by @FirasYousfi in #6522</li>
+<li>[source] assert RefObject via ValidateEndpoints opt-in by @mloiseleur in #6493</li>
+<li>[source] fix flaky unstructured source test by @mloiseleur in #6483</li>
+<li>[source] improve skipper routegroup coverage by @PragalvaXFREZ in #6580</li>
+<li>[source/ingress] two ingresses with same host, different IPs by @ivankatliarchuk in #6496</li>
+</ul>
+<p>&lt;/details&gt;</p>]]></description>
+  </item>
+
+  <item>
+    <title>Prometheus v3.14.0</title>
+    <link>https://github.com/prometheus/prometheus/releases/tag/v3.14.0</link>
+    <guid isPermaLink="true">https://github.com/prometheus/prometheus/releases/tag/v3.14.0</guid>
+    <pubDate>Tue, 18 Aug 2026 08:49:40 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<ul>
+<li>[CHANGE] API: Deprecate the <code>stats</code> query parameter of <code>/api/v1/query</code> and <code>/api/v1/query_range</code> for values other than <code>true</code> and <code>all</code>. Other values still enable basic statistics but now return a deprecation warning; they will be rejected in the next major release. #19124</li>
+<li>[CHANGE] API: <code>/api/v1/status/config</code> now correctly shows <code>separator: ""</code> and <code>replacement: ""</code> in relabel configs when explicitly set to empty, instead of omitting them. #18653</li>
+<li>[CHANGE] Discovery/Hetzner: Drop the <code>__meta_hetzner_datacenter</code> label for <code>hcloud</code> targets, following its removal from the Hetzner Cloud API. #19269</li>
+<li>[CHANGE] PromQL: Enable duration expressions by default. The <code>promql-duration-expr</code> feature flag is now a no-op. #19033</li>
+<li>[CHANGE] PromQL: Promote <code>first_over_time</code> to stable. It no longer requires the <code>promql-experimental-functions</code> feature flag. #19093</li>
+<li>[FEATURE] Discovery: Add Oracle Cloud Infrastructure compute service discovery (<code>oci_sd_configs</code>). #18919</li>
+<li>[FEATURE] PromQL: Add experimental <code>start_timestamp(instant-vector)</code> function returning the start timestamp of each sample in the given vector. Requires the <code>use-start-timestamps</code> feature flag. #19089</li>
+<li>[FEATURE] PromQL: Allow <code>rate()</code> and <code>increase()</code> to use start timestamps as an alternative for rate extrapolation. Hidden behind the <code>use-start-timestamps</code> feature flag. #18619</li>
+<li>[FEATURE] TSDB: Add experimental support for encoding start timestamps in histograms and float histograms. Hidden behind the <code>histograms-st-encoding</code> feature flag. #18609</li>
+<li>[ENHANCEMENT] OTLP: Emit a warning when OTLP attribute names collide into the same Prometheus label after sanitization (e.g. <code>k8s.pod.name</code> and <code>k8s_pod_name</code> both become <code>k8s_pod_name</code>), and expose the <code>prometheus_api_otlp_translation_warnings_total</code> counter labelled by <code>category</code> to track such warnings. #18957</li>
+<li>[ENHANCEMENT] Promtool: Add <code>--remote-write.path</code> flag to <code>push metrics</code> for backends that use a non-default remote-write endpoint. #19086</li>
+<li>[ENHANCEMENT] Remote write: Forward histogram start timestamps in the remote write V2 protocol. #18903</li>
+<li>[ENHANCEMENT] TSDB: Add <code>prometheus_tsdb_head_native_histogram_series</code> and <code>prometheus_tsdb_head_native_histogram_buckets</code> gauges tracking the number of native histogram series and buckets in the head. #19170</li>
+<li>[ENHANCEMENT] UI: Add syntax highlighting, autocompletion, and linting for PromQL duration expressions (<code>step()</code>, <code>range()</code>, <code>min_of()</code>, <code>max_of()</code>) in range selectors and subqueries. #18625</li>
+<li>[ENHANCEMENT] UI: Add copy button next to rule names on the Rules and Alerts pages. #18706</li>
+<li>[ENHANCEMENT] UI: Improve rule group title contrast on the Rules page. #19181</li>
+<li>[PERF] Speed up regex label matchers matching a set of literal values (e.g. <code>{job=~"foo|bar|baz"}</code>). #18833</li>
+<li>[PERF] Remote read: Improve remote read throughput by removing unnecessary per-write flushing. #18470</li>
+<li>[PERF] Scrape: Parse text and OpenMetrics formats without recursion, preventing stack overflow from deeply nested or malicious exposition input. #19143</li>
+<li>[PERF] Scrape: Reduce native histogram scrape parsing allocations by ~49%. #19282</li>
+<li>[PERF] TSDB: Speed up queries on series with many in-memory chunks. #18300</li>
+<li>[BUGFIX] Alerting: Fix 100% CPU usage on shutdown that could delay graceful shutdown and trigger timeout-based kills. #17859</li>
+<li>[BUGFIX] Discovery/AWS: Stop <code>promtool check config</code> from making AWS metadata service (IMDS) network calls when the <code>region</code> field is omitted in EC2, ECS, RDS, MSK, ElastiCache, and Lightsail service discovery configs. #19037</li>
+<li>[BUGFIX] Discovery/Docker: Set a request timeout for <code>docker_sd</code> and <code>dockerswarm_sd</code> on <code>unix</code>, <code>npipe</code>, and <code>tcp</code> hosts. Previously an unresponsive daemon could freeze discovery indefinitely, silently pinning targets to a stale snapshot. #19237</li>
+<li>[BUGFIX] Discovery/Docker: Fix panic in Docker Swarm service discovery when a service runs as a plugin or network-attachment. #19102</li>
+<li>[BUGFIX] Discovery/Docker: Fix discovery of IPv6-only containers. #18778</li>
+<li>[BUGFIX] PromQL: Fix case-insensitive regex label matchers silently dropping matching values. #19167</li>
+<li>[BUGFIX] PromQL: Fix <code>mad_over_time</code> returning 0 instead of <code>NaN</code> when the range contains a <code>NaN</code> sample. #19040</li>
+<li>[BUGFIX] Promtool: Accept <code>--enable-feature=promql-binop-fill-modifiers</code> in <code>check rules</code>, which previously rejected valid <code>fill()</code>/<code>fill_left()</code>/<code>fill_right()</code> expressions. #19153</li>
+<li>[BUGFIX] Remote write: Respect the <code>AZURE_FEDERATED_TOKEN_FILE</code> environment variable for workload identity authentication instead of hardcoding the token file path. #18973</li>
+<li>[BUGFIX] Rules: Clean up stale <code>rule_group_last_rule_duration_sum_seconds</code> and <code>rule_group_last_restore_duration_seconds</code> series when a rule group is removed or renamed on reload. Previously each reload leaked two series per dropped group, growing <code>/metrics</code> cardinality over time. #19107</li>
+<li>[BUGFIX] Scrape: Fix scrape manager spinning at 100% CPU on shutdown. #19149</li>
+<li>[BUGFIX] TSDB: Fix silent data loss and potential crash loop when <code>stale_series_compaction_threshold</code> is used in the config file. #19016</li>
+<li>[BUGFIX] TSDB: Fix potential data loss on restart when out-of-order ingestion is enabled and blocks are compacted. #19016</li>
+<li>[BUGFIX] TSDB: Fix <code>prometheus_tsdb_head_stale_series</code> over-counting and early eviction of series that change between float, integer histogram, and float histogram sample types. #19183</li>
+<li>[BUGFIX] TSDB: Fix goroutine and file handle leaks when Prometheus fails to open a corrupt TSDB. On Windows, the leaked directory handle also prevented TSDB directory removal. #18291</li>
+<li>[BUGFIX] TSDB: Fix out-of-order queries blocking compaction for hours, causing memory usage to grow. #19013</li>
+<li>[BUGFIX] TSDB: Fix deleted series causing missing samples and errors after restart. #19140</li>
+<li>[BUGFIX] TSDB: Fix native histogram data becoming incorrect after restart. #19202</li>
+<li>[BUGFIX] TSDB: Surface query errors that were previously silently discarded. #19120</li>
+<li>[BUGFIX] TSDB: Honour the configured float chunk encoding when compaction rewrites chunks; previously chunks encoded with <code>--enable-feature=xor2-encoding</code> could silently revert to XOR after compaction. #19145</li>
+<li>[BUGFIX] UI: Show the delete-series form on the TSDB Status page when <code>--web.enable-admin-api</code> is enabled. #19025</li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>kube-state-metrics v2.20.0</title>
+    <link>https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.20.0</link>
+    <guid isPermaLink="true">https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.20.0</guid>
+    <pubDate>Tue, 18 Aug 2026 08:46:24 GMT</pubDate>
+    <category>observability</category>
+    <category>kubernetes</category>
+    <description><![CDATA[<h2>v2.20.0 / 2026-08-16</h2>
+<h3>Notes</h3>
+<p>Custom Resource State (CRS) metrics are now feature-frozen; no new CRS features will be accepted going forward. See <a href="https://github.com/kubernetes/kube-state-metrics/pull/3050">#3050</a> for details.</p>
+<ul>
+<li>This release builds with Go <code>v1.26.6</code></li>
+<li>This release builds with <code>k8s.io/client-go</code>: <code>v0.36.3</code></li>
+</ul>
+<h3>Changelog</h3>
+<ul>
+<li>[CHANGE] <code>kube_pod_status_reason</code> now emits a row only for the reason that is actually set, instead of one zero/one row per known reason for every pod by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3089">#3089</a></li>
+<li>[FEATURE] Add <code>kube_pod_status_disruption_reason</code> metric for pods evicted via the Eviction API by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3088">#3088</a></li>
+<li>[FEATURE] Add MutatingAdmissionPolicy and MutatingAdmissionPolicyBinding metrics by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3019">#3019</a></li>
+<li>[FEATURE] Add ValidatingAdmissionPolicy and ValidatingAdmissionPolicyBinding metrics by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3014">#3014</a></li>
+<li>[FEATURE] Add HPA scale up/down behavior tolerance metrics by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3015">#3015</a></li>
+<li>[FEATURE] Add <code>kube_node_spec_pod_cidrs</code> metric by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3011">#3011</a></li>
+<li>[FEATURE] Add <code>kube_pod_resourceclaim_info</code> metric for DRA ResourceClaim references by @cyber-slave-labs in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3005">#3005</a></li>
+<li>[FEATURE] Add <code>kube_pod_init_container_status_last_terminated_exitcode</code> metric by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3000">#3000</a></li>
+<li>[FEATURE] Add init container <code>state_started</code> and <code>last_terminated_timestamp</code> metrics by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2997">#2997</a></li>
+<li>[FEATURE] Shard only resource mutation watch events by @jfremy-openai in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2993">#2993</a></li>
+<li>[FEATURE] Add label generation support for ephemeral volumes in pods by @eminaktas in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2891">#2891</a></li>
+<li>[FEATURE] Allow wildcards in annotation and label allowlists by @skoef in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2873">#2873</a></li>
+<li>[FEATURE] Add access mode metric for PersistentVolumes by @viragvoros in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2823">#2823</a></li>
+<li>[ENHANCEMENT] Reduce allocations in metric generation and header sanitization by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3060">#3060</a></li>
+<li>[ENHANCEMENT] Implement <code>cache.Store</code> Bookmark and LastStoreSyncResourceVersion in MetricsStore for client-go 0.36 compatibility by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2965">#2965</a></li>
+<li>[BUGFIX] Don't panic on a Deployment with an unset <code>rollingUpdate</code> value by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3083">#3083</a></li>
+<li>[BUGFIX] Serialize config reloads so one does not strand another instance by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3070">#3070</a></li>
+<li>[BUGFIX] Rebuild clients from the current kubeconfig on reload by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3080">#3080</a></li>
+<li>[BUGFIX] Check CRD fields instead of asserting them during discovery by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3078">#3078</a></li>
+<li>[BUGFIX] Build each EndpointSlice hint's labels independently by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3076">#3076</a></li>
+<li>[BUGFIX] Guard the store builder state shared with discovery by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3075">#3075</a></li>
+<li>[BUGFIX] Read the discovery GVK cache under the lock by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3074">#3074</a></li>
+<li>[BUGFIX] Scope the metrics handler scrape lock to reading the writers by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3073">#3073</a></li>
+<li>[BUGFIX] Skip an HPA status metric whose source is not set by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3071">#3071</a></li>
+<li>[BUGFIX] Fix three issues in the server request and shutdown paths by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3068">#3068</a></li>
+<li>[BUGFIX] Escape reserved characters in metric help text by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3067">#3067</a></li>
+<li>[BUGFIX] Don't panic on a custom resource metric that fails to compile by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3066">#3066</a></li>
+<li>[BUGFIX] Preserve pagination metadata when filtering a sharded list by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3065">#3065</a></li>
+<li>[BUGFIX] Never emit the same label name twice by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3064">#3064</a></li>
+<li>[BUGFIX] Don't dereference an unset EndpointSlice port number by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3063">#3063</a></li>
+<li>[BUGFIX] Write headers when only a later store has metrics by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3061">#3061</a></li>
+<li>[BUGFIX] Don't emit nil metrics for unparseable pod IPs by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3059">#3059</a></li>
+<li>[BUGFIX] Fix wrong labels applied to the endpointslices metric by @odinuge in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3058">#3058</a></li>
+<li>[BUGFIX] Embed tzdata so named CronJob <code>spec.timeZone</code> values resolve by @SteeleND in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3022">#3022</a></li>
+<li>[BUGFIX] Prevent leaked goroutines on CRD updates by @jfremy-openai in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3007">#3007</a></li>
+<li>[BUGFIX] Start the zombie-process reaper only once by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3079">#3079</a></li>
+<li>[BUGFIX] Emit the default suspend metric value for CronJobs by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2999">#2999</a></li>
+<li>[BUGFIX] Prevent duplicate cluster-scoped metrics when using <code>--namespaces</code> by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2998">#2998</a></li>
+<li>[BUGFIX] Log when a configured custom resource CRD is absent by @aryanputta in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2996">#2996</a></li>
+<li>[BUGFIX] Handle omitted <code>minReplicas</code> in HPA metrics by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2991">#2991</a></li>
+<li>[BUGFIX] Stop the CRD discoverer when its context is canceled by @L3n41c in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2977">#2977</a></li>
+<li>[BUGFIX] Guard nil <code>Spec.Replicas</code> before dereferencing on Deployments by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2971">#2971</a></li>
+<li>[BUGFIX] Guard nil suspend field in CronJob next-schedule metric by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2970">#2970</a></li>
+<li>[BUGFIX] Ignore non-served CRD versions in discovery by @boomer41 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2940">#2940</a></li>
+<li>[BUGFIX] Skip landing page registration on <code>NewLandingPage</code> error by @carterpewpew in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2937">#2937</a></li>
+<li>[BUGFIX] Log when a configured custom resource CRD is not installed in the cluster by @maksimp13 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2903">#2903</a></li>
+<li>[BUGFIX] Handle nil path gracefully in StateSet metrics by @Br1an67 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2884">#2884</a></li>
+</ul>
+<h3>Full Changelog</h3>
+<ul>
+<li>fix: Update base image for post-release step by @rexagod in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2963">https://github.com/kubernetes/kube-state-metrics/pull/2963</a></li>
+<li>chore: Merge Release 2.19.0 back to main by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2962">https://github.com/kubernetes/kube-state-metrics/pull/2962</a></li>
+<li>build(deps): Bump goreleaser/goreleaser-action from 7.2.1 to 7.2.2 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2966">https://github.com/kubernetes/kube-state-metrics/pull/2966</a></li>
+<li>fix(cronjob): guard nil suspend in next schedule metric by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2970">https://github.com/kubernetes/kube-state-metrics/pull/2970</a></li>
+<li>build(deps): Bump github.com/prometheus/common from 0.67.5 to 0.68.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2976">https://github.com/kubernetes/kube-state-metrics/pull/2976</a></li>
+<li>chore: upgrade golang toolchain to address CVE-2026-42504 - GO-2026-5038 by @slessard in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2982">https://github.com/kubernetes/kube-state-metrics/pull/2982</a></li>
+<li>chore: Fix several high-scoring CVEs by @slessard in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2981">https://github.com/kubernetes/kube-state-metrics/pull/2981</a></li>
+<li>fix: watch-list bookmarks with sharding by @jfremy-openai in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2974">https://github.com/kubernetes/kube-state-metrics/pull/2974</a></li>
+<li>build(deps): Bump github.com/netresearch/go-cron from 0.14.0 to 0.15.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2985">https://github.com/kubernetes/kube-state-metrics/pull/2985</a></li>
+<li>build(deps): Bump actions/checkout from 6.0.2 to 6.0.3 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2983">https://github.com/kubernetes/kube-state-metrics/pull/2983</a></li>
+<li>build(deps): Bump github.com/prometheus/common from 0.68.0 to 0.68.1 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2984">https://github.com/kubernetes/kube-state-metrics/pull/2984</a></li>
+<li>fix(deployment): guard nil Spec.Replicas before dereference by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2971">https://github.com/kubernetes/kube-state-metrics/pull/2971</a></li>
+<li>chore: fix link for ksm staging image promo by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2987">https://github.com/kubernetes/kube-state-metrics/pull/2987</a></li>
+<li>fix: don't panic on CronJobs with unparseable schedules by @atosatto in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2978">https://github.com/kubernetes/kube-state-metrics/pull/2978</a></li>
+<li>chore: Release 2.19.1 by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2995">https://github.com/kubernetes/kube-state-metrics/pull/2995</a></li>
+<li>fix(discovery): Stop the discoverer when the context is canceled by @L3n41c in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2977">https://github.com/kubernetes/kube-state-metrics/pull/2977</a></li>
+<li>fix(hpa): handle omitted minReplicas in HPA metrics by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2991">https://github.com/kubernetes/kube-state-metrics/pull/2991</a></li>
+<li>feat(pod): add init container state<em>started and last</em>terminated_timestamp metrics by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2997">https://github.com/kubernetes/kube-state-metrics/pull/2997</a></li>
+<li>fix(cronjob): emit the default suspend metric value by @immanuwell in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2999">https://github.com/kubernetes/kube-state-metrics/pull/2999</a></li>
+<li>feat: implement cache.Store Bookmark and LastStoreSyncResourceVersion… by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2965">https://github.com/kubernetes/kube-state-metrics/pull/2965</a></li>
+<li>feat: shard only resource mutation watch events by @jfremy-openai in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2993">https://github.com/kubernetes/kube-state-metrics/pull/2993</a></li>
+<li>fix: prevent duplicate cluster-scoped metrics when using --namespaces by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2998">https://github.com/kubernetes/kube-state-metrics/pull/2998</a></li>
+<li>build(deps): Bump actions/checkout from 6.0.3 to 7.0.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3012">https://github.com/kubernetes/kube-state-metrics/pull/3012</a></li>
+<li>build(deps): Bump github.com/prometheus/common from 0.68.1 to 0.69.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3013">https://github.com/kubernetes/kube-state-metrics/pull/3013</a></li>
+<li>feat: add kube<em>pod</em>resourceclaim_info metric for DRA ResourceClaim references by @cyber-slave-labs in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3005">https://github.com/kubernetes/kube-state-metrics/pull/3005</a></li>
+<li>feat: Implement ValidationAdmissionPolicy (VAP) metrics by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3014">https://github.com/kubernetes/kube-state-metrics/pull/3014</a></li>
+<li>feat(node): add kube<em>node</em>spec<em>pod</em>cidrs metric by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3011">https://github.com/kubernetes/kube-state-metrics/pull/3011</a></li>
+<li>feat(pod): add kube<em>pod</em>init<em>container</em>status<em>last</em>terminated_exitcode by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3000">https://github.com/kubernetes/kube-state-metrics/pull/3000</a></li>
+<li>build(deps): Bump actions/setup-go from 6.4.0 to 6.5.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3025">https://github.com/kubernetes/kube-state-metrics/pull/3025</a></li>
+<li>build(deps): Bump goreleaser/goreleaser-action from 7.2.2 to 7.2.3 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3029">https://github.com/kubernetes/kube-state-metrics/pull/3029</a></li>
+<li>build(deps): Bump github.com/prometheus/exporter-toolkit from 0.16.0 to 0.17.1 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3030">https://github.com/kubernetes/kube-state-metrics/pull/3030</a></li>
+<li>build(deps): Bump github.com/prometheus/common from 0.69.0 to 0.70.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3034">https://github.com/kubernetes/kube-state-metrics/pull/3034</a></li>
+<li>build(deps): Bump kubernetes-sigs/release-actions/setup-bom from 0.4.3 to 0.4.4 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3037">https://github.com/kubernetes/kube-state-metrics/pull/3037</a></li>
+<li>build(deps): Bump actions/setup-go from 6.5.0 to 7.0.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3038">https://github.com/kubernetes/kube-state-metrics/pull/3038</a></li>
+<li>build(deps): Bump github.com/prometheus/client_golang from 1.23.3-0.20251103151724-a5ae20370e5e to 1.24.0-rc.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3039">https://github.com/kubernetes/kube-state-metrics/pull/3039</a></li>
+<li>build(deps): Bump github.com/prometheus/client_golang from 1.24.0-rc.0 to 1.24.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3040">https://github.com/kubernetes/kube-state-metrics/pull/3040</a></li>
+<li>docs(pod): note pod-level resources are covered by kube-scheduler resource metrics by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3027">https://github.com/kubernetes/kube-state-metrics/pull/3027</a></li>
+<li>feat: add support for label generation for ephemeral volumes in pod by @eminaktas in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2891">https://github.com/kubernetes/kube-state-metrics/pull/2891</a></li>
+<li>fix(discovery): log when a configured custom resource CRD is absent by @aryanputta in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2996">https://github.com/kubernetes/kube-state-metrics/pull/2996</a></li>
+<li>build(deps): Bump actions/checkout from 7.0.0 to 7.0.1 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3045">https://github.com/kubernetes/kube-state-metrics/pull/3045</a></li>
+<li>build(deps): Bump github.com/prometheus/client_golang from 1.24.0 to 1.24.1 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3047">https://github.com/kubernetes/kube-state-metrics/pull/3047</a></li>
+<li>build(deps): Bump the k8s-dependencies group with 6 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3046">https://github.com/kubernetes/kube-state-metrics/pull/3046</a></li>
+<li>build(deps): Bump github.com/go-logr/logr from 1.4.3 to 1.4.4 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3048">https://github.com/kubernetes/kube-state-metrics/pull/3048</a></li>
+<li>docs: mark custom-resource-state as feature-frozen by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3050">https://github.com/kubernetes/kube-state-metrics/pull/3050</a></li>
+<li>fix: prevent leaked goroutines on CRD updates by @jfremy-openai in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3007">https://github.com/kubernetes/kube-state-metrics/pull/3007</a></li>
+<li>feat(hpa): add scale up/down behavior tolerance metrics by @emmayusufu in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3015">https://github.com/kubernetes/kube-state-metrics/pull/3015</a></li>
+<li>fix(cronjob): embed tzdata so named spec.timeZone values resolve by @SteeleND in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3022">https://github.com/kubernetes/kube-state-metrics/pull/3022</a></li>
+<li>feat: Add access mode metric for PersistentVolumes by @viragvoros in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2823">https://github.com/kubernetes/kube-state-metrics/pull/2823</a></li>
+<li>build(deps): Upgrade github.com/dlclark/regexp2 to v2 by @chimanjain in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3051">https://github.com/kubernetes/kube-state-metrics/pull/3051</a></li>
+<li>fix: use previous release tag for benchmark comparison instead of release branch by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2957">https://github.com/kubernetes/kube-state-metrics/pull/2957</a></li>
+<li>feat: Add MutatingAdmissionPolicy and MutatingAdmissionPolicyBinding … by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3019">https://github.com/kubernetes/kube-state-metrics/pull/3019</a></li>
+<li>fix(customresourcestate): log when configured CRD is not installed in cluster by @maksimp13 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2903">https://github.com/kubernetes/kube-state-metrics/pull/2903</a></li>
+<li>build(deps): Bump github.com/netresearch/go-cron from 0.15.0 to 0.15.1 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3054">https://github.com/kubernetes/kube-state-metrics/pull/3054</a></li>
+<li>feat: allow wildcards as part of annotations and labels in allowlists by @skoef in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2873">https://github.com/kubernetes/kube-state-metrics/pull/2873</a></li>
+<li>fix: fix issues with wrong labels being applied to endpointslices metric by @odinuge in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3058">https://github.com/kubernetes/kube-state-metrics/pull/3058</a></li>
+<li>fix(customresourcestate): handle nil path gracefully in StateSet metrics by @Br1an67 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2884">https://github.com/kubernetes/kube-state-metrics/pull/2884</a></li>
+<li>fix(pod): do not emit nil metrics for unparseable pod IPs by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3059">https://github.com/kubernetes/kube-state-metrics/pull/3059</a></li>
+<li>fix: Ignore non-served CRD versions in discovery by @boomer41 in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2940">https://github.com/kubernetes/kube-state-metrics/pull/2940</a></li>
+<li>chore: modernize using slices, min builtin, and %w error wrapping by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2916">https://github.com/kubernetes/kube-state-metrics/pull/2916</a></li>
+<li>perf: reduce allocations in metric generation and header sanitization by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3060">https://github.com/kubernetes/kube-state-metrics/pull/3060</a></li>
+<li>fix: Skip landing page registration on NewLandingPage error by @carterpewpew in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2937">https://github.com/kubernetes/kube-state-metrics/pull/2937</a></li>
+<li>fix(proc): start the reaper only once by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3079">https://github.com/kubernetes/kube-state-metrics/pull/3079</a></li>
+<li>fix(endpointslice): do not dereference an unset port number by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3063">https://github.com/kubernetes/kube-state-metrics/pull/3063</a></li>
+<li>fix(discovery): read the GVK cache under the lock by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3074">https://github.com/kubernetes/kube-state-metrics/pull/3074</a></li>
+<li>fix(store): guard the builder state shared with discovery by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3075">https://github.com/kubernetes/kube-state-metrics/pull/3075</a></li>
+<li>fix(customresourcestate): do not panic on a metric that fails to compile by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3066">https://github.com/kubernetes/kube-state-metrics/pull/3066</a></li>
+<li>fix(hpa): skip a status metric whose source is not set by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3071">https://github.com/kubernetes/kube-state-metrics/pull/3071</a></li>
+<li>fix(store): never emit the same label name twice by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3064">https://github.com/kubernetes/kube-state-metrics/pull/3064</a></li>
+<li>fix(util): rebuild the clients from the current kubeconfig by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3080">https://github.com/kubernetes/kube-state-metrics/pull/3080</a></li>
+<li>fix(sharding): preserve pagination metadata when filtering a list by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3065">https://github.com/kubernetes/kube-state-metrics/pull/3065</a></li>
+<li>fix(metric_generator): escape reserved characters in help text by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3067">https://github.com/kubernetes/kube-state-metrics/pull/3067</a></li>
+<li>fix(metrics_store): write headers when only a later store has metrics by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3061">https://github.com/kubernetes/kube-state-metrics/pull/3061</a></li>
+<li>fix: three fixes in the server request and shutdown paths by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3068">https://github.com/kubernetes/kube-state-metrics/pull/3068</a></li>
+<li>fix(discovery): check the CRD fields instead of asserting them by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3078">https://github.com/kubernetes/kube-state-metrics/pull/3078</a></li>
+<li>fix(metricshandler): scope the scrape lock to reading the writers by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3073">https://github.com/kubernetes/kube-state-metrics/pull/3073</a></li>
+<li>fix(endpointslice): build each hint's labels independently by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3076">https://github.com/kubernetes/kube-state-metrics/pull/3076</a></li>
+<li>build(deps): Bump github.com/dlclark/regexp2/v2 from 2.5.2 to 2.6.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3082">https://github.com/kubernetes/kube-state-metrics/pull/3082</a></li>
+<li>feat: add kube<em>pod</em>status<em>disruption</em>reason metric by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3088">https://github.com/kubernetes/kube-state-metrics/pull/3088</a></li>
+<li>feat: reduce kube<em>pod</em>status_reason cardinality by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3089">https://github.com/kubernetes/kube-state-metrics/pull/3089</a></li>
+<li>chore: bump golang toolchain to 1.26.6 by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3092">https://github.com/kubernetes/kube-state-metrics/pull/3092</a></li>
+<li>fix(deployment): do not panic on an unset rollingUpdate value by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3083">https://github.com/kubernetes/kube-state-metrics/pull/3083</a></li>
+<li>test(e2e): make the pod wait loop actually retry by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3069">https://github.com/kubernetes/kube-state-metrics/pull/3069</a></li>
+<li>fix: serialize config reloads so one does not strand the other by @mrueg in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3070">https://github.com/kubernetes/kube-state-metrics/pull/3070</a></li>
+<li>chore: Release v2.20.0 by @bhope in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3094">https://github.com/kubernetes/kube-state-metrics/pull/3094</a></li>
+</ul>
+<h2>New Contributors</h2>
+<ul>
+<li>@immanuwell made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2970">https://github.com/kubernetes/kube-state-metrics/pull/2970</a></li>
+<li>@slessard made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2982">https://github.com/kubernetes/kube-state-metrics/pull/2982</a></li>
+<li>@atosatto made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2978">https://github.com/kubernetes/kube-state-metrics/pull/2978</a></li>
+<li>@emmayusufu made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2997">https://github.com/kubernetes/kube-state-metrics/pull/2997</a></li>
+<li>@cyber-slave-labs made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3005">https://github.com/kubernetes/kube-state-metrics/pull/3005</a></li>
+<li>@eminaktas made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2891">https://github.com/kubernetes/kube-state-metrics/pull/2891</a></li>
+<li>@aryanputta made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2996">https://github.com/kubernetes/kube-state-metrics/pull/2996</a></li>
+<li>@SteeleND made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3022">https://github.com/kubernetes/kube-state-metrics/pull/3022</a></li>
+<li>@viragvoros made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2823">https://github.com/kubernetes/kube-state-metrics/pull/2823</a></li>
+<li>@chimanjain made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3051">https://github.com/kubernetes/kube-state-metrics/pull/3051</a></li>
+<li>@maksimp13 made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2903">https://github.com/kubernetes/kube-state-metrics/pull/2903</a></li>
+<li>@skoef made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2873">https://github.com/kubernetes/kube-state-metrics/pull/2873</a></li>
+<li>@odinuge made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/3058">https://github.com/kubernetes/kube-state-metrics/pull/3058</a></li>
+<li>@Br1an67 made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2884">https://github.com/kubernetes/kube-state-metrics/pull/2884</a></li>
+<li>@boomer41 made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2940">https://github.com/kubernetes/kube-state-metrics/pull/2940</a></li>
+<li>@carterpewpew made their first contribution in <a href="https://github.com/kubernetes/kube-state-metrics/pull/2937">https://github.com/kubernetes/kube-state-metrics/pull/2937</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kube-state-metrics/compare/v2.19.1...v2.20.0">https://github.com/kubernetes/kube-state-metrics/compare/v2.19.1...v2.20.0</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana Mimir mimir-3.2.0</title>
+    <link>https://github.com/grafana/mimir/releases/tag/mimir-3.2.0</link>
+    <guid isPermaLink="true">https://github.com/grafana/mimir/releases/tag/mimir-3.2.0</guid>
+    <pubDate>Wed, 19 Aug 2026 13:59:51 GMT</pubDate>
+    <category>observability</category>
+    <category>metrics</category>
+    <description><![CDATA[<p>This release contains 702 PRs from 61 authors, including new contributors Antonio Pitasi, Arpit Jain, Dylan Wylie, Felix von Platen, Geet Manghnani, J Stickler, Joseph Cheverton-Wynne, Matt Van Horn, Nabil, Oleg V. Kozlyuk, Vitaliy, Warren Amphlett, c0ff3e, mi2428, monoxane. Thank you!</p>
+<h1>Grafana Mimir version 3.2 release notes</h1>
+<p>Grafana Labs is excited to announce version 3.2 of Grafana Mimir.</p>
+<p>The highlights that follow include the top features, enhancements, and bug fixes in this release. For the complete list of changes, refer to the <a href="https://github.com/grafana/mimir/blob/main/CHANGELOG.md">CHANGELOG</a>.</p>
+<h2>Features and enhancements</h2>
+<p>Grafana Mimir version 3.2 includes the following key features and enhancements.</p>
+<h3>Mimir Query Engine (MQE) improvements</h3>
+<p>MQE continues to receive significant optimizations in this release:</p>
+<ul>
+<li>The experimental PromQL duration arithmetic helpers <code>min(...)</code> and <code>max(...)</code> used inside <code>[...]</code> range/subquery brackets and offset clauses have been renamed to <code>min_of(...)</code> and <code>max_of(...)</code>.</li>
+<li>Add support for the experimental PromQL function <code>histogram_quantiles</code>.</li>
+<li>Add support for the native histogram trim operators <code>&lt;/</code> (trim upper) and <code>&gt;/</code> (trim lower).</li>
+<li>Add experimental support for scalar common subexpression elimination. (see <code>-querier.mimir-query-engine.enable-scalar-common-subexpression-elimination</code>).</li>
+<li>Add experimental support for running splitting, caching and spinning off subqueries from instant queries. (see <code>-query-frontend.use-mimir-query-engine-for-splitting-and-caching-results</code>)</li>
+<li>Improve experimental support for reporting the number of samples read per query.</li>
+<li>Extended the "remove statically empty expressions" optimization pass to descend into subqueries.</li>
+<li>Support for native histograms in <code>smoothed</code> and <code>anchored</code> extended range selector modifiers.</li>
+</ul>
+<h3>Additional improvements</h3>
+<p>Grafana Mimir 3.2 also includes:</p>
+<ul>
+<li>Add flag to control Kafka producer compression. (<code>-ingest-storage.kafka.producer-compression</code>)</li>
+<li>Add <code>mimirtool partition-ring remove-all-owners-and-partitions</code>.</li>
+<li>Add a native histogram variant of the <code>MimirRequestLatency</code>.</li>
+<li>Add AWS Signature Version 4 (SigV4) support for shared Mimir API client commands.</li>
+<li>Add <code>additional_cost_attribution_trackers</code> configuration for multiple named cost attribution trackers per tenant.</li>
+<li>Add <code>kafkatool dump find-duplicates</code> command.</li>
+<li>Add shared tenant-fair compute worker pool to the ingester. (See experimental <code>-ingester.compute-workers</code> and <code>-ingester.label-values-count-chunk-size</code>)</li>
+<li>Add <code>-memberlist.compression-algorithm</code> flag to select the algorithm used to compress outgoing messages.</li>
+<li>Add keep-alives support to runtime configurations fetching from HTTP endpoints. (see <code>-runtime-config.http-client-disable-keep-alives</code>)</li>
+<li>Expose <code>ingest_storage</code> feature flag in the <code>/api/v1/status/buildinfo</code> endpoint.</li>
+</ul>
+<h2>Important changes</h2>
+<p>Grafana Mimir 3.2 introduces several updates that change default behavior and configuration. Review these changes before upgrading:</p>
+<ul>
+<li>Remote execution enabled by default. You must ensure all queriers are on Mimir 3.1 before upgrading. <code>-query-frontend.enable-multiple-node-remote-execution-requests</code> has been removed.</li>
+<li>Experimental MQE Projection Pushdown optimization pass and associated CLI flag <code>-querier.mimir-query-engine.enable-projection-pushdown</code> has been removed.</li>
+<li>Query planning metrics previously emitted with a <code>component="querier"</code> label are now emitted with a <code>engine="querier"</code> label.</li>
+<li>Remove the experimental prune-toggles optimization pass and its CLI flag <code>-querier.mimir-query-engine.enable-prune-toggles</code>. Pruning of toggled query expressions such as <code>... and on() (vector(0) == 1)</code> are now handled by the remove-statically-empty-expressions optimization pass, enabled with <code>-querier.mimir-query-engine.enable-remove-statically-empty-expressions=true</code>.</li>
+<li>Hedging of query requests to ingesters is now disabled by default. The previous behaviour can be restored by setting <code>-querier.minimize-ingester-requests-hedging-delay=3s</code>.</li>
+<li><code>-compactor.split-and-merge-shards</code> and <code>-compactor.ooo-split-and-merge-shards</code> are now rounded up to the next power of two.</li>
+<li>Spread the periodic idle-series cleanup across shards. (See <code>-usage-tracker.min-time-between-shards-cleanup</code>)</li>
+<li>Respect the <code>Cache-Control: no-store</code> request header when caching intermediate results for range vector splitting.</li>
+<li>Disable TCP DNS connection pooling used by memcached for service discovery by default.</li>
+<li>Enable query sharding by default. Disable it with <code>-query-frontend.parallelize-shardable-queries=false</code>.</li>
+</ul>
+<h2>Experimental features</h2>
+<p>Grafana Mimir 3.2 includes some features that are experimental. Use these features with caution and report any issues that you encounter:</p>
+<ul>
+<li>Add experimental support for xor2 encoding. (see <code>-ingester.float-chunk-encoding</code>)</li>
+<li>Add experimental label-based access control (LBAC) for metric read queries. (see <code>-auth.label-access-control-enabled</code>)</li>
+<li>Add experimental support for splitting and caching <code>present_over_time</code> over range vectors in instant queries.</li>
+<li>Add experimental WarpStream-aware Kafka producer backend, enabled with <code>-ingest-storage.kafka.backend=warpstream</code>.</li>
+<li>Add experimental <code>-ruler.distributor.address</code> support for pushing rule evaluation results to distributors over native gRPC.</li>
+<li>Add experimental streaming label/value search HTTP endpoints. (See <code>-querier.experimental-search-api-enabled</code>)</li>
+<li>Add experimental compactor scheduler component to coordinate the work between compactors.</li>
+<li>Add experimental <code>-ingest-storage.ingester-partition-metric-label-enabled</code> flag to add <code>ingester_partition</code> labels to ingester's metrics.</li>
+<li>Add experimental <code>-query-frontend.active-series-max-shard-concurrency</code> to bound sub-requests concurency.</li>
+<li>Add experimental <code>-query-frontend.active-series-framed-responses</code> improving query-frontend merging performances.</li>
+<li>Add experimental <code>-ingest-storage.kafka.write-timeout-overhead</code> to cofigure the overhead added on top of the Kafka write timeout.</li>
+<li>Add experimental <code>-query-frontend.subquery-spin-off-simple-subqueries</code> to broaden subquery spin-off.</li>
+</ul>
+<h2>Bug fixes</h2>
+<p>For a detailed list of bug fixes, refer to the <a href="https://github.com/grafana/mimir/blob/main/CHANGELOG.md">CHANGELOG</a>.</p>
+<h3>Helm chart improvements</h3>
+<p>The Grafana Mimir Helm chart is released independently. Refer to the <a href="https://grafana.com/docs/helm-charts/mimir-distributed/latest/">Grafana Mimir Helm chart documentation</a>.</p>
+<h1>Changelog</h1>
+<h2>3.2.0</h2>
+<h3>Grafana Mimir</h3>
+<ul>
+<li>[CHANGE] Query-frontend: <code>-query-frontend.log-query-request-headers</code> now rejects headers that carry credentials or session material (e.g. <code>Authorization</code>, <code>Cookie</code>, <code>X-Api-Key</code>) at startup, and any such headers that reach the slow-query/query-stats log paths are redacted as defense in depth. Operators that previously allow-listed such headers must remove them from the flag. #15487</li>
+<li>[CHANGE] Alertmanager: Upgraded the embedded <code>prometheus/alertmanager</code> library to v0.33.0. The per-tenant alertmanager web UI and the <code>/-/healthy</code>, <code>/-/ready</code>, <code>/-/reload</code>, <code>/script.js</code>, and <code>/favicon.ico</code> endpoints under the alertmanager prefix are no longer served because upstream removed the embeddable UI package. The v2 API endpoints and request/response shapes are unchanged, but a few error message strings from the upstream parser have been reformatted (for example, matcher-validation errors now include <code>in set N</code>). #15144, #15733</li>
+<li>[CHANGE] Alertmanager: The <code>cortex_alertmanager_dispatcher_aggregation_group_limit_reached_total</code> counter is now best-effort under concurrent alert ingest. The upstream alertmanager v0.32.0 ingests alerts via worker goroutines and the group-limit check is a racy check-then-act, so the configured limit can be exceeded under burst load. #15144</li>
+<li>[CHANGE] Querier: The experimental PromQL duration arithmetic helpers <code>min(...)</code> and <code>max(...)</code> used inside <code>[...]</code> range/subquery brackets and <code>offset</code> clauses have been renamed to <code>min_of(...)</code> and <code>max_of(...)</code>. #15593 #15603</li>
+<li>[CHANGE] Querier, Store-gateway: Only send non-opaque GRPC types between queriers and store-gateways. Note that this change requires upgrading from Mimir 3.1. See associated release notes for more information. #15358</li>
+<li>[CHANGE] Querier: Remove experimental MQE Projection Pushdown optimization pass and associated CLI flag <code>querier.mimir-query-engine.enable-projection-pushdown</code>. #15618</li>
+<li>[CHANGE] Continuous-test: Change default values for <code>tests.write-read-series-test.num-series</code> and <code>tests.write-read-series-test.max-query-age</code> to match the values being set in jsonnet. #15705</li>
+<li>[CHANGE] Update Docker image bases from Debian 12 to Debian 13 (<code>gcr.io/distroless/static-debian13</code>; race images use <code>base-nossl-debian13</code>). #15629</li>
+<li>[CHANGE] Querier: Query planning metrics previously emitted with a <code>component="querier"</code> label are now emitted with a <code>engine="querier"</code> label instead, mirroring the similar metrics emitted by the query-frontend and other querier metrics. #15787</li>
+<li>[CHANGE] Querier: Reduce the default concurrency of queriers, <code>-querier.max-concurrent</code>, to 8. #15984</li>
+<li>[CHANGE] Query-frontend: the number of query shards is now always rounded up to the next power of two, both for the configured <code>-query-frontend.query-sharding-total-shards</code> and for the per-query computed value. #15807</li>
+<li>[CHANGE] Compactor: <code>-compactor.split-and-merge-shards</code> and <code>-compactor.ooo-split-and-merge-shards</code> are now rounded up to the next power of two, so compactor and query shards always mesh (one is a divisor or multiple of the other). #15807</li>
+<li>[CHANGE] Querier: Hedging of query requests to ingesters is now disabled by default. The previous behaviour can be restored by setting <code>-querier.minimize-ingester-requests-hedging-delay=3s</code>. #15976</li>
+<li>[CHANGE] MQE: Removed the experimental prune-toggles optimization pass and its CLI flag <code>-querier.mimir-query-engine.enable-prune-toggles</code>. Pruning of toggled query expressions such as <code>... and on() (vector(0) == 1)</code> are now handled by the remove-statically-empty-expressions optimization pass, enabled with <code>-querier.mimir-query-engine.enable-remove-statically-empty-expressions=true</code>. #16037</li>
+<li>[CHANGE] Query-frontend and querier: enable remote execution of query plans and running sharding inside MQE by default. #16187</li>
+</ul>
+<p>  * Important: When upgrading to this release, you must ensure all queriers are running Mimir 3.1 before upgrading to ensure no interruption to service.</p>
+<ul>
+<li>[CHANGE] Query-frontend and querier: multi-node remote execution is now always enabled whenever remote execution is enabled. The <code>-query-frontend.enable-multiple-node-remote-execution-requests</code> CLI flag and associated config file option has been removed. #16187</li>
+<li>[CHANGE] Query-frontend and querier: enable subset selector elimination by default. #16195</li>
+<li>[CHANGE] Vendored Prometheus: relabel configs now always serialize <code>separator</code>/<code>replacement</code> (upstream #18653). The <code>/runtime_config</code> (and <code>?mode=diff</code>) output for tenants that set an empty <code>separator</code>/<code>replacement</code> in <code>metric_relabel_configs</code> will now show those fields explicitly. No effect on relabeling behavior. #16198</li>
+<li>[CHANGE] Query-frontend: Enable query sharding by default. Disable it with <code>-query-frontend.parallelize-shardable-queries=false</code>. #16212</li>
+<li>[FEATURE] Ingest storage: Add <code>-ingest-storage.kafka.producer-compression</code> flag to configure the Kafka producer compression codec. Supported values are <code>none</code>, <code>gzip</code>, <code>snappy</code>, <code>lz4</code>, and <code>zstd</code>. Set it to <code>none</code> to target Azure Event Hub's Kafka-compatible endpoint, which does not support compressed produce requests. #15235</li>
+<li>[FEATURE] Ingester: Shared tenant-fair compute worker pool. Replaces the previous per-request fanout (which could let a heavy tenant occupy all CPU) with a fixed pool of workers backed by a round-robin per-tenant queue. The label-values-cardinality endpoint is the first consumer. New experimental flags: <code>-ingester.compute-workers</code> (default 0 = GOMAXPROCS) and <code>-ingester.label-values-count-chunk-size</code> (default 32). #15493</li>
+<li>[FEATURE] Ingester, Block-builder: Add experimental <code>-ingester.float-chunk-encoding</code> flag (per-tenant <code>float_chunk_encoding</code> limit) to select the float chunk encoding (<code>xor</code> or <code>xor2</code>). The overrides-exporter can export it as a numeric value (<code>4</code> for <code>xor</code>, <code>7</code> for <code>xor2</code>) when <code>float_chunk_encoding</code> is added to <code>-overrides-exporter.enabled-metrics</code>. #15831</li>
+<li>[FEATURE] Querier: Add experimental label-based access control (LBAC) for metric read queries. When enabled via <code>-auth.label-access-control-enabled</code>, Mimir enforces label selectors from the <code>X-Prom-Label-Policy</code> HTTP header at query time, filtering series and exemplars per tenant policy. Cache key isolation is applied automatically in the query-frontend. #15554</li>
+<li>[FEATURE] API: Add alertmanager limits (alertmanager<em>notification</em>rate<em>limit, alertmanager</em>max<em>dispatcher</em>aggregation<em>groups, alertmanager</em>max<em>templates</em>count) to the user limits API response. #15308</li>
+<li>[FEATURE] Mimirtool: Add AWS Signature Version 4 (SigV4) support for shared Mimir API client commands including <code>mimirtool rules</code>, <code>mimirtool alertmanager</code>, <code>mimirtool alerts</code>, <code>mimirtool backfill</code>, and <code>mimirtool analyze ruler</code>. #14959</li>
+<li>[FEATURE] Cost attribution: Support multiple named cost attribution trackers per tenant via new <code>additional_cost_attribution_trackers</code> config field. #15302</li>
+<li>[FEATURE] MQE: Add <code>cortex_querier_inflight_query_max_age_seconds</code> metric reporting the age of the oldest in-flight query memory consumption tracker. #15300</li>
+<li>[FEATURE] MQE: Add experimental support for splitting and caching <code>present_over_time</code> over range vectors in instant queries. #15386</li>
+<li>[FEATURE] Query-scheduler: Add experimental <code>cortex_query_scheduler_queue_max_wait_seconds</code> metric reporting how long the oldest request still waiting in the queue has been waiting since it was enqueued. Requests already dispatched to a querier for execution are excluded, so the metric reflects only queue wait time and acts as a queue-starvation detector. Reports 0 when no requests are waiting. Enabled by default; can be disabled with <code>-query-scheduler.queue-max-wait-metric-enabled=false</code>. #15419 #15960</li>
+<li>[FEATURE] Query-scheduler: Add experimental <code>cortex_query_scheduler_max_queue_length</code> metric reporting the per-tenant peak queue length observed since the last scrape. Enable with <code>-query-scheduler.max-queue-length-metric-enabled=true</code>. #15906</li>
+<li>[FEATURE] MQE: Add support for experimental PromQL functions <code>min_of</code> and <code>max_of</code>. #15597</li>
+<li>[FEATURE] MQE: Add support for the experimental PromQL function <code>histogram_quantiles</code>, which computes multiple quantiles from classic or native histograms in a single call. #15710</li>
+<li>[FEATURE] MQE: Add support for the native histogram trim operators <code>&lt;/</code> (trim upper) and <code>&gt;/</code> (trim lower), including query sharding support. #15708 #15711</li>
+<li>[FEATURE] Ingester: Add experimental early compaction of non-owned series. After a ring change, the ingester tracks series whose ownership shifted to another replica and flushes them into a block, evicting them from the TSDB head ahead of the regular head-compaction cycle. Eviction triggers when both (a) the in-memory series count exceeds the local threshold derived from <code>-ingester.early-head-compaction-owned-series-threshold</code> and the <code>-ingester.early-compaction-non-owned-series-min-grace-period</code> has elapsed, or (b) the <code>-ingester.early-compaction-non-owned-series-max-grace-period</code> has elapsed, regardless of the threshold. Disabled by default; enable with <code>-ingester.early-compaction-non-owned-series-enabled</code>. Requires <code>-ingester.track-ingester-owned-series</code> or <code>-ingester.use-ingester-owned-series-for-limits</code> to be enabled. Adds the <code>cortex_ingester_tsdb_early_compaction_non_owned_series_triggered_total</code> counter. #15314 #15653 #15657 #15661</li>
+<li>[FEATURE] Ingester: Add experimental <code>cortex_ingester_tsdb_head_chunks_max_mmapped</code> gauge reporting the maximum, across all per-tenant TSDBs, of the maximum number of head chunks memory-mapped for any individual series during the last memory-mapping pass. Temporary measurement metric; will be removed once we have collected enough data. #15616</li>
+<li>[FEATURE] kafkatool: Add <code>dump find-duplicates</code> command to scan an exported dump and report float samples re-sent with the same timestamp and value as the previous sample for a series. These exact duplicates are silently dropped by the ingester but still count toward received-samples metrics. An optional <code>--tenant</code> flag restricts the scan to a single tenant. #15506</li>
+<li>[FEATURE] Ingest storage: Add an experimental WarpStream-aware Kafka producer backend, enabled with <code>-ingest-storage.kafka.backend=warpstream</code>. It hedges and reroutes produce requests across WarpStream agents to reduce write tail latency, and is tuned via the experimental <code>-ingest-storage.kafka.warpstream-*</code> flags. #15236 #15809</li>
+<li>[FEATURE] MQE: Add experimental support for running splitting, caching and spinning off subqueries from instant queries inside MQE. Enabled with <code>-query-frontend.use-mimir-query-engine-for-splitting-and-caching-results=true</code>. #15348 #15393 #15397 #15650 #15720 #15750 #15769 #15783 #15787 #15795 #15804 #15822 #15823 #15846 #15827 #15884 #15887 #15912 #15928 #15930 #15954 #15955 #15978 #15999 #16015 #16213</li>
+</ul>
+<p>  * Important: When splitting and caching inside MQE is enabled, the <code>-query-frontend.query-sharding-max-sharded-queries</code> limit applies per time-split interval and spun-off subquery, rather than to the entire interval (or entire spun-off subquery).</p>
+<ul>
+<li>[FEATURE] Ruler: Add experimental <code>-ruler.distributor.address</code> support for pushing rule evaluation results to distributors over native gRPC instead of using an internal distributor. Configure the per-request timeout with <code>-ruler.distributor.remote-timeout</code>. #15891</li>
+<li>[FEATURE] MQE: Add experimental support for scalar common subexpression elimination. Enabled with <code>-querier.mimir-query-engine.enable-scalar-common-subexpression-elimination=true</code>. #15991</li>
+<li>[FEATURE] Compactor scheduler: Add the experimental compactor scheduler component, which coordinates work between compactors and exposes additional metrics about pending and active compaction work. #14493 #14553 #14657 #14747 #14768 #14772 #14781 #14804 #14833 #14844 #14849 #14910 #14937 #14945 #14987 #15026 #15094 #15112 #15113 #15267 #15293 #15321 #15606 #15728 #15850 #15897 #15974 #15989 #16042 #16099</li>
+<li>[FEATURE] Mimirtool: Add <code>mimirtool partition-ring remove-all-owners-and-partitions</code> to forcefully remove all owners and partitions from a partition ring in a single operation. #16081</li>
+<li>[FEATURE] Ingester: added experimental <code>-ingest-storage.ingester-partition-metric-label-enabled</code> flag. When set together with <code>-ingest-storage.enabled</code>, every metric emitted by the ingester (and the ingest-storage reader / partition-ring lifecycler it owns) carries an <code>ingester_partition</code> label identifying the Kafka partition the ingester consumes. Planned to default to enabled in Mimir 3.2 and to be removed in Mimir 3.5. #15130</li>
+<li>[FEATURE] Querier: experimental streaming label/value search HTTP endpoints <code>/api/v1/search/{metric_names,label_names,label_values}</code>. Gated by <code>-querier.experimental-search-api-enabled</code> (default false). #15233, #15349, #15301, #15347, #15364</li>
+<li>[FEATURE] Query-tee: Add per-backend <code>exclude_tenants</code> option to the <code>-backend.config-file</code> configuration. Requests whose <code>X-Scope-OrgID</code> tenants are all excluded are not sent to that backend, while the preferred backend always receives all traffic. #16075</li>
+<li>[ENHANCEMENT] Query-frontend: Add experimental <code>-query-frontend.active-series-max-shard-concurrency</code> to bound how many sharded active series (and active native histogram metrics) sub-requests are dispatched and merged concurrently within a single request, limiting the resource usage caused by fanning out to a large number of shards, both on queriers and on the query-frontend. 0 (the default) keeps the previous unbounded behavior. #15970</li>
+<li>[ENHANCEMENT] Query-frontend, Querier: Add experimental <code>-query-frontend.active-series-framed-responses</code> to request active series responses from queriers in a length-delimited framed format that the query-frontend can merge using significantly less CPU (roughly 5-6x faster merges for high shard counts). Queriers that don't support the format fall back to JSON transparently. #15971</li>
+<li>[ENHANCEMENT] Store-gateway, Ingester: Add read support for XOR2 chunk encoding. XOR2 is a new Prometheus TSDB encoding that provides better compression than XOR, particularly for stale markers. #15371</li>
+<li>[ENHANCEMENT] MQE: Improve experimental support for reporting the number of samples read per query. #14838 #15179 #15191 #15220 #15223 #15232 #15237 #15255 #15276 #15282 #15285</li>
+<li>[ENHANCEMENT] Distributor: Relabel middleware returns early if neither label dropping nor relabeling is configured. #15246</li>
+<li>[ENHANCEMENT] Distributor: Improve distributor push middleware cleanup handling. #15245</li>
+<li>[ENHANCEMENT] Distributor: Avoid allocating a string per received timeseries when aggregating cost attribution samples per attribution group in the write path. #15751</li>
+<li>[ENHANCEMENT] Ingest storage: Reject the whole batch of records of a Kafka write call when the configured <code>-ingest-storage.kafka.producer-max-buffered-bytes</code> limit is reached, instead of rejecting individual records. #15227</li>
+<li>[ENHANCEMENT] MQE: Simplify <code>unless</code> and <code>or</code> operations where one side can be proven to be empty by inspecting the expression. #15198</li>
+<li>[ENHANCEMENT] Store-gateway: Remove outdated limit on caching LabelValues responses that contain more than 655360 values. The gob library panic which required workaround was fixed. #5021 #15271</li>
+<li>[ENHANCEMENT] MQE: Reduce memory consumption of range vector splitting when many consecutive intervals are not cached. #15173</li>
+<li>[ENHANCEMENT] MQE: Allow common subexpression elimination to deduplicate range vector splitting nodes when subset selector elimination has merged the selectors. #16215</li>
+<li>[ENHANCEMENT] MQE: Reduce the number of requests to the intermediate result cache of range vector splitting by using the batch API. #16024</li>
+<li>[ENHANCEMENT] Querier: track physical and equivalent samples read for remote read requests in query statistics, mirroring the statistics emitted for instant and range queries. #15694</li>
+<li>[ENHANCEMENT] Ingest storage: Add <code>cortex_ingest_storage_writer_serialize_duration_seconds</code> native histogram metric tracking the time spent serializing an incoming request to Kafka records. #15527</li>
+<li>[ENHANCEMENT] Memberlist: Add <code>-memberlist.compression-algorithm</code> flag to select the algorithm used to compress outgoing messages. Supported values: <code>lzw</code> (default) and <code>snappy</code>. The flag is ignored when <code>-memberlist.compression-enabled</code> is false. Before reconfiguring any node to emit a new algorithm, upgrade every cluster member to a build that can decode it, otherwise messages are dropped. #15357</li>
+<li>[ENHANCEMENT] Memberlist: TCP push-pull and other TCP stream messages now skip compression when the compressed output is no smaller than the input, falling back to a plaintext frame. Mirrors existing UDP behaviour; receivers continue to decode both compressed and plaintext frames so the change is wire-compatible. #15357</li>
+<li>[ENHANCEMENT] Memberlist: Reduce per-call allocations on the compression and TCP state-sync receive paths via internal buffer pools. #15357</li>
+<li>[ENHANCEMENT] Memberlist: Add <code>memberlist.processed-messages-queue-size</code> flag to set the size of the per-key internal queue for processing messages received from other nodes. Increasing this value may help to avoid dropping per-key updates when the node is processing many updates for the same key. #15536</li>
+<li>[ENHANCEMENT] MQE: Respect the <code>Cache-Control: no-store</code> request header when caching intermediate results for range vector splitting. #15148</li>
+<li>[ENHANCEMENT] MQE: Extend experimental support for computing multiple aggregations over the same data without buffering to quantile aggregations. #15624</li>
+<li>[ENHANCEMENT] Ingest storage: skip per-record tracing span and attribute allocations on the Kafka fetch path when the producer trace is not sampled. The producer's trace context is still extracted from record headers for every record. #15614</li>
+<li>[ENHANCEMENT] Ingest storage: the experimental WarpStream Kafka producer backend (<code>-ingest-storage.kafka.backend=warpstream</code>) now traces produce requests, emitting the same producer spans and <code>traceparent</code> propagation as the default Kafka backend. #16039</li>
+<li>[ENHANCEMENT] Distributor: Add a tracing span around the OTLP to Prometheus conversion so its latency is independently visible in traces. #15682</li>
+<li>[ENHANCEMENT] Runtimeconfig: The HTTP client used to fetch runtime configurations from HTTP endpoints now has keep-alives disabled by default. New CLI flag <code>-runtime-config.http-client-disable-keep-alives</code> is enabled by default, an can be set to <code>false</code> in-order to re-enable keep-alives. #15695</li>
+<li>[ENHANCEMENT] MQE: Support for native histograms in <code>smoothed</code> and <code>anchored</code> extended range selector modifiers. #15398</li>
+<li>[ENHANCEMENT] Usage-tracker: Spread the periodic idle-series cleanup across shards with a configurable minimum delay between shards (default 25ms), gated behind <code>-usage-tracker.min-time-between-shards-cleanup</code>, to avoid blocking latency-sensitive series-tracking calls on large single-tenant instances. #15871</li>
+<li>[ENHANCEMENT] Usage-tracker, distributor: Add experimental synchronous batched tracking. When <code>-distributor.usage-tracker-client.use-sync-batched-tracking</code> is enabled, synchronous series-tracking calls linger for up to <code>-distributor.usage-tracker-client.sync-batch-delay</code> and are sent together in a single batch RPC, reducing the number of network calls while still returning rejected series to each caller. By default all partitions flush together on a shared timer so the usage-tracker can coalesce the packets; set <code>-distributor.usage-tracker-client.sync-batch-independent-partition-timeouts</code> to make each partition linger independently instead. #15805</li>
+<li>[ENHANCEMENT] Usage-tracker: Add admin debug pages, with tracker store stats. #15882</li>
+<li>[ENHANCEMENT] Mimir: Expose <code>ingest_storage</code> feature flag in the <code>/api/v1/status/buildinfo</code> endpoint, reflecting whether Mimir runs with ingest storage architecture. #15743</li>
+<li>[ENHANCEMENT] Block-builder: Respect <code>-blocks-storage.tsdb.bigger-out-of-order-blocks-for-old-samples</code> to produce 24h blocks for out-of-order data belonging to previous days. #15892</li>
+<li>[ENHANCEMENT] MQE: Ensure that intermediate results cache keys can not exceed the cache backend's key-size limit when a query federates over many tenants. #15847</li>
+<li>[ENHANCEMENT] Query-frontend: add a <code>retries</code> field to the "query stats" log line reporting the number of times requests were retried while processing the query. The value is 0 when all requests succeeded on their first attempt. #15929</li>
+<li>[ENHANCEMENT] Query-frontend: Add <code>query-frontend.cardinality-sharding-max-sharded-queries</code> to optionally limit sharding for <code>cardinality/active_series</code> and <code>cardinality/active_native_histogram_metrics</code> endpoints separately from <code>query-frontend.query-sharding-max-sharded-queries</code>. #15922</li>
+<li>[ENHANCEMENT] MQE: Extended the "remove statically empty expressions" optimization pass to descend into subqueries. Previously it skipped subqueries. #16038</li>
+<li>[ENHANCEMENT] Ingest storage: Add experimental <code>-ingest-storage.kafka.write-timeout-overhead</code> to configure the overhead added on top of the Kafka write timeout (default 2s, unchanged). #16023</li>
+<li>[ENHANCEMENT] MQE: Use series selected for one side to reduce data selected on the other side in binary operations that use <code>ignoring</code> or no <code>on</code>/<code>ignoring</code> clause. #15178</li>
+<li>[ENHANCEMENT] Query-frontend: Add experimental flags to broaden subquery spin-off. <code>-query-frontend.subquery-spin-off-simple-subqueries=true</code> spins off subqueries whose inner expression was previously considered too simple to spin off and <code>-query-frontend.subquery-spin-off-with-excess-downstream-queries=true</code> spins off subqueries when the rewritten query contains more downstream queries than spun-off subqueries. All are disabled by default and require subquery spin-off to be enabled with <code>-query-frontend.subquery-spin-off-enabled=true</code>. #16211</li>
+<li>[ENHANCEMENT] Block-builder: Disable authentication for AssignJob and UpdateJob gRPC methods as they are control-plane methods that don't have an inherent orgID. #16222</li>
+<li>[ENHANCEMENT] gRPC clients: Add advanced CLI flags to configure client keepalive: #16221</li>
+</ul>
+<p>  * <code>-&lt;prefix&gt;.keepalive-time</code> (default <code>20s</code>)</p>
+<p>  * <code>-&lt;prefix&gt;.keepalive-timeout</code> (default <code>10s</code>)</p>
+<ul>
+<li>[BUGFIX] Continuous-test: Fix native histogram queries being subject to the PromQL lookback period, which carried the most recently written histogram forward past its real timestamp. This caused startup recovery of the last written histogram sample to always fail (the recovery query end time is "now", so lookback returned samples whose values didn't match the expected value for those later timestamps), silently abandoning the histogram write history on every restart. Histogram queries now wrap the selector in <code>last_over_time(...[1s])</code>, matching the existing float query behavior. #16163</li>
+<li>[BUGFIX] Memberlist: Validate experimental propagation delay tracker config at startup so a non-positive beacon interval or lifetime fails with a clear error instead of panicking when the tracker is enabled. #16221</li>
+<li>[BUGFIX] Query-frontend: Fix <code>cardinality_analysis_max_results</code> being ignored when set higher than the default of 500. #15581</li>
+<li>[BUGFIX] Ingest storage: Fix <code>KafkaProducer.ProduceSync()</code> returning a single result with a nil record when the context is canceled, instead of one result per input record (with the record set) as the underlying franz-go client does. #15199</li>
+<li>[BUGFIX] Ingest storage: Fix the partition reader skipping available records when replaying from the max replay period with file-based offset enforcement enabled. If the timestamp-based start offset lookup unexpectedly resolves to the partition end despite a recent tail record, the reader retries the lookup and then clamps the start offset to the partition start. #16161</li>
+<li>[BUGFIX] Ingest storage: Fix <code>cortex_ingest_storage_reader_receive_delay_seconds</code> inflation by no longer setting the Kafka record <code>Timestamp</code> on the distributor side; the Kafka client now sets it at produce time. #15572</li>
+<li>[BUGFIX] Distributor: Return HTTP 200 with OTLP partial-success when only some samples in an OTLP request are rejected by distributor-level validation (e.g. <code>too_far_in_past</code>). #15253</li>
+<li>[BUGFIX] MQE: Bugfixes for experimental range vector splitting. #15147 #15270 #14878</li>
+<li>[BUGFIX] Querier: Fix querier ScaledObjects native histogram querying and triggering <code>MimirAutoscalerKedaFailing</code> when queriers have no traffic because <code>cortex_querier_request_duration_seconds_sum</code> is not published until the first request is received. #15106</li>
+<li>[BUGFIX] Fix build failure on Windows and FreeBSD due to reference leaks instrumentation code. Enabling reference leaks instrumentation in those platforms now causes a configuration validation error instead. #15291</li>
+<li>[BUGFIX] Query-frontend: Fixed a memory leak caused that could occur on some error paths if MQE was enabled. #15392</li>
+<li>[BUGFIX] MQE: Fix issue where subqueries unnecessarily compute and then discard an additional step if the parent query is not aligned to the step. #15438</li>
+<li>[BUGFIX] Upgrade Go to 1.26.4 to address <a href="https://pkg.go.dev/vuln/GO-2026-5039">CVE-2026-42507</a>. #15566</li>
+<li>[BUGFIX] Upgrade Go to 1.26.5 to address <a href="https://pkg.go.dev/vuln/GO-2026-4970">CVE-2026-39822</a> and <a href="https://pkg.go.dev/vuln/GO-2026-5856">CVE-2026-42505</a>. #16066</li>
+<li>[BUGFIX] Memcached: Disable TCP DNS connection pooling used for service discovery by default. #15573</li>
+<li>[BUGFIX] Ingest storage: Fix <code>cortex_ingest_storage_writer_produce_records_enqueued_total</code> not being incremented when <code>KafkaProducer.ProduceSync()</code> rejects a batch because a record has its <code>Timestamp</code> set by the caller. #15610</li>
+<li>[BUGFIX] Compactor: Remove temporary block upload validation directories left behind in the data directory when the compactor crashes mid-validation. This prevents leaking disk space. #15647</li>
+<li>[BUGFIX] Continuous-test: Fix a crash when histogram tests were enabled in combination with the OTLP-HTTP write protocol. #15641</li>
+<li>[BUGFIX] Store-gateway: Fix a regex label matcher that also matches the empty string (e.g. <code>label=~"|foo|bar"</code>) incorrectly excluding series that don't have the label, potentially resulting in incomplete query results. #15767</li>
+<li>[BUGFIX] Block-builder-scheduler: Exit cleanly when shut down during startup observation. #15730</li>
+<li>[BUGFIX] Ingest storage: Cap maximum Kafka protocol version, the client negotiates with the broker to v3.9.0. #15745</li>
+<li>[BUGFIX] MQE: Report a query that panics during evaluation as failed in the <code>evaluation stats</code> log, instead of logging it as successful. The querier still re-panics afterwards, crash behaviour is unchanged. #15753</li>
+<li>[BUGFIX] Memcached: Fix issue where cache-related trace spans included events emitted with an empty <code>name</code> label. #15794</li>
+<li>[BUGFIX] MQE: Fix issue where LBAC is not respected by range vector splitting cache. #15802</li>
+<li>[BUGFIX] Block-builder-scheduler: Fix a spurious "time went backwards" warning logged at startup when a partition has no records after the scan time. #15855</li>
+<li>[BUGFIX] Compactor: Fix <code>GatherBlockHealthStats</code> postings walk error check to prevent swallowing errors. #15895</li>
+<li>[BUGFIX] MQE: Don't evaluate unnecessary range vector splitting ranges when a split range vector is part of a spun-off subquery and running time-splitting and caching inside MQE is enabled. #15931</li>
+<li>[BUGFIX] MQE: Fix <code>info()</code> function incorrectly handling negated name matchers. #15168</li>
+<li>[BUGFIX] MQE: Fix <code>this indicates something has been returned to a pool more than once</code> panic when a <code>sum()</code> or <code>avg()</code> group contains, at the same output step, a float sample and native histograms that cannot be added together (e.g. exponential and custom bucket schemas). #16059</li>
+<li>[BUGFIX] Query-frontend: Fix issue where series for a range query can be returned in the wrong order if splitting applies and splitting is not running inside MQE. #16036</li>
+<li>[BUGFIX] Querier: Fix issue where exemplars can be returned in the wrong order if a series contains a label that is a prefix of another (eg. <code>env="foo"</code> and <code>env="foobar"</code>). #16036</li>
+<li>[BUGFIX] Querier: Fix experimental search <code>/api/v1/search/metric_names?include_metadata=true</code> almost never returning metric metadata. #16062, #16214</li>
+<li>[BUGFIX] Querier: Stop querying a partition that has been inactive for longer than <code>-querier.query-ingesters-within</code>, preventing query failures when the partition is still registered but has no available ingesters to serve the queries. #15721</li>
+<li>[BUGFIX] Query-frontend: Fix <code>queue_time_seconds</code> in the query stats log always reporting 0 when a query is cancelled while still waiting in the query-scheduler queue. #16094</li>
+<li>[BUGFIX] MQE: Fix the binary operation narrow-selectors optimization incorrectly using binary operation matchers across an <code>on()</code> / <code>on(...) group_left</code>/<code>group_right</code> join boundary, which could cause some queries to unexpectedly evaluate as an empty result. #16155</li>
+<li>[BUGFIX] Packaging: Fix the DEB/RPM packages shipping the <code>mimir</code>, <code>mimirtool</code>, <code>metaconvert</code>, and <code>query-tee</code> binaries without the executable bit set, which caused <code>mimir.service</code> to fail to start. #16166</li>
+<li>[BUGFIX] Query-frontend: Fix a goroutine leak when a querier's streaming response arrives just as the query is cancelled: the goroutine handling the response could stay blocked forever writing a response body that would never be read. #16151</li>
+<li>[BUGFIX] MQE: Fix issue where a sentinel value was inadvertently returned to a pool where it could be mutated by multiple threads at once. #16205</li>
+</ul>
+<h3>Mixin</h3>
+<ul>
+<li>[CHANGE] Dashboards: Show maximum queue length, not minimum queue length, on the "Queue length" panel in the "Query-scheduler" row of the "Reads" and "Remote ruler reads" dashboards. #15326</li>
+<li>[CHANGE] Alerts: <code>MimirIngesterKafkaReadFailed</code> now fires as <code>warning</code> after 5m, and escalates to <code>critical</code> if it persists for 30m. <code>MimirStrongConsistencyEnforcementFailed</code> severity changed from <code>critical</code> to <code>warning</code>, since queriers retry on a different ingester and fire their own alerts if that retry fails. #16019</li>
+<li>[CHANGE] Remove Grafana Enterprise Metrics (GEM) specific build of the mixin. #16031</li>
+<li>[ENHANCEMENT] Alerts: Make <code>MimirInconsistentRuntimeConfig</code> alert less flaky when performing multiple configuration changes in a row in a large Kubernetes cluster. #15257</li>
+<li>[ENHANCEMENT] Alerts: Widen the <code>MimirBlockBuilderPersistentJobFailure</code> lookback window to 20m to prevent the alert from flapping. #15332</li>
+<li>[ENHANCEMENT] Alerts: Add a native histogram variant of the <code>MimirRequestLatency</code> alert, distinguished by the <code>histogram</code> label (<code>classic</code> or <code>native</code>). #15413</li>
+<li>[ENHANCEMENT] Alerts: Add a "for" period to <code>MimirBucketIndexNotUpdated</code> to avoid false-positives when a compactor restarted near the end of the previous update cycle. #15935</li>
+<li>[ENHANCEMENT] Dashboards: Add "Rejected queries rate" panel to the Tenants dashboard showing the per-tenant rate of queries rejected by the query-frontend, split by reason. #14979</li>
+<li>[ENHANCEMENT] Dashboards: Add 100th percentile to query expression percentiles graph. #15421</li>
+<li>[ENHANCEMENT] Dashboards: Add the experimental streaming search API endpoints to the "Overview" per-endpoint query breakdown, and include the ingester <code>SearchLabelNames</code>/<code>SearchLabelValues</code> gRPC routes in the ingester panels of the "Reads", "Queries", and "Remote ruler reads" dashboards. #15571</li>
+<li>[ENHANCEMENT] Dashboards: Add "p90 compaction delay by level" and "Store-gateway blocks queried by level" panels to the "Compaction" row of the "Compactor" dashboard. #15619</li>
+<li>[ENHANCEMENT] Store-gateway, Querier: Push down the <code>limit</code> parameter of the <code>/prometheus/api/v1/series</code> endpoint to store-gateways, so they stop loading series (and their chunks) once the limit is reached instead of fetching all matching series and discarding the excess downstream. #15834</li>
+<li>[ENHANCEMENT] Dashboards: Split the server-side "Usage Tracker" row of the "Writes" dashboard into separate "TrackSeries" (non-batched) and "TrackSeriesBatch" (batched) rows, so batched tracking RPCs are visible now that synchronous batched tracking can drive <code>TrackSeriesBatch</code>. #15805</li>
+<li>[ENHANCEMENT] Dashboards: Simplify the ingest storage produced-records queries in the "Writes" and "Ruler" dashboards by removing the fallback to the <code>cortex_ingest_storage_writer_produce_requests_total</code> and <code>cortex_ingest_storage_writer_produce_failures_total</code> metrics, which were renamed to <code>cortex_ingest_storage_writer_produce_records_enqueued_total</code> and <code>cortex_ingest_storage_writer_produce_records_failed_total</code> more than a year ago. #16035</li>
+<li>[ENHANCEMENT] Dashboards: Add optional per-zone panels for multi-zone write path deployments to the "Writes" dashboard, enabled via the <code>show_multi_zone_write_path_panels</code> config option (disabled by default). When enabled, the gateway and distributor "Requests / sec" and "Kafka produced records / sec" panels break down the traffic by availability zone, and "Latency per zone" panels are added next to the aggregate latency panels. #16206</li>
+<li>[BUGFIX] Dashboards: Fix the classic/ingest-storage split in the "Tenants", "Top tenants" and "Writes" dashboards so that selecting multiple clusters with a mix of architectures no longer drops the classic clusters' data. The <code>unless on (job)</code> filter against <code>cortex_partition_ring_partitions</code> now also matches on the cluster aggregation labels. #15400</li>
+<li>[BUGFIX] Alerts: Update <code>MimirRulerInstanceHasNoRuleGroups</code> to not alert on false-positives when rulers are running in multiple zones. #16029</li>
+</ul>
+<h3>Jsonnet</h3>
+<ul>
+<li>[CHANGE] Query-frontend: Increase default query-frontend cache size limit to 25MB. #14857</li>
+<li>[CHANGE] Query-frontend: Increase memory requested and limit to 2GiB and 4GiB respectively. #15688</li>
+<li>[CHANGE] Continuous-test: Don't explicitly set <code>tests.write-read-series-test.num-series</code> and <code>tests.write-read-series-test.max-query-age</code> to their default values. #15705</li>
+<li>[CHANGE] Request 50Mi of ephemeral storage for the distributor, ingester, querier, query-frontend, query-scheduler, ruler-querier, ruler-query-frontend, ruler-query-scheduler, store-gateway, compactor, compactor-scheduler and continuous-test containers. Configure with the new <code>ephemeral_storage_request_size</code> option (set it to <code>null</code> to disable). #15916</li>
+<li>[CHANGE] Querier: Reduce the default concurrency of queriers, <code>-querier.max-concurrent</code>, to 8. #15984</li>
+<li>[CHANGE] Query-frontend: Enable query sharding by default. Disable it by setting <code>_config.query_sharding_enabled</code> to <code>false</code>. #16212</li>
+<li>[FEATURE] Compactor: add support for deploying the experimental compactor-scheduler. Enable with <code>compactor_scheduler_enabled: true</code>. #15850</li>
+<li>[FEATURE] Compactor: add experimental compactor autoscaling, enabled with <code>autoscaling_compactor_enabled: true</code>. When the compactor-scheduler is enabled, compactors are autoscaled based on the estimated time to drain the scheduler queue instead of CPU utilization. #15850</li>
+<li>[ENHANCEMENT] Updated rollout-operator jsonnet library to v0.38.1. #15328, #15626, #16129</li>
+<li>[ENHANCEMENT] Make range vector splitting configurable per query path. #15706</li>
+<li>[ENHANCEMENT] Add <code>newMimirtoolBlocksJob</code> and subcommand-specific helpers to run <code>mimirtool blocks</code> as Kubernetes Jobs. #15757</li>
+<li>[BUGFIX] Continuous-test: Include <code>._config.commonConfig</code> in arguments passed to continuous-test. #15988</li>
+</ul>
+<h3>Documentation</h3>
+<ul>
+<li>[ENHANCEMENT] Update <code>MimirRingMembersMismatch</code> runbook: check for spurious ingesters left in the ring after a scale down. #16169</li>
+</ul>
+<h3>Tools</h3>
+<ul>
+<li>[CHANGE] The <code>mark-blocks</code>, <code>listblocks</code>, <code>copyblocks</code>, <code>splitblocks</code>, and <code>undelete-blocks</code> tools are now subcommands of <code>mimirtool blocks</code>: <code>mark</code>, <code>list</code>, <code>copy</code>, <code>split</code>, <code>undelete</code>. #15757</li>
+<li>[FEATURE] Copyblocks: add support for the block upload API as a copy destination. #15330</li>
+<li>[ENHANCEMENT] Mimirtool: <code>partition-ring</code> subcommands now accept an optional <code>--partition-ring.key</code> flag to select the KV store key of the partition ring to operate on. It defaults to <code>ingester-partitions</code>. #15719</li>
+<li>[ENHANCEMENT] Makefile: <code>build-mixin</code> and <code>mixin-screenshots</code> can now be configured to use native histograms for latency panels in dashboards. #15269</li>
+<li>[ENHANCEMENT] kafkatool: Add a README. #15898</li>
+</ul>
+<p><strong>All changes in this release</strong>: <a href="https://github.com/grafana/mimir/compare/mimir-3.1.4...mimir-3.2.0">https://github.com/grafana/mimir/compare/mimir-3.1.4...mimir-3.2.0</a></p>]]></description>
+  </item>
+
+  <item>
+    <title>Grafana v13.2.0</title>
+    <link>https://github.com/grafana/grafana/releases/tag/v13.2.0</link>
+    <guid isPermaLink="true">https://github.com/grafana/grafana/releases/tag/v13.2.0</guid>
+    <pubDate>Tue, 18 Aug 2026 12:48:13 GMT</pubDate>
+    <category>observability</category>
+    <category>dashboards</category>
+    <description><![CDATA[<p><a href="https://grafana.com/grafana/download/13.2.0">Download page</a></p>
+<p><a href="https://grafana.com/docs/grafana/latest/whatsnew/">What's new highlights</a></p>
+<h3>Security</h3>
+<ul>
+<li>CVE-2026-17183</li>
+</ul>
+<h3>Features and enhancements</h3>
+<ul>
+<li><strong>Alerting:</strong> Add Import tab in alerting settings page <a href="https://github.com/grafana/grafana/pull/129051">#129051</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Add notification template import to the import-to-GMA wizard <a href="https://github.com/grafana/grafana/pull/128329">#128329</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Add promote and auto sync to ImportToGMAWizard <a href="https://github.com/grafana/grafana/pull/126907">#126907</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Add staged configuration summary in import settings page <a href="https://github.com/grafana/grafana/pull/129204">#129204</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Compute staged config origin server-side <a href="https://github.com/grafana/grafana/pull/130727">#130727</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Migrate notifications API to v1beta1 <a href="https://github.com/grafana/grafana/pull/124702">#124702</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Recognize "default" and "user-defined" as the default routing tree (1/4) <a href="https://github.com/grafana/grafana/pull/127880">#127880</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Recognize "default" and "user-defined" as the default routing tree (2/4) <a href="https://github.com/grafana/grafana/pull/127881">#127881</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Recognize "default" and "user-defined" as the default routing tree (3/4) <a href="https://github.com/grafana/grafana/pull/127883">#127883</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Recognize "default" and "user-defined" as the default routing tree (4/4) <a href="https://github.com/grafana/grafana/pull/127884">#127884</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Return 403 instead of 500 on contact point provenance mismatch <a href="https://github.com/grafana/grafana/pull/127699">#127699</a>, <a href="https://github.com/rwwiv">@rwwiv</a></li>
+<li><strong>Alerting:</strong> Revert a staged import configuration <a href="https://github.com/grafana/grafana/pull/129243">#129243</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Show unusable time intervals as disabled in the mute timings selector <a href="https://github.com/grafana/grafana/pull/130323">#130323</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> Track import method analytics in import to gma <a href="https://github.com/grafana/grafana/pull/128142">#128142</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>Alerting:</strong> remove AlertingCentralHistory FT <a href="https://github.com/grafana/grafana/pull/130164">#130164</a>, <a href="https://github.com/konstantinmv">@konstantinmv</a></li>
+<li><strong>Analytics:</strong> Add public dashboard UID to loki usage insights events (Enterprise)</li>
+<li><strong>Auditing:</strong> Record the user name on user deletion audit logs (Enterprise)</li>
+<li><strong>Azure Monitor:</strong> Cache subscription lookups and collapse double Unmarshal in buildQuery <a href="https://github.com/grafana/grafana/pull/123556">#123556</a>, <a href="https://github.com/adamyeats">@adamyeats</a></li>
+<li><strong>Azure monitor:</strong> Azure Metrics Batch API Implementation backend <a href="https://github.com/grafana/grafana/pull/123696">#123696</a>, <a href="https://github.com/bossinc">@bossinc</a></li>
+<li><strong>CloudWatch Logs:</strong> Add frontend support for querying by data source <a href="https://github.com/grafana/grafana/pull/123742">#123742</a>, <a href="https://github.com/kevinwcyu">@kevinwcyu</a></li>
+<li><strong>ColorScale:</strong> Remove live hoverValue, remove from HeatMap tooltip <a href="https://github.com/grafana/grafana/pull/128812">#128812</a>, <a href="https://github.com/leeoniya">@leeoniya</a></li>
+<li><strong>DashList:</strong> Show dashboard description tooltip when it's available <a href="https://github.com/grafana/grafana/pull/130006">#130006</a>, <a href="https://github.com/DeeGeeGit">@DeeGeeGit</a></li>
+<li><strong>Dashboard:</strong> redirect from dashboard settings tabs to sidebar counterparts <a href="https://github.com/grafana/grafana/pull/125966">#125966</a>, <a href="https://github.com/bfmatei">@bfmatei</a></li>
+<li><strong>Dashboards:</strong> Allow threshold interpolation <a href="https://github.com/grafana/grafana/pull/128451">#128451</a>, <a href="https://github.com/mdvictor">@mdvictor</a></li>
+<li><strong>Dashboards:</strong> Deprecate scripted dashboards and disable them by default <a href="https://github.com/grafana/grafana/pull/130207">#130207</a>, <a href="https://github.com/kristinademeshchik">@kristinademeshchik</a></li>
+<li><strong>Dashboards:</strong> Enable new view panel controls by default <a href="https://github.com/grafana/grafana/pull/129187">#129187</a>, <a href="https://github.com/torkelo">@torkelo</a></li>
+<li><strong>Dashboards:</strong> Increase nesting depth to 4 and allow nested tabs <a href="https://github.com/grafana/grafana/pull/129174">#129174</a>, <a href="https://github.com/bfmatei">@bfmatei</a></li>
+<li><strong>Dashboards:</strong> Show panel query errors and notices in one UI <a href="https://github.com/grafana/grafana/pull/127436">#127436</a>, <a href="https://github.com/mdvictor">@mdvictor</a></li>
+<li><strong>Developer Guide:</strong> Add note about requiring signed commits <a href="https://github.com/grafana/grafana/pull/127162">#127162</a>, <a href="https://github.com/gelicia">@gelicia</a></li>
+<li><strong>Docs:</strong> document the tracing file exporter <a href="https://github.com/grafana/grafana/pull/129339">#129339</a>, <a href="https://github.com/leandro-deveikis">@leandro-deveikis</a></li>
+<li><strong>Explore Logs:</strong> log line highlight color lighten in dark, update deprecated pinned color <a href="https://github.com/grafana/grafana/pull/130516">#130516</a>, <a href="https://github.com/L2D2Grafana">@L2D2Grafana</a></li>
+<li><strong>Folder API:</strong> Replace legacy access control logic with app platform API call <a href="https://github.com/grafana/grafana/pull/125642">#125642</a>, <a href="https://github.com/aocenas">@aocenas</a></li>
+<li><strong>Go:</strong> Update version to 1.26.5 <a href="https://github.com/grafana/grafana/pull/128011">#128011</a>, <a href="https://github.com/macabu">@macabu</a></li>
+<li><strong>GrafanaUI:</strong> Add real magnification effect to GrotNotFound lens <a href="https://github.com/grafana/grafana/pull/130118">#130118</a>, <a href="https://github.com/xndcn">@xndcn</a></li>
+<li><strong>Home:</strong> Enable unified homepage for all users (remove flag) <a href="https://github.com/grafana/grafana/pull/129054">#129054</a>, <a href="https://github.com/MattIPv4">@MattIPv4</a></li>
+<li><strong>Live:</strong> Support redis:// and rediss:// (TLS) connection URLs in ha<em>engine</em>address <a href="https://github.com/grafana/grafana/pull/129938">#129938</a>, <a href="https://github.com/DeeGeeGit">@DeeGeeGit</a></li>
+<li><strong>Logs:</strong> Add more suggested fields and integrate with the new Logs Table <a href="https://github.com/grafana/grafana/pull/128002">#128002</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Logs:</strong> use gray (dimgray) for debug level color <a href="https://github.com/grafana/grafana/pull/129896">#129896</a>, <a href="https://github.com/L2D2Grafana">@L2D2Grafana</a></li>
+<li><strong>Plugins:</strong> Force TLS 1.3 feature toggle <a href="https://github.com/grafana/grafana/pull/130390">#130390</a>, <a href="https://github.com/aangelisc">@aangelisc</a></li>
+<li><strong>Provisioning (enterprise):</strong> (4/8) Add OAuth app connections for GitLab and Bitbucket (Enterprise)</li>
+<li><strong>Provisioning:</strong> Add Dashboard Previews to GitHub Enterprise <a href="https://github.com/grafana/grafana/pull/127614">#127614</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Add Github Enterprise frontend <a href="https://github.com/grafana/grafana/pull/127209">#127209</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Add filter for out-of-sync resources in Resources tab <a href="https://github.com/grafana/grafana/pull/128456">#128456</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Add option to author commits as the signer <a href="https://github.com/grafana/grafana/pull/127970">#127970</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Add resource kind icons to job summary table <a href="https://github.com/grafana/grafana/pull/127237">#127237</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Add webhook support for GithubEnterprise (Enterprise)</li>
+<li><strong>Provisioning:</strong> Allow overriding the Git Sync commit author <a href="https://github.com/grafana/grafana/pull/130547">#130547</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Attribute jobs to their author and origin <a href="https://github.com/grafana/grafana/pull/128819">#128819</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Attribute webhook-created jobs to the sending user (Enterprise)</li>
+<li><strong>Provisioning:</strong> Bitbucket webhook UI <a href="https://github.com/grafana/grafana/pull/128649">#128649</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Bitbucket webhooks (Enterprise)</li>
+<li><strong>Provisioning:</strong> Change commit message template to multi-line textarea <a href="https://github.com/grafana/grafana/pull/128529">#128529</a>, <a href="https://github.com/cursoragent">@cursoragent</a></li>
+<li><strong>Provisioning:</strong> Diff Git Sync PR previews against the merge base <a href="https://github.com/grafana/grafana/pull/128149">#128149</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Diff GitLab Git Sync PR previews against the merge base (Enterprise)</li>
+<li><strong>Provisioning:</strong> Enable Dashboard Previews for Github Enterprise in UI <a href="https://github.com/grafana/grafana/pull/127906">#127906</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Enable Git Sync conventions by default in public preview <a href="https://github.com/grafana/grafana/pull/130670">#130670</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Enable Git Sync user attribution by default <a href="https://github.com/grafana/grafana/pull/130671">#130671</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Enable Github Enterprise provider by default <a href="https://github.com/grafana/grafana/pull/128376">#128376</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Enable Github Enterprise provider by default for enterp… (Enterprise)</li>
+<li><strong>Provisioning:</strong> Exclude SLO-apps from UI in migrate gitops workflow <a href="https://github.com/grafana/grafana/pull/128961">#128961</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Exclude SLO-managed dashboards from being exported <a href="https://github.com/grafana/grafana/pull/128815">#128815</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> GitLab webhooks (backend) <a href="https://github.com/grafana/grafana/pull/127204">#127204</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Improve Git Sync pull-request comment <a href="https://github.com/grafana/grafana/pull/128100">#128100</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Improve form errors for github connections <a href="https://github.com/grafana/grafana/pull/128133">#128133</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Link folder metadata and deleted files in PR comments <a href="https://github.com/grafana/grafana/pull/128895">#128895</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Make Migrate to GitOps resource-agnostic for playlists <a href="https://github.com/grafana/grafana/pull/127028">#127028</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Make Resources tab tree foldable <a href="https://github.com/grafana/grafana/pull/128453">#128453</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Paginate the Migrate to GitOps resources table <a href="https://github.com/grafana/grafana/pull/128042">#128042</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Pretty-print generated \_folder.json <a href="https://github.com/grafana/grafana/pull/127947">#127947</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Show folder path in Migrate resources list <a href="https://github.com/grafana/grafana/pull/128454">#128454</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Show job author and origin in recent jobs <a href="https://github.com/grafana/grafana/pull/128820">#128820</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Show job errors in Migrate to GitOps drawer <a href="https://github.com/grafana/grafana/pull/127936">#127936</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Show sync status for playlists in Resources tab <a href="https://github.com/grafana/grafana/pull/127021">#127021</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Show who triggered repository jobs <a href="https://github.com/grafana/grafana/pull/127984">#127984</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Surface github error details <a href="https://github.com/grafana/grafana/pull/128059">#128059</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> UI to set branch when migrating grafana -&gt; gitops <a href="https://github.com/grafana/grafana/pull/128562">#128562</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> adapt GitLab to the provider-agnostic webhook lifecycle (Enterprise)</li>
+<li><strong>Provisioning:</strong> add "View repository" link next to provisioned badges <a href="https://github.com/grafana/grafana/pull/127409">#127409</a>, <a href="https://github.com/ywzheng1">@ywzheng1</a></li>
+<li><strong>Provisioning:</strong> add ability to force full pull instead of incremental sync <a href="https://github.com/grafana/grafana/pull/128330">#128330</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> add option to disable webhook in repository and connection <a href="https://github.com/grafana/grafana/pull/126790">#126790</a>, <a href="https://github.com/Shubham19032004">@Shubham19032004</a></li>
+<li><strong>Provisioning:</strong> add provider logo to repository page title <a href="https://github.com/grafana/grafana/pull/127223">#127223</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> allow Git Sync option for root-level saves and new folders in folderless mode <a href="https://github.com/grafana/grafana/pull/127399">#127399</a>, <a href="https://github.com/Shubham19032004">@Shubham19032004</a></li>
+<li><strong>Provisioning:</strong> implement GitLab webhooks (Enterprise)</li>
+<li><strong>Provisioning:</strong> link Git Sync PR footer to repo admin page <a href="https://github.com/grafana/grafana/pull/128353">#128353</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> make sync per-resource write timeout configurable <a href="https://github.com/grafana/grafana/pull/127862">#127862</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> regenerate token when its secret is missing <a href="https://github.com/grafana/grafana/pull/127878">#127878</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> show webhook UI for GitLab repositories <a href="https://github.com/grafana/grafana/pull/127806">#127806</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> support migrating to a selected branch <a href="https://github.com/grafana/grafana/pull/128356">#128356</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>QueryVariable:</strong> Redesign the query variable editor <a href="https://github.com/grafana/grafana/pull/127048">#127048</a>, <a href="https://github.com/grafakus">@grafakus</a></li>
+<li><strong>Reports:</strong> support template variables without a type allowlist (Enterprise)</li>
+<li><strong>SQLite:</strong> Revert the journal mode when wal is disabled <a href="https://github.com/grafana/grafana/pull/130695">#130695</a>, <a href="https://github.com/pstibrany">@pstibrany</a></li>
+<li><strong>Table:</strong> Make cell tooltips dynamic height so content is not cut off <a href="https://github.com/grafana/grafana/pull/127107">#127107</a>, <a href="https://github.com/fastfrwrd">@fastfrwrd</a></li>
+<li><strong>Trace View:</strong> Check for the existence of logs when showing the trace-to-logs button <a href="https://github.com/grafana/grafana/pull/128702">#128702</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Tracing:</strong> add file exporter to write traces as OTLP/JSON <a href="https://github.com/grafana/grafana/pull/128679">#128679</a>, <a href="https://github.com/leandro-deveikis">@leandro-deveikis</a></li>
+<li><strong>Transformations:</strong> Keep Merge series/tables available with a single data series <a href="https://github.com/grafana/grafana/pull/129569">#129569</a>, <a href="https://github.com/nicwestvold">@nicwestvold</a></li>
+<li><strong>Unified Storage:</strong> set garbage collection dry run default to false <a href="https://github.com/grafana/grafana/pull/130533">#130533</a>, <a href="https://github.com/filewalkwithme">@filewalkwithme</a></li>
+<li><strong>ViewPanel:</strong> Url sync for fanout option <a href="https://github.com/grafana/grafana/pull/128270">#128270</a>, <a href="https://github.com/torkelo">@torkelo</a></li>
+<li><strong>alerting:</strong> allow import to gma wizard navigation for non admin users when sync is not active <a href="https://github.com/grafana/grafana/pull/127818">#127818</a>, <a href="https://github.com/rodrigopk">@rodrigopk</a></li>
+<li><strong>provisioning:</strong> allow authoring commits as the signer <a href="https://github.com/grafana/grafana/pull/127969">#127969</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+</ul>
+<h3>Bug fixes</h3>
+<ul>
+<li><strong> Gauge:</strong> Fix gradient stops out of order for negative thresholds <a href="https://github.com/grafana/grafana/pull/128532">#128532</a>, <a href="https://github.com/fastfrwrd">@fastfrwrd</a></li>
+<li><strong>Accessibility:</strong> Ensure <code>InlineToast</code> contents are announced by screenreaders <a href="https://github.com/grafana/grafana/pull/128488">#128488</a>, <a href="https://github.com/ashharrison90">@ashharrison90</a></li>
+<li><strong>Accessibility:</strong> Properly announce section headings on variable edit pages <a href="https://github.com/grafana/grafana/pull/130706">#130706</a>, <a href="https://github.com/ashharrison90">@ashharrison90</a></li>
+<li><strong>Alerting:</strong> Check managed routes when deleting a time interval <a href="https://github.com/grafana/grafana/pull/129247">#129247</a>, <a href="https://github.com/JacobsonMT">@JacobsonMT</a></li>
+<li><strong>Alerting:</strong> Fix alert rule detail showing "Inhibited" when nothing is inhibited <a href="https://github.com/grafana/grafana/pull/130264">#130264</a>, <a href="https://github.com/petergreen86">@petergreen86</a></li>
+<li><strong>Alerting:</strong> Fix reset default route wiping provenance for all managed routes <a href="https://github.com/grafana/grafana/pull/130553">#130553</a>, <a href="https://github.com/JacobsonMT">@JacobsonMT</a></li>
+<li><strong>Auth:</strong> Deduplicate concurrent login pings <a href="https://github.com/grafana/grafana/pull/129927">#129927</a>, <a href="https://github.com/cipher416">@cipher416</a></li>
+<li><strong>Auth:</strong> Skip session token rotation when request is not session authenticated <a href="https://github.com/grafana/grafana/pull/129920">#129920</a>, <a href="https://github.com/thejamesgore">@thejamesgore</a></li>
+<li><strong>Azure Monitor:</strong> fix migration for dimension filters <a href="https://github.com/grafana/grafana/pull/128786">#128786</a>, <a href="https://github.com/olivierlemasle">@olivierlemasle</a></li>
+<li><strong>Dashboard scene:</strong> Activate edit pane for programmatic panel mutations <a href="https://github.com/grafana/grafana/pull/128433">#128433</a>, <a href="https://github.com/ivanortegaalba">@ivanortegaalba</a></li>
+<li><strong>DashboardDS:</strong> Fix chained dashboard datasource panels showing stale data <a href="https://github.com/grafana/grafana/pull/126378">#126378</a>, <a href="https://github.com/oscarkilhed">@oscarkilhed</a></li>
+<li><strong>Dashboards:</strong> Fix loading indicator not clipping to panel border radius <a href="https://github.com/grafana/grafana/pull/128040">#128040</a>, <a href="https://github.com/hckhanh">@hckhanh</a></li>
+<li><strong>Dashboards:</strong> Fixes panel header spacing issues <a href="https://github.com/grafana/grafana/pull/128910">#128910</a>, <a href="https://github.com/torkelo">@torkelo</a></li>
+<li><strong>DataSourcePicker:</strong> Fix selected datasource not being highlighted <a href="https://github.com/grafana/grafana/pull/126948">#126948</a>, <a href="https://github.com/mikkancso">@mikkancso</a></li>
+<li><strong>Fix:</strong> Parse epoch ms strings correctly to prevent NaN in Postgres queries <a href="https://github.com/grafana/grafana/pull/122693">#122693</a>, <a href="https://github.com/Tarasusrus">@Tarasusrus</a></li>
+<li><strong>Logs Table:</strong> Fix data export by passing the raw table frame <a href="https://github.com/grafana/grafana/pull/130245">#130245</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Logs Table:</strong> Fix missing results when logs stream <a href="https://github.com/grafana/grafana/pull/128870">#128870</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Logs Table:</strong> Fix mixed usage of field name and display name <a href="https://github.com/grafana/grafana/pull/128677">#128677</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Logs Table:</strong> Fix sticky filter after closing details <a href="https://github.com/grafana/grafana/pull/128398">#128398</a>, <a href="https://github.com/matyax">@matyax</a></li>
+<li><strong>Navigation:</strong> Inject orgId into all navigations <a href="https://github.com/grafana/grafana/pull/120978">#120978</a>, <a href="https://github.com/QuentinBisson">@QuentinBisson</a></li>
+<li><strong>PostgreSQL:</strong> Fix data source init failure when maxOpenConns=0 <a href="https://github.com/grafana/grafana/pull/122556">#122556</a>, <a href="https://github.com/Tarasusrus">@Tarasusrus</a></li>
+<li><strong>Provisioning:</strong> Disable next button until a branch is selected in the Git Sync wizard <a href="https://github.com/grafana/grafana/pull/127973">#127973</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Export v0 dashboards as v1 so synced files load <a href="https://github.com/grafana/grafana/pull/128357">#128357</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Fix NPE when testing GHE repo on creation <a href="https://github.com/grafana/grafana/pull/127207">#127207</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Fix blank Action for deleted resources in PR comment <a href="https://github.com/grafana/grafana/pull/128522">#128522</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Fix customServerURL resolution for GHE <a href="https://github.com/grafana/grafana/pull/127113">#127113</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Fix enforced branch name template dropping ref on save <a href="https://github.com/grafana/grafana/pull/130163">#130163</a>, <a href="https://github.com/ferruvich">@ferruvich</a></li>
+<li><strong>Provisioning:</strong> Fix job user attribution in multi-tenant deployments <a href="https://github.com/grafana/grafana/pull/129598">#129598</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Fix multi-org usage stats <a href="https://github.com/grafana/grafana/pull/127465">#127465</a>, <a href="https://github.com/ferruvich">@ferruvich</a></li>
+<li><strong>Provisioning:</strong> Fix selective export quota counting whole namespace <a href="https://github.com/grafana/grafana/pull/127927">#127927</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Keep migrate reachable when connected repo can't push <a href="https://github.com/grafana/grafana/pull/127921">#127921</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Only regenerate folder UIDs for folder/folderless migrations <a href="https://github.com/grafana/grafana/pull/127925">#127925</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> Preserve the original creator on job history records <a href="https://github.com/grafana/grafana/pull/128712">#128712</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> Set FileToLarge error as warning instead of error <a href="https://github.com/grafana/grafana/pull/128822">#128822</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Strip deprecatedInternalId label for dashboards <a href="https://github.com/grafana/grafana/pull/128530">#128530</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> Use neutral fallback in the jobs Triggered by column <a href="https://github.com/grafana/grafana/pull/128238">#128238</a>, <a href="https://github.com/amalavet">@amalavet</a></li>
+<li><strong>Provisioning:</strong> abort in-flight worker when job lease is lost <a href="https://github.com/grafana/grafana/pull/127792">#127792</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> don't stamp a folder on org-scoped resources when writing <a href="https://github.com/grafana/grafana/pull/127142">#127142</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> drop stale and duplicate watch events in the frontend list cache <a href="https://github.com/grafana/grafana/pull/128766">#128766</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> fix zero-margin job lease renewal, raise claim expiry to 60s <a href="https://github.com/grafana/grafana/pull/127786">#127786</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> make GitHub webhook creation idempotent (fix repos stuck unhealthy with HTTP 422) <a href="https://github.com/grafana/grafana/pull/128068">#128068</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> normalize folder titles into safe export paths <a href="https://github.com/grafana/grafana/pull/127946">#127946</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> only push variable changes to git if save variables is … <a href="https://github.com/grafana/grafana/pull/128818">#128818</a>, <a href="https://github.com/floriecai">@floriecai</a></li>
+<li><strong>Provisioning:</strong> retry connection status patch conflicts <a href="https://github.com/grafana/grafana/pull/127754">#127754</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> tolerate NotFound in expired job cleanup for multi-pod <a href="https://github.com/grafana/grafana/pull/127753">#127753</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Provisioning:</strong> treat skip-delete of resource owned by another file as a warning <a href="https://github.com/grafana/grafana/pull/129029">#129029</a>, <a href="https://github.com/ferruvich">@ferruvich</a></li>
+<li><strong>Provisioning:</strong> verify claim ownership so two pods don't run the same job <a href="https://github.com/grafana/grafana/pull/127783">#127783</a>, <a href="https://github.com/MissingRoberto">@MissingRoberto</a></li>
+<li><strong>Reporting:</strong> batch dashboard lookups when listing reports (Enterprise)</li>
+<li><strong>Secrets:</strong> Fix RBAC gate on AWS keeper creation route (Enterprise)</li>
+<li><strong>SqlExpressions:</strong> Fix parsing for Table Names with spaces <a href="https://github.com/grafana/grafana/pull/117615">#117615</a>, <a href="https://github.com/NWRichmond">@NWRichmond</a></li>
+<li><strong>Table:</strong> Fix apply to entire row when multiple columns enable it <a href="https://github.com/grafana/grafana/pull/128527">#128527</a>, <a href="https://github.com/fastfrwrd">@fastfrwrd</a></li>
+<li><strong>Transformations:</strong> Fix Filter by value regex matching null values <a href="https://github.com/grafana/grafana/pull/129572">#129572</a>, <a href="https://github.com/nicwestvold">@nicwestvold</a></li>
+<li><strong>Transformations:</strong> Fix field lookup failing for the Countries and USA States gazetteers <a href="https://github.com/grafana/grafana/pull/129568">#129568</a>, <a href="https://github.com/nicwestvold">@nicwestvold</a></li>
+<li><strong>Transformations:</strong> Fix field name deduplication in Extract fields <a href="https://github.com/grafana/grafana/pull/129889">#129889</a>, <a href="https://github.com/nicwestvold">@nicwestvold</a></li>
+<li><strong>Transformations:</strong> Fix inner join returning rows when a frame is dropped <a href="https://github.com/grafana/grafana/pull/129576">#129576</a>, <a href="https://github.com/nicwestvold">@nicwestvold</a></li>
+<li><strong>fix:</strong> fix panic for unimplemented gitlab webhook repo (Enterprise)</li>
+</ul>
+<h3>Breaking changes</h3>
+<ul>
+<li><strong>Alerting:</strong> Remove alertingSaveStateCompressed feature flag <a href="https://github.com/grafana/grafana/pull/129135">#129135</a>, <a href="https://github.com/yuri-tceretian">@yuri-tceretian</a></li>
+</ul>
+<h3>Plugin development fixes &amp; changes</h3>
+<ul>
+<li><strong>Combobox:</strong> Fix duplicate async requests and stale errors overwriting fresh options <a href="https://github.com/grafana/grafana/pull/129788">#129788</a>, <a href="https://github.com/joshhunt">@joshhunt</a></li>
+<li><strong>PageLoader:</strong> Expose in @grafana/ui and apply custom branding automatically <a href="https://github.com/grafana/grafana/pull/124597">#124597</a>, <a href="https://github.com/ashharrison90">@ashharrison90</a></li>
+<li><strong>Pagination:</strong> Set <code>aria-current</code> on active page <a href="https://github.com/grafana/grafana/pull/128494">#128494</a>, <a href="https://github.com/ashharrison90">@ashharrison90</a></li>
+<li><strong>Tag:</strong> Fix crash when picking an out of bounds <code>colorIndex</code> <a href="https://github.com/grafana/grafana/pull/129579">#129579</a>, <a href="https://github.com/ashharrison90">@ashharrison90</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Apache Kafka — 4.4.0-rc0</title>
+    <link>https://github.com/apache/kafka/releases/tag/4.4.0-rc0</link>
+    <guid isPermaLink="true">tag:github.com,2008:Repository/2211243/4.4.0-rc0</guid>
+    <pubDate>Fri, 21 Aug 2026 12:12:47 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<p>4.4.0-rc0</p>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v833</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v833</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v833</guid>
+    <pubDate>Fri, 21 Aug 2026 17:20:51 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Make sure that agent metrics include the `virtual_cluster_name` tag when possible.</li><li>Tableflow: deletion file rewrites now stream output Parquet row groups instead of buffering the entire output file in memory until close.</li></ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kafka Minion v2.3.5</title>
+    <link>https://github.com/redpanda-data/kminion/releases/tag/v2.3.5</link>
+    <guid isPermaLink="true">https://github.com/redpanda-data/kminion/releases/tag/v2.3.5</guid>
+    <pubDate>Mon, 17 Aug 2026 13:08:54 GMT</pubDate>
+    <category>streaming</category>
+    <category>observability</category>
+    <description><![CDATA[<h2>Changelog</h2>
+<ul>
+<li>88fffc4cf02ae5f55793fc98180db14a7699fc45: security: bump Go toolchain to 1.26.6 (stdlib CVEs) (@frenchfrywpepper)</li>
+<li>4f3867a4400b731feda1f17f2e96dea36158d2ab: Merge pull request #348 from redpanda-data/sarah/snyk-go1.26.6-stdlib-cves (@frenchfrywpepper)</li>
+</ul>
+<h2>Docker Image</h2>
+<p>Use the following command to pull this release's Docker image:</p>
+<pre><code>docker pull redpandadata/kminion:v2.3.5</code></pre>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-08-17</title>
