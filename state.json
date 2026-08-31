@@ -2,62 +2,104 @@
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.4.0-rc0",
-      "checked_at": "2026-08-24T08:50:59.718Z"
+      "checked_at": "2026-08-31T15:57:23.528Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.5",
-      "checked_at": "2026-08-24T08:51:00.521Z"
+      "checked_at": "2026-08-31T15:57:23.975Z"
     },
     "kubernetes/kubernetes": {
-      "last_seen": "v1.36.4",
-      "checked_at": "2026-08-24T08:51:00.635Z"
+      "last_seen": "v1.37.0",
+      "checked_at": "2026-08-31T15:57:24.066Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.4",
-      "checked_at": "2026-08-24T08:51:00.820Z"
+      "checked_at": "2026-08-31T15:57:24.208Z"
     },
     "argoproj/argo-cd": {
-      "last_seen": "v3.5.1",
-      "checked_at": "2026-08-24T08:51:00.998Z"
+      "last_seen": "v3.5.2",
+      "checked_at": "2026-08-31T15:57:24.325Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.21.1",
-      "checked_at": "2026-08-24T08:51:01.127Z"
+      "checked_at": "2026-08-31T15:57:24.407Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.22.0",
-      "checked_at": "2026-08-24T08:51:01.243Z"
+      "checked_at": "2026-08-31T15:57:24.512Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.14.0",
-      "checked_at": "2026-08-24T08:51:01.382Z"
+      "checked_at": "2026-08-31T15:57:24.635Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.93.1",
-      "checked_at": "2026-08-24T08:51:01.503Z"
+      "checked_at": "2026-08-31T15:57:24.781Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.20.0",
-      "checked_at": "2026-08-24T08:51:01.613Z"
+      "checked_at": "2026-08-31T15:57:24.902Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.42.4",
-      "checked_at": "2026-08-24T08:51:01.742Z"
+      "checked_at": "2026-08-31T15:57:25.011Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.2.0",
-      "checked_at": "2026-08-24T08:51:02.028Z"
+      "checked_at": "2026-08-31T15:57:25.163Z"
     },
     "grafana/grafana": {
       "last_seen": "v13.2.0",
-      "checked_at": "2026-08-24T08:51:02.138Z"
+      "checked_at": "2026-08-31T15:57:25.249Z"
     },
     "https://console.warpstream.com/agent-changelog.rss": {
-      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v833",
-      "checked_at": "2026-08-24T08:51:00.231Z"
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v835",
+      "checked_at": "2026-08-31T15:57:23.774Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-08-31",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-08-31",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 31 Aug 2026 15:57:25 GMT",
+      "description": "<h3>kubernetes</h3>\n<ul>\n  <li><a href=\"https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0\">Kubernetes v1.37.0</a></li>\n  <li><a href=\"https://github.com/argoproj/argo-cd/releases/tag/v3.5.2\">ArgoCD v3.5.2</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v835\">Warpstream Agent — WarpStream Agent v835</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Kubernetes v1.37.0",
+      "link": "https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0",
+      "guid": "https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0",
+      "pubDate": "Wed, 26 Aug 2026 16:29:12 GMT",
+      "description": "<p>See <a href=\"https://groups.google.com/forum/#!forum/kubernetes-announce\">kubernetes-announce@</a>. Additional binary downloads are linked in the <a href=\"https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md\">CHANGELOG</a>.</p>\n<p>See the <a href=\"https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md\">CHANGELOG</a> for more details.</p>",
+      "tags": [
+        "kubernetes",
+        "core"
+      ]
+    },
+    {
+      "title": "ArgoCD v3.5.2",
+      "link": "https://github.com/argoproj/argo-cd/releases/tag/v3.5.2",
+      "guid": "https://github.com/argoproj/argo-cd/releases/tag/v3.5.2",
+      "pubDate": "Thu, 27 Aug 2026 09:55:47 GMT",
+      "description": "<h2>Quick Start</h2>\n<h3>Non-HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/install.yaml</code></pre>\n<h3>HA:</h3>\n<pre><code>kubectl create namespace argocd\nkubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/ha/install.yaml</code></pre>\n<h2>Release Signatures and Provenance</h2>\n<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets\">documentation</a> on how to verify.</p>\n<h2>Release Notes Blog Post</h2>\n<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href=\"https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f\">official blog post</a></p>\n<h2>Upgrading</h2>\n<p>If upgrading from a different minor version, be sure to read the <a href=\"https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/\">upgrading</a> documentation.</p>\n<h2>Changelog</h2>\n<h3>Bug fixes</h3>\n<ul>\n<li>f1f109cc20895275ebae2dc62e51cba6c788586b: fix(appset): restore ignoreApplicationDifferences after normalization (cherry-pick #29070 for 3.5) (#29195) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>a45dd38594f6f30bcc6c743e6f11080187cc84a1: fix(repository): resolve untyped helm source type in UpdateRevisionForPaths (cherry-pick #28904 for 3.5) (#29399) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>417c675b17207730f3b89ed579132267c9af4892: fix(revert): auto-sync skipped when newer commit arrives during sync (cherry-pick #28692 for 3.5) (#29224) (@rumstead)</li>\n<li>961ee40cc32717bad323629284085b9f2cd7173f: fix(ui): remove kind filter from appset page (#29310) (#29311) (cherry-pick 3.5) (#29314) (@crenshaw-dev)</li>\n<li>cc1f3eef40dfee35842cc5a4c27a80b5f5dbe82e: fix(ui): show operation state on applications list page (cherry-pick release-3.5) (#29344) (@antonu17)</li>\n<li>5accee3440f1a140de32071a035b783d653ce452: fix: don't degrade Cluster API Cluster health while Ready is False during provisioning (cherry-pick #29237 for 3.5) (#29273) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>4d99c524afda80d091dff81e8745eb3365285874: fix: recover from kubectl panic in AuthReconcile when SA is forbidden (cherry-pick #28669 for 3.5) (#29294) (@alexymantha)</li>\n</ul>\n<h3>Dependency updates</h3>\n<ul>\n<li>8b9e270fa2cefb4eb370609b38606bf1a3ae410e: chore(deps): update dependency dexidp/dex to v2.45.1  (#29334) (@nitishfy)</li>\n</ul>\n<h3>Other work</h3>\n<ul>\n<li>e258ee23c3e52266d407572f4bcdfe7d9ed36cb5: chore: bump version to 3.5.2 on release-3.5 branch (#29404) (@github-actions[bot])</li>\n<li>a9d94d68c8a5bee4e1708f6640e7922b91736fec: fix(notification-controller): deep-copy before mutating object from a shared cache (cherry-pick #29350 for 3.5) (#29354) (@argo-cd-cherry-pick-bot[bot])</li>\n<li>cc1d7a2601ce87695808a2632687975a84900a54: fix(notification-controller): read appprojects from informer cache (#28815) (cherry-pick release-3.5) (#29345) (@antonu17)</li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/argoproj/argo-cd/compare/v3.5.1...v3.5.2\">https://github.com/argoproj/argo-cd/compare/v3.5.1...v3.5.2</a></p>\n<p>&lt;a href=\"<a href=\"https://argoproj.github.io/cd/\">https://argoproj.github.io/cd/</a>\"&gt;&lt;img src=\"<a href=\"https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png\">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>\" width=\"25%\" &gt;&lt;/a&gt;</p>",
+      "tags": [
+        "kubernetes",
+        "gitops"
+      ]
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v835",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v835",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v835",
+      "pubDate": "Thu, 27 Aug 2026 18:07:07 GMT",
+      "description": "<ul><li>Fix Metadata v1+ treating a non-null empty topic list as &#34;return all topics&#34;. That now matches Apache Kafka: null (or empty on v0) returns every topic; an empty list on v1+ returns brokers only. Metadata error responses follow the same rule and no longer inject a synthetic error topic for empty v1+ lists. This could cause very high CPU and egress on clusters with many clients.</li><li>Add `agent_kafka_request_received_bytes` and `agent_kafka_request_transmitted_bytes` counters, tagged by `kafka_key`, for Kafka protocol bytes received from and written to clients.</li><li>Add a `workspace_id` label to hosted Prometheus cluster metrics, Agent-published metrics, and `cluster_metrics` events.</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-08-24",
       "link": "https://rickyf115.github.io/oss-feed/",

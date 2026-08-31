@@ -5,8 +5,91 @@
     <link>https://rickyf115.github.io/oss-feed/</link>
     <description>Weekly digest of new releases from tracked open source projects</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2026 08:51:02 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 15:57:25 GMT</lastBuildDate>
     <atom:link href="https://rickyf115.github.io/oss-feed/feed.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Weekly Digest — 2026-08-31</title>
+    <link>https://rickyf115.github.io/oss-feed/</link>
+    <guid isPermaLink="false">https://rickyf115.github.io/oss-feed/digest/2026-08-31</guid>
+    <pubDate>Mon, 31 Aug 2026 15:57:25 GMT</pubDate>
+    <description><![CDATA[<h3>kubernetes</h3>
+<ul>
+  <li><a href="https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0">Kubernetes v1.37.0</a></li>
+  <li><a href="https://github.com/argoproj/argo-cd/releases/tag/v3.5.2">ArgoCD v3.5.2</a></li>
+</ul>
+
+<h3>streaming</h3>
+<ul>
+  <li><a href="https://docs.warpstream.com/warpstream/overview/change-log#release-v835">Warpstream Agent — WarpStream Agent v835</a></li>
+</ul>]]></description>
+  </item>
+
+  <item>
+    <title>Kubernetes v1.37.0</title>
+    <link>https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0</link>
+    <guid isPermaLink="true">https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0</guid>
+    <pubDate>Wed, 26 Aug 2026 16:29:12 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>core</category>
+    <description><![CDATA[<p>See <a href="https://groups.google.com/forum/#!forum/kubernetes-announce">kubernetes-announce@</a>. Additional binary downloads are linked in the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md">CHANGELOG</a>.</p>
+<p>See the <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md">CHANGELOG</a> for more details.</p>]]></description>
+  </item>
+
+  <item>
+    <title>ArgoCD v3.5.2</title>
+    <link>https://github.com/argoproj/argo-cd/releases/tag/v3.5.2</link>
+    <guid isPermaLink="true">https://github.com/argoproj/argo-cd/releases/tag/v3.5.2</guid>
+    <pubDate>Thu, 27 Aug 2026 09:55:47 GMT</pubDate>
+    <category>kubernetes</category>
+    <category>gitops</category>
+    <description><![CDATA[<h2>Quick Start</h2>
+<h3>Non-HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/install.yaml</code></pre>
+<h3>HA:</h3>
+<pre><code>kubectl create namespace argocd
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.2/manifests/ha/install.yaml</code></pre>
+<h2>Release Signatures and Provenance</h2>
+<p>All Argo CD container images are signed by cosign.  A Provenance is generated for container images and CLI binaries which meet the SLSA Level 3 specifications. See the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/signed-release-assets">documentation</a> on how to verify.</p>
+<h2>Release Notes Blog Post</h2>
+<p>For a detailed breakdown of the key changes and improvements in this release, check out the <a href="https://blog.argoproj.io/argo-cd-v3-0-release-candidate-a0b933f4e58f">official blog post</a></p>
+<h2>Upgrading</h2>
+<p>If upgrading from a different minor version, be sure to read the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/">upgrading</a> documentation.</p>
+<h2>Changelog</h2>
+<h3>Bug fixes</h3>
+<ul>
+<li>f1f109cc20895275ebae2dc62e51cba6c788586b: fix(appset): restore ignoreApplicationDifferences after normalization (cherry-pick #29070 for 3.5) (#29195) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>a45dd38594f6f30bcc6c743e6f11080187cc84a1: fix(repository): resolve untyped helm source type in UpdateRevisionForPaths (cherry-pick #28904 for 3.5) (#29399) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>417c675b17207730f3b89ed579132267c9af4892: fix(revert): auto-sync skipped when newer commit arrives during sync (cherry-pick #28692 for 3.5) (#29224) (@rumstead)</li>
+<li>961ee40cc32717bad323629284085b9f2cd7173f: fix(ui): remove kind filter from appset page (#29310) (#29311) (cherry-pick 3.5) (#29314) (@crenshaw-dev)</li>
+<li>cc1f3eef40dfee35842cc5a4c27a80b5f5dbe82e: fix(ui): show operation state on applications list page (cherry-pick release-3.5) (#29344) (@antonu17)</li>
+<li>5accee3440f1a140de32071a035b783d653ce452: fix: don't degrade Cluster API Cluster health while Ready is False during provisioning (cherry-pick #29237 for 3.5) (#29273) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>4d99c524afda80d091dff81e8745eb3365285874: fix: recover from kubectl panic in AuthReconcile when SA is forbidden (cherry-pick #28669 for 3.5) (#29294) (@alexymantha)</li>
+</ul>
+<h3>Dependency updates</h3>
+<ul>
+<li>8b9e270fa2cefb4eb370609b38606bf1a3ae410e: chore(deps): update dependency dexidp/dex to v2.45.1  (#29334) (@nitishfy)</li>
+</ul>
+<h3>Other work</h3>
+<ul>
+<li>e258ee23c3e52266d407572f4bcdfe7d9ed36cb5: chore: bump version to 3.5.2 on release-3.5 branch (#29404) (@github-actions[bot])</li>
+<li>a9d94d68c8a5bee4e1708f6640e7922b91736fec: fix(notification-controller): deep-copy before mutating object from a shared cache (cherry-pick #29350 for 3.5) (#29354) (@argo-cd-cherry-pick-bot[bot])</li>
+<li>cc1d7a2601ce87695808a2632687975a84900a54: fix(notification-controller): read appprojects from informer cache (#28815) (cherry-pick release-3.5) (#29345) (@antonu17)</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/argoproj/argo-cd/compare/v3.5.1...v3.5.2">https://github.com/argoproj/argo-cd/compare/v3.5.1...v3.5.2</a></p>
+<p>&lt;a href="<a href="https://argoproj.github.io/cd/">https://argoproj.github.io/cd/</a>"&gt;&lt;img src="<a href="https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png">https://raw.githubusercontent.com/argoproj/argo-site/master/content/pages/cd/gitops-cd.png</a>" width="25%" &gt;&lt;/a&gt;</p>]]></description>
+  </item>
+
+  <item>
+    <title>Warpstream Agent — WarpStream Agent v835</title>
+    <link>https://docs.warpstream.com/warpstream/overview/change-log#release-v835</link>
+    <guid isPermaLink="true">https://docs.warpstream.com/warpstream/overview/change-log#release-v835</guid>
+    <pubDate>Thu, 27 Aug 2026 18:07:07 GMT</pubDate>
+    <category>streaming</category>
+    <category>backend</category>
+    <description><![CDATA[<ul><li>Fix Metadata v1+ treating a non-null empty topic list as &#34;return all topics&#34;. That now matches Apache Kafka: null (or empty on v0) returns every topic; an empty list on v1+ returns brokers only. Metadata error responses follow the same rule and no longer inject a synthetic error topic for empty v1+ lists. This could cause very high CPU and egress on clusters with many clients.</li><li>Add `agent_kafka_request_received_bytes` and `agent_kafka_request_transmitted_bytes` counters, tagged by `kafka_key`, for Kafka protocol bytes received from and written to clients.</li><li>Add a `workspace_id` label to hosted Prometheus cluster metrics, Agent-published metrics, and `cluster_metrics` events.</li></ul>]]></description>
+  </item>
 
   <item>
     <title>Weekly Digest — 2026-08-24</title>
