@@ -2,62 +2,93 @@
   "projects": {
     "https://github.com/apache/kafka/releases.atom": {
       "last_seen": "tag:github.com,2008:Repository/2211243/4.4.0-rc0",
-      "checked_at": "2026-08-31T15:57:23.528Z"
+      "checked_at": "2026-09-07T14:04:17.227Z"
     },
     "redpanda-data/kminion": {
       "last_seen": "v2.3.5",
-      "checked_at": "2026-08-31T15:57:23.975Z"
+      "checked_at": "2026-09-07T14:04:17.952Z"
     },
     "kubernetes/kubernetes": {
       "last_seen": "v1.37.0",
-      "checked_at": "2026-08-31T15:57:24.066Z"
+      "checked_at": "2026-09-07T14:04:18.078Z"
     },
     "helm/helm": {
       "last_seen": "v4.2.4",
-      "checked_at": "2026-08-31T15:57:24.208Z"
+      "checked_at": "2026-09-07T14:04:18.225Z"
     },
     "argoproj/argo-cd": {
       "last_seen": "v3.5.2",
-      "checked_at": "2026-08-31T15:57:24.325Z"
+      "checked_at": "2026-09-07T14:04:18.370Z"
     },
     "cert-manager/cert-manager": {
       "last_seen": "v1.21.1",
-      "checked_at": "2026-08-31T15:57:24.407Z"
+      "checked_at": "2026-09-07T14:04:18.502Z"
     },
     "kubernetes-sigs/external-dns": {
       "last_seen": "v0.22.0",
-      "checked_at": "2026-08-31T15:57:24.512Z"
+      "checked_at": "2026-09-07T14:04:18.641Z"
     },
     "prometheus/prometheus": {
       "last_seen": "v3.14.0",
-      "checked_at": "2026-08-31T15:57:24.635Z"
+      "checked_at": "2026-09-07T14:04:18.820Z"
     },
     "prometheus-operator/prometheus-operator": {
       "last_seen": "v0.93.1",
-      "checked_at": "2026-08-31T15:57:24.781Z"
+      "checked_at": "2026-09-07T14:04:18.945Z"
     },
     "kubernetes/kube-state-metrics": {
       "last_seen": "v2.20.0",
-      "checked_at": "2026-08-31T15:57:24.902Z"
+      "checked_at": "2026-09-07T14:04:19.094Z"
     },
     "thanos-io/thanos": {
       "last_seen": "v0.42.4",
-      "checked_at": "2026-08-31T15:57:25.011Z"
+      "checked_at": "2026-09-07T14:04:19.233Z"
     },
     "grafana/mimir": {
       "last_seen": "mimir-3.2.0",
-      "checked_at": "2026-08-31T15:57:25.163Z"
+      "checked_at": "2026-09-07T14:04:19.531Z"
     },
     "grafana/grafana": {
-      "last_seen": "v13.2.0",
-      "checked_at": "2026-08-31T15:57:25.249Z"
+      "last_seen": "v13.2.1",
+      "checked_at": "2026-09-07T14:04:19.708Z"
     },
     "https://console.warpstream.com/agent-changelog.rss": {
-      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v835",
-      "checked_at": "2026-08-31T15:57:23.774Z"
+      "last_seen": "https://docs.warpstream.com/warpstream/overview/change-log#release-v838",
+      "checked_at": "2026-09-07T14:04:17.747Z"
     }
   },
   "feed_items": [
+    {
+      "title": "Weekly Digest — 2026-09-07",
+      "link": "https://rickyf115.github.io/oss-feed/",
+      "guid": "https://rickyf115.github.io/oss-feed/digest/2026-09-07",
+      "guidIsPermalink": false,
+      "pubDate": "Mon, 07 Sep 2026 14:04:19 GMT",
+      "description": "<h3>observability</h3>\n<ul>\n  <li><a href=\"https://github.com/grafana/grafana/releases/tag/v13.2.1\">Grafana v13.2.1</a></li>\n</ul>\n\n<h3>streaming</h3>\n<ul>\n  <li><a href=\"https://docs.warpstream.com/warpstream/overview/change-log#release-v838\">Warpstream Agent — WarpStream Agent v838</a></li>\n</ul>",
+      "tags": []
+    },
+    {
+      "title": "Grafana v13.2.1",
+      "link": "https://github.com/grafana/grafana/releases/tag/v13.2.1",
+      "guid": "https://github.com/grafana/grafana/releases/tag/v13.2.1",
+      "pubDate": "Wed, 02 Sep 2026 07:00:31 GMT",
+      "description": "<p><a href=\"https://grafana.com/grafana/download/13.2.1\">Download page</a></p>\n<p><a href=\"https://grafana.com/docs/grafana/latest/whatsnew/\">What's new highlights</a></p>\n<h3>Security</h3>\n<ul>\n<li>Security: Fix CVE-2026-12704</li>\n<li>Security: Fix CVE-2026-14199</li>\n</ul>\n<h3>Bug fixes</h3>\n<ul>\n<li><strong>Dashboards:</strong> Fix adhoc and groupby variable datasource on UI import <a href=\"https://github.com/grafana/grafana/pull/131819\">#131819</a>, [@grafana-writer[bot]](<a href=\"https://github.com/grafana-writer[bot\">https://github.com/grafana-writer[bot</a></li>\n<li><strong>Packaging:</strong> Fix issue with bundled plugins not being moved properly <a href=\"https://github.com/grafana/grafana/pull/131037\">#131037</a>, [@grafana-writer[bot]](<a href=\"https://github.com/grafana-writer[bot\">https://github.com/grafana-writer[bot</a></li>\n<li><strong>PanelEditor:</strong> Fix options pane not resizable beyond the preview's content width <a href=\"https://github.com/grafana/grafana/pull/131608\">#131608</a>, [@grafana-writer[bot]](<a href=\"https://github.com/grafana-writer[bot\">https://github.com/grafana-writer[bot</a></li>\n</ul>",
+      "tags": [
+        "observability",
+        "dashboards"
+      ]
+    },
+    {
+      "title": "Warpstream Agent — WarpStream Agent v838",
+      "link": "https://docs.warpstream.com/warpstream/overview/change-log#release-v838",
+      "guid": "https://docs.warpstream.com/warpstream/overview/change-log#release-v838",
+      "pubDate": "Fri, 04 Sep 2026 20:36:08 GMT",
+      "description": "<ul><li>Change the default max concurrent files for each fetch to 64.</li><li>Refresh negatively cached schema validation lookups (schema_not_found) after 1 minute.</li></ul>",
+      "tags": [
+        "streaming",
+        "backend"
+      ]
+    },
     {
       "title": "Weekly Digest — 2026-08-31",
       "link": "https://rickyf115.github.io/oss-feed/",
