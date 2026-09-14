@@ -186,7 +186,7 @@
     <div class="container">
       <div>
         <h1>OSS Feed</h1>
-        <p class="subtitle">Weekly release digest &mdash; 76 releases tracked &bull; Updated Monday, September 7, 2026</p>
+        <p class="subtitle">Weekly release digest &mdash; 82 releases tracked &bull; Updated Monday, September 14, 2026</p>
       </div>
       <a class="subscribe-btn" href="https://rickyf115.github.io/oss-feed/feed.xml">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
@@ -200,6 +200,30 @@
     <section>
       <h2 class="section-heading">kubernetes</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/helm/helm/releases/tag/v4.3.0" target="_blank" rel="noopener noreferrer">Helm v4.3.0</a>
+          <time class="card-date" datetime="Wed, 09 Sep 2026 23:51:48 GMT">Sep 9, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">packaging</span></div>
+        <p class="card-desc">Helm v4.3.0 is a feature release. Users are encouraged to upgrade for the best experience. The community keeps growing, and we&#x27;d love to see you there! Join the discussion in Kubernetes Slack : - for questions and just t…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/argoproj/argo-cd/releases/tag/v3.5.3" target="_blank" rel="noopener noreferrer">ArgoCD v3.5.3</a>
+          <time class="card-date" datetime="Mon, 14 Sep 2026 07:58:59 GMT">Sep 14, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">gitops</span></div>
+        <p class="card-desc">Quick Start Non-HA: kubectl create namespace argocd kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.3/manifests/install.yaml HA: kubectl create namespace…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/cert-manager/cert-manager/releases/tag/v1.21.2" target="_blank" rel="noopener noreferrer">cert-manager v1.21.2</a>
+          <time class="card-date" datetime="Fri, 11 Sep 2026 07:51:11 GMT">Sep 11, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">kubernetes</span><span class="badge">security</span></div>
+        <p class="card-desc">cert-manager is the easiest way to automatically manage certificates in Kubernetes and OpenShift clusters. v1.21.2 fixes controller and webhook panics, data races, ACME renewal and HTTP-01 solver bugs, and a Gateway API …</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0" target="_blank" rel="noopener noreferrer">Kubernetes v1.37.0</a>
@@ -390,6 +414,22 @@
     <section>
       <h2 class="section-heading">observability</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.94.0" target="_blank" rel="noopener noreferrer">Prometheus Operator v0.94.0</a>
+          <time class="card-date" datetime="Wed, 09 Sep 2026 11:31:02 GMT">Sep 9, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">kubernetes</span></div>
+        <p class="card-desc">[CHANGE] Update the default Alertmanager version to v0.34.0 and discard zero-value duration fields ( retention , clusterGossipInterval , clusterPushpullInterval , clusterPeerTimeout ) in Alertmanager resources instead of…</p>
+      </article>
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://github.com/grafana/mimir/releases/tag/mimir-3.2.1" target="_blank" rel="noopener noreferrer">Grafana Mimir mimir-3.2.1</a>
+          <time class="card-date" datetime="Thu, 10 Sep 2026 10:07:25 GMT">Sep 10, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">observability</span><span class="badge">metrics</span></div>
+        <p class="card-desc">This release contains 13 PRs from 5 authors. Thank you! Changelog 3.2.1 Grafana Mimir [BUGFIX] Upgrade Go to 1.26 latest to address CVE-2026-33818 , CVE-2026-39821 , CVE-2026-46600 , CVE-2026-56853 , CVE-2026-56858 , CVE…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://github.com/grafana/grafana/releases/tag/v13.2.1" target="_blank" rel="noopener noreferrer">Grafana v13.2.1</a>
@@ -636,6 +676,14 @@
     <section>
       <h2 class="section-heading">streaming</h2>
       <div class="card-list">
+      <article class="card">
+        <div class="card-header">
+          <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v840" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v840</a>
+          <time class="card-date" datetime="Thu, 10 Sep 2026 13:38:30 GMT">Sep 10, 2026</time>
+        </div>
+        <div class="card-tags"><span class="badge">streaming</span><span class="badge">backend</span></div>
+        <p class="card-desc">Tableflow: **Breaking change:** Rename `warpstream.tableflow_partition_offset_lag` to `warpstream.tableflow_ingestion_offset_lag`. Tableflow cluster lag metrics now omit tags listed in `-tableflowClusterMetricsTagDenyLis…</p>
+      </article>
       <article class="card">
         <div class="card-header">
           <a class="card-title" href="https://docs.warpstream.com/warpstream/overview/change-log#release-v838" target="_blank" rel="noopener noreferrer">Warpstream Agent — WarpStream Agent v838</a>
